@@ -236,8 +236,8 @@ Transform:
   m_LocalPosition: {x: -0.5, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5192131241324864861}
-  m_RootOrder: 4
+  m_Father: {fileID: 5192131241841138881}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &551875376
 CapsuleCollider2D:
@@ -1288,8 +1288,8 @@ Transform:
   m_LocalPosition: {x: -0.5, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5192131241324864861}
-  m_RootOrder: 3
+  m_Father: {fileID: 5192131241841138881}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &1311156709
 CapsuleCollider2D:
@@ -1344,8 +1344,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 808611545
-  m_SortingLayer: 1
+  m_SortingLayerID: 1766764041
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -8311,7 +8311,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5192131241841138881}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5192131241160920149
 GameObject:
@@ -9341,8 +9341,6 @@ Transform:
   - {fileID: 2371773635884088955}
   - {fileID: 5192131241723102471}
   - {fileID: 5192131241414297810}
-  - {fileID: 1311156708}
-  - {fileID: 551875375}
   m_Father: {fileID: 2371773635057181234}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10078,6 +10076,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1311156708}
+  - {fileID: 551875375}
   - {fileID: 5192131241160920148}
   m_Father: {fileID: 2371773635057181234}
   m_RootOrder: 2
