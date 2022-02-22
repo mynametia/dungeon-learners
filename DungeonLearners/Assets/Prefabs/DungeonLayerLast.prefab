@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 356819598}
   - component: {fileID: 356819597}
   - component: {fileID: 1955066858119045229}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BushTilemap3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 746420999}
   - component: {fileID: 746420998}
   - component: {fileID: 8564415838164018663}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BushTilemap2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -927,7 +927,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1766764041
   m_SortingLayer: 2
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -963,7 +963,7 @@ GameObject:
   - component: {fileID: 1570043671}
   - component: {fileID: 1570043674}
   - component: {fileID: 1570043673}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ColumnTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1326,7 +1326,7 @@ GameObject:
   - component: {fileID: 1620634257}
   - component: {fileID: 1620634256}
   - component: {fileID: 6443408807965953565}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BushTilemap1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4210,7 +4210,7 @@ GameObject:
   - component: {fileID: 1636527259775501803}
   - component: {fileID: 1636527259775501802}
   - component: {fileID: 1636527259775501588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7290,7 +7290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1636527260437174721}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
