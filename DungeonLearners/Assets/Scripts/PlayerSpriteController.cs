@@ -6,6 +6,8 @@ using Pathfinding;
 public class PlayerSpriteController : MonoBehaviour
 {
     public AIPath aiPath;
+    public Animator animator;
+
     //-1 if the sprite is default facing left, 1 if the sprite is default facing right
     public int defaultFaceRight = 1;
     private float initialScaleX, initialScaleY, initialScaleZ;
@@ -20,7 +22,7 @@ public class PlayerSpriteController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (aiPath.desiredVelocity.x <= -0.01f) //sprite face left
+        if (aiPath.desiredVelocity.x <= -0.01f) //sprite face left, flip
         {
             transform.localScale = new Vector3(-defaultFaceRight*initialScaleX, initialScaleY, initialScaleZ);
         }
@@ -29,5 +31,7 @@ public class PlayerSpriteController : MonoBehaviour
             transform.localScale = new Vector3(defaultFaceRight * initialScaleX, initialScaleY, initialScaleZ);
         }
 
+        //update animator
+        animator.SetFloat("Speed", Mathf.Abs(aiPath.desiredVelocity.magnitude));
     }
 }

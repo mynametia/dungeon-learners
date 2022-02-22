@@ -476,7 +476,8 @@ GameObject:
   - component: {fileID: 2371773634936081368}
   - component: {fileID: 2371773634936081370}
   - component: {fileID: 2371773634936081371}
-  m_Layer: 0
+  - component: {fileID: 8670972930791750531}
+  m_Layer: 6
   m_Name: TreeTilemap4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -979,6 +980,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &8670972930791750531
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2371773634936081369}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &2371773635355859177
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,7 +3239,8 @@ GameObject:
   - component: {fileID: 5192131239983055096}
   - component: {fileID: 5192131239983055098}
   - component: {fileID: 5192131239983055097}
-  m_Layer: 0
+  - component: {fileID: 800416190804598993}
+  m_Layer: 6
   m_Name: TreeTilemap2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4459,6 +4477,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &800416190804598993
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192131239983055103}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &5192131240585339512
 GameObject:
   m_ObjectHideFlags: 0
@@ -4470,7 +4504,8 @@ GameObject:
   - component: {fileID: 5192131240585339513}
   - component: {fileID: 5192131240585339515}
   - component: {fileID: 5192131240585339514}
-  m_Layer: 0
+  - component: {fileID: 6185136962988130308}
+  m_Layer: 6
   m_Name: TreeTilemap5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5603,6 +5638,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &6185136962988130308
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192131240585339512}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &5192131240926869132
 GameObject:
   m_ObjectHideFlags: 0
@@ -5951,7 +6002,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5192131240987033361}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6023,7 +6074,8 @@ GameObject:
   - component: {fileID: 5192131241066900080}
   - component: {fileID: 5192131241066900082}
   - component: {fileID: 5192131241066900081}
-  m_Layer: 0
+  - component: {fileID: 7906574369014474328}
+  m_Layer: 6
   m_Name: TreeTilemap1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6760,6 +6812,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &7906574369014474328
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192131241066900087}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &5192131241109402122
 GameObject:
   m_ObjectHideFlags: 0
@@ -7108,7 +7176,8 @@ GameObject:
   - component: {fileID: 5192131241164894708}
   - component: {fileID: 5192131241164894710}
   - component: {fileID: 5192131241164894709}
-  m_Layer: 0
+  - component: {fileID: 5089328374412390811}
+  m_Layer: 6
   m_Name: TreeTilemap3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8115,6 +8184,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &5089328374412390811
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192131241164894699}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &5192131241398290617
 GameObject:
   m_ObjectHideFlags: 0
@@ -8126,7 +8211,8 @@ GameObject:
   - component: {fileID: 5192131241398290618}
   - component: {fileID: 5192131241398290564}
   - component: {fileID: 5192131241398290619}
-  m_Layer: 0
+  - component: {fileID: 9030479002307988036}
+  m_Layer: 6
   m_Name: TreeTilemap6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9157,6 +9243,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &9030479002307988036
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192131241398290617}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &5192131241421357021
 GameObject:
   m_ObjectHideFlags: 0

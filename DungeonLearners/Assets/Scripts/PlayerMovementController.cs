@@ -14,6 +14,7 @@ public class PlayerMovementController : MonoBehaviour
             currentDestination = Instantiate(playerMovementDestination);
         }
         currentDestination.transform.position = transform.position;
+        //currentDestination.transform.position = new Vector3(-2.54f, -2.95f, 0);
         GetComponent<AIDestinationSetter>().target = currentDestination.transform;
     }
     
