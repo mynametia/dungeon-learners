@@ -1,0 +1,255 @@
+Using pre-set license
+Built from '2020.3/release' branch; Version is '2020.3.27f1 (e759542391ea) revision 15161684'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19043) 64bit Core' Language: 'en' Physical Memory: 6082 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.27f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/gaosi/OneDrive/Desktop/Acads/CY3003/Dungeon Learners/dungeon-learners/DungeonLearners
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+54955
+Successfully changed project path to: C:/Users/gaosi/OneDrive/Desktop/Acads/CY3003/Dungeon Learners/dungeon-learners/DungeonLearners
+C:/Users/gaosi/OneDrive/Desktop/Acads/CY3003/Dungeon Learners/dungeon-learners/DungeonLearners
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 225.99 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.27f1 (e759542391ea)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/gaosi/OneDrive/Desktop/Acads/CY3003/Dungeon Learners/dungeon-learners/DungeonLearners/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon(TM) Vega 8 Graphics (ID=0x15d8)
+    Vendor:   
+    VRAM:     3041 MB
+    Driver:   27.20.11036.3
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56948
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.018894 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 121.03 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.320 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1320ms)
+		BeginReloadAssembly (261ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (2ms)
+		EndReloadAssembly (872ms)
+			LoadAssemblies (249ms)
+			RebuildTransferFunctionScriptingTraits (1ms)
+			SetupTypeCache (227ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (55ms)
+			SetupLoadedEditorAssemblies (328ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (121ms)
+				BeforeProcessingInitializeOnLoad (29ms)
+				ProcessInitializeOnLoadAttributes (119ms)
+				ProcessInitializeOnLoadMethodAttributes (43ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.043944 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 117.02 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.064 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3069ms)
+		BeginReloadAssembly (401ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (37ms)
+		EndReloadAssembly (2459ms)
+			LoadAssemblies (461ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (690ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (80ms)
+			SetupLoadedEditorAssemblies (1066ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (117ms)
+				BeforeProcessingInitializeOnLoad (321ms)
+				ProcessInitializeOnLoadAttributes (514ms)
+				ProcessInitializeOnLoadMethodAttributes (45ms)
+				AfterProcessingInitializeOnLoad (61ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.21 seconds
+Refreshing native plugins compatible for Editor in 0.95 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2362 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 107.5 MB.
+System memory in use after: 107.5 MB.
+
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 2790.
+Total: 4.470700 ms (FindLiveObjects: 0.287000 ms CreateObjectMapping: 0.081700 ms MarkObjects: 3.900200 ms  DeleteObjects: 0.199900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Prefabs/DungeonLayerLast.prefab
+  artifactKey: Guid(729d2f641e05fbe4ea35a824a7119e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/DungeonLayerLast.prefab using Guid(729d2f641e05fbe4ea35a824a7119e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74faeea0a512ee6161d3d555ba82e840') in 0.564093 seconds 
+  Import took 0.573920 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002018 seconds.
+  path: Assets/Scenes/DungeonRoom.unity
+  artifactKey: Guid(30292c87842fbc04ab92574b47485c68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/DungeonRoom.unity using Guid(30292c87842fbc04ab92574b47485c68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84d78457006438563a70b718d1d80046') in 0.016064 seconds 
+  Import took 0.022461 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.821409 seconds.
+  path: Assets/External Assets/Pixel Adventure 2/Assets/Enemies/BlueBird
+  artifactKey: Guid(b12c983713fcef941b67d3ebf1e38b7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/External Assets/Pixel Adventure 2/Assets/Enemies/BlueBird using Guid(b12c983713fcef941b67d3ebf1e38b7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dfefd7ee822c9dc560907d5febf7481') in 0.021024 seconds 
+  Import took 0.027236 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.872588 seconds.
+  path: Assets/External Assets/Pixel Adventure 2/Assets/Enemies/AngryPig/Idle (36x30).png
+  artifactKey: Guid(bb22e9cd7a3f50c41aa55c47dd8c2975) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/External Assets/Pixel Adventure 2/Assets/Enemies/AngryPig/Idle (36x30).png using Guid(bb22e9cd7a3f50c41aa55c47dd8c2975) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76c1c6a591c1c08a7d7b58b686ea3fa2') in 0.121210 seconds 
+  Import took 0.128272 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.016107 seconds.
+  path: Assets/External Assets/Pixel Adventure 2/Assets/Enemies/Ghost/Appear (44x30).png
+  artifactKey: Guid(a26831e3796d4f6498e8400f4a01326b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/External Assets/Pixel Adventure 2/Assets/Enemies/Ghost/Appear (44x30).png using Guid(a26831e3796d4f6498e8400f4a01326b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfcc2f8316864d4c6599b3f73d71fe14') in 0.045474 seconds 
+  Import took 0.052506 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.647121 seconds.
+  path: Assets/External Assets/Pixel Adventure 2/Assets/Enemies/Ghost/Idle (44x30).png
+  artifactKey: Guid(d4f2f936f814df24fb7559370c465cdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/External Assets/Pixel Adventure 2/Assets/Enemies/Ghost/Idle (44x30).png using Guid(d4f2f936f814df24fb7559370c465cdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94f91f287024aa393bed3384d370c0df') in 0.076214 seconds 
+  Import took 0.082601 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 75.754574 seconds.
+  path: Assets/Animation/Idle (44x30)_0.controller
+  artifactKey: Guid(8201d930b17561d46979716a5da2acef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Idle (44x30)_0.controller using Guid(8201d930b17561d46979716a5da2acef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52c0c8a8da939168cf41ba028cd9134f') in 0.027343 seconds 
+  Import took 0.033619 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.838135 seconds.
+  path: Assets/Animation/EnemyIdle.anim
+  artifactKey: Guid(105efc888da53934ba1a18355926ef77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/EnemyIdle.anim using Guid(105efc888da53934ba1a18355926ef77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06289e2911adca4cdb8ce022c8737be4') in 0.024980 seconds 
+  Import took 0.031387 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.450268 seconds.
+  path: Assets/Animation/EnemyIdle.anim
+  artifactKey: Guid(105efc888da53934ba1a18355926ef77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/EnemyIdle.anim using Guid(105efc888da53934ba1a18355926ef77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '039dc13bfdd31e79bf3244318785eda4') in 0.012443 seconds 
+  Import took 0.017957 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 75.098719 seconds.
+  path: Assets/External Assets/Pixel Adventure 2/Assets/Enemies/Ghost/Desappear (44x30).png
+  artifactKey: Guid(0aff58a705260724ba202eab0ca4f5f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/External Assets/Pixel Adventure 2/Assets/Enemies/Ghost/Desappear (44x30).png using Guid(0aff58a705260724ba202eab0ca4f5f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71c169839e39db0af12d365186f89ebf') in 0.046563 seconds 
+  Import took 0.053860 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.827817 seconds.
+  path: Assets/External Assets/Pixel Adventure 2/Assets/Enemies/Ghost/Gost Particles (16x16).png
+  artifactKey: Guid(14048ba4b41a50449a2a86a01088f5e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/External Assets/Pixel Adventure 2/Assets/Enemies/Ghost/Gost Particles (16x16).png using Guid(14048ba4b41a50449a2a86a01088f5e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d469a71279ba8a4aaaceca50b9dce58') in 0.049546 seconds 
+  Import took 0.056456 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.817806 seconds.
+  path: Assets/Animation/Desappear (44x30)_0.controller
+  artifactKey: Guid(218b28c3e9980154cb167c971204ea74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Desappear (44x30)_0.controller using Guid(218b28c3e9980154cb167c971204ea74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0855db40de3a9da68a32a8912d59b595') in 0.018527 seconds 
+  Import took 0.024805 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.246588 seconds.
+  path: Assets/Animation/EnemyDefeated.anim
+  artifactKey: Guid(4326dcc29f38d504e9724d420cb36262) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/EnemyDefeated.anim using Guid(4326dcc29f38d504e9724d420cb36262) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2fc2fde55fed390c39d0c21198ac8b6') in 0.018576 seconds 
+  Import took 0.025792 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.190075 seconds.
+  path: Assets/Animation/EnemySprite.controller
+  artifactKey: Guid(8201d930b17561d46979716a5da2acef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/EnemySprite.controller using Guid(8201d930b17561d46979716a5da2acef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54efd497e8c3d9b9d148c21a624d6bfb') in 0.020033 seconds 
+  Import took 0.025351 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 92.646282 seconds.
+  path: Assets/External Assets/Pixel Adventure 2/Assets/Enemies/Ghost/Hit (44x30).png
+  artifactKey: Guid(fe0d305c386c24f49b22110bd836c48d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/External Assets/Pixel Adventure 2/Assets/Enemies/Ghost/Hit (44x30).png using Guid(fe0d305c386c24f49b22110bd836c48d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ed5b080334a57a412a7009aaa6c9474') in 0.058818 seconds 
+  Import took 0.066479 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
