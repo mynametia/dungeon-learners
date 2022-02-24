@@ -472,3 +472,4 @@ Received Import Request.
 Start importing Assets/External Assets/Interface SFX Pack #1/Back_tones using Guid(7a3f4701494e1924098fc60c22ae1869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4764f2286868402d57d4d22b0aeaa28d') in 0.009912 seconds 
   Import took 0.018226 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
