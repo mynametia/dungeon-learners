@@ -1,31 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class WorldController : MonoBehaviour
 {
-    // Dynamically spawns layers in world based on number of dungeons 
+    // Dynamically spawns objects in world
 
     public GameObject worldLayer;
     public GameObject worldLayerLast;
 
     public int dungeonCount = 4;
 
-    private int layerCount;
+    private int layerCount = 1;
     private static int dungeonPerLayer = 4;
+    private static int worldGridWidth = 22;
+    private static int worldGridDepth = 24;
+    private static Vector3 worldGridCenter = new Vector3(0, 5, 0);
 
     private float layerOffset = 7f;
     // Start is called before the first frame update
     void Start()
     {
+        generateWorldLayers();
+        updatePathfindingGrid();
+    }
+
+    // Spawns layers in world based on number of dungeons 
+    private void generateWorldLayers() 
+    {
         if (dungeonCount < 0) { dungeonCount = 0; }
-        
+
         // Number of layers in world
-        layerCount = Mathf.CeilToInt((float) dungeonCount / dungeonPerLayer);
+        layerCount = Mathf.CeilToInt((float)dungeonCount / dungeonPerLayer);
 
         if (layerCount == 0) { layerCount = 1; }
-
-        Debug.Log("no. of layers: " + layerCount);
 
         GameObject layer;
         // Procedurally generate layers in world
@@ -56,4 +65,15 @@ public class WorldController : MonoBehaviour
         }
     }
 
+    // Recalculate A* Pathfinding grid based on world size
+    private void updatePathfindingGrid()
+    {
+        Debug.Log("layer count:" + layerCount);
+        worldGridDepth = 16 + 8 * (layerCount - 1);
+        
+        GridGraph grid = AstarPath.active.data.gridGraph;
+        grid.SetDimensions(worldGridWidth, worldGridDepth, 1);
+        grid.center = new Vector3(0, 1 + 4 * (layerCount - 1), 0);
+        AstarPath.active.Scan();
+    }
 }
