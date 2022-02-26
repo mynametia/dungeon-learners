@@ -1006,6 +1006,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2371773635355859179}
   - component: {fileID: 2371773635355859176}
+  - component: {fileID: 2681407241452469135}
   m_Layer: 0
   m_Name: WorldGrid
   m_TagString: Untagged
@@ -1042,6 +1043,21 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &2681407241452469135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2371773635355859177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3457641f027fb347806b799e795c018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldLayer: {fileID: 1636527258843330014, guid: 3db0af3474f27d0459c8858022fd9128, type: 3}
+  worldLayerLast: {fileID: 1636527258843330014, guid: 729d2f641e05fbe4ea35a824a7119e6f, type: 3}
+  dungeonCount: 4
 --- !u!1 &2371773635585918115
 GameObject:
   m_ObjectHideFlags: 0

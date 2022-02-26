@@ -5,6 +5,8 @@ using Pathfinding;
 
 public class PlayerMovementController : MonoBehaviour
 {
+    // Controlls player movement 
+
     public GameObject playerMovementDestination;
     public GameObject currentDestination;
     void Start()
@@ -14,7 +16,8 @@ public class PlayerMovementController : MonoBehaviour
             currentDestination = Instantiate(playerMovementDestination);
         }
         currentDestination.transform.position = transform.position;
-        //currentDestination.transform.position = new Vector3(-2.54f, -2.95f, 0);
+
+        // Set A* pathfinding destination to track position of currentDestination  
         GetComponent<AIDestinationSetter>().target = currentDestination.transform;
     }
     
@@ -25,6 +28,9 @@ public class PlayerMovementController : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+
+            // Set position of currentDestination to worldspace position of touch input
+            // A* destination will automatically be updated
             currentDestination.transform.position = touchPosition;
         }
     }

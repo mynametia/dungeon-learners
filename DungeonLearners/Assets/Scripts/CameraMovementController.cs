@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraMovementController : MonoBehaviour
 {
+    // Controls camera movement
+
     private GameObject player;
     // Start is called before the first frame update
     void Start()

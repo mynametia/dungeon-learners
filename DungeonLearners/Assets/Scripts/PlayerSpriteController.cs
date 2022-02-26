@@ -5,6 +5,8 @@ using Pathfinding;
 
 public class PlayerSpriteController : MonoBehaviour
 {
+    // Control sprite appearance of player
+    
     public AIPath aiPath;
     public Animator animator;
 
@@ -22,16 +24,18 @@ public class PlayerSpriteController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (aiPath.desiredVelocity.x <= -0.01f) //sprite face left, flip
+        // Make sprite face left
+        if (aiPath.desiredVelocity.x <= -0.01f) 
         {
             transform.localScale = new Vector3(-defaultFaceRight*initialScaleX, initialScaleY, initialScaleZ);
         }
-        else if (aiPath.desiredVelocity.x >= 0.01f) //sprite face right
+        //Make sprite face right
+        else if (aiPath.desiredVelocity.x >= 0.01f) 
         {
             transform.localScale = new Vector3(defaultFaceRight * initialScaleX, initialScaleY, initialScaleZ);
         }
 
-        //update animator
+        // Update animator to activate/deactivate walking animation
         animator.SetFloat("Speed", Mathf.Abs(aiPath.desiredVelocity.magnitude));
     }
 }
