@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/HomeBase.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/DungeonRoom.unity
     guid: 30292c87842fbc04ab92574b47485c68
+  - enabled: 1
+    path: Assets/Scenes/CardBattle.unity
+    guid: 523971a8a46f8fc4dbe0731d9f812f7f
   m_configObjects: {}
