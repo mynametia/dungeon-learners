@@ -17,10 +17,10 @@ public class PlayerMovementController : MonoBehaviour
         }
         currentDestination.transform.position = transform.position;
 
-        // Set A* pathfinding destination to track position of currentDestination  
+        // Set A* pathfinding destination to track position of currentDestination
         GetComponent<AIDestinationSetter>().target = currentDestination.transform;
     }
-    
+
     // Update is called once per frame
     void Update()
     {

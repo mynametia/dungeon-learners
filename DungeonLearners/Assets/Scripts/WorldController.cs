@@ -22,12 +22,12 @@ public class WorldController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        generateWorldLayers();
-        updatePathfindingGrid();
+        GenerateWorldLayers();
+        UpdatePathfindingGrid();
     }
 
     // Spawns layers in world based on number of dungeons 
-    private void generateWorldLayers() 
+    private void GenerateWorldLayers() 
     {
         if (dungeonCount < 0) { dungeonCount = 0; }
 
@@ -66,7 +66,7 @@ public class WorldController : MonoBehaviour
     }
 
     // Recalculate A* Pathfinding grid based on world size
-    private void updatePathfindingGrid()
+    private void UpdatePathfindingGrid()
     {
         Debug.Log("layer count:" + layerCount);
         worldGridDepth = 16 + 8 * (layerCount - 1);
