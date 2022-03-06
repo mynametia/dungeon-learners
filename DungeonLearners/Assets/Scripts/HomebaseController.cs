@@ -7,7 +7,10 @@ public class HomebaseController : MonoBehaviour
     // Detects user selecting find world/my world/shop options
 
     public GameObject SceneController;
+    public GameObject Player;
+    public GameObject FindWorld;
 
+    private float worldEntryMaxDist = 0.3f;
     // Update is called once per frame
     void Update()
     {
@@ -29,7 +32,7 @@ public class HomebaseController : MonoBehaviour
                 if (touchedObj.tag == "FindWorld")
                 {
                     // spawn find worlds UI
-                    SceneController.GetComponent<FadeTransitionController>().FadeToBlack("OpenWorld");
+                    StartCoroutine(EnterWorld());
                 }
                 else if (touchedObj.tag == "MyWorlds")
                 {
@@ -41,5 +44,26 @@ public class HomebaseController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator EnterWorld()
+    {
+        Debug.Log("Clicked");
+        Player.GetComponent<PlayerMovementController>().SetCurrentDestination(FindWorld.transform.position);
+
+        yield return new WaitForSeconds(0.05f);
+
+        // Wait for player to stop walking
+        while (Player.GetComponent<PlayerMovementController>().moving)
+        {
+            yield return new WaitForSeconds(.1f);
+        }
+
+        // If player is standing above world entrance, enter dungeon
+        if (Vector3.Distance(Player.transform.position, FindWorld.transform.position) <= worldEntryMaxDist)
+        {
+            SceneController.GetComponent<FadeTransitionController>().FadeToBlack("OpenWorld");
+        }
+        yield return null;
     }
 }

@@ -16039,3 +16039,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneController: {fileID: 0}
+  Player: {fileID: 0}
+  FindWorld: {fileID: 1189628898670202763}
+  worldEntryMaxDist: 0

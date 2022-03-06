@@ -8,15 +8,19 @@ public class DungeonTransitionController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            DungeonController = GameObject.FindWithTag("SceneTransition");
+            DungeonController = GameObject.FindWithTag("DungeonController");
             if (gameObject.tag == "RoomEntrance")
             {
                 DungeonController.GetComponent<DungeonController>().GoPreviousRoom();
             }
-            else
+            else if (gameObject.tag == "RoomExit")
             {
                 DungeonController.GetComponent<DungeonController>().GoNextRoom();
             }
+            //else if (gameObject.tag == "Boss")
+            //{
+            //    DungeonController.GetComponent<DungeonController>().EnterBattle();
+            //}
         }
  
     }

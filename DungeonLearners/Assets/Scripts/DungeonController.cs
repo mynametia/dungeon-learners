@@ -8,6 +8,7 @@ public class DungeonController : MonoBehaviour
     // Controls traversing of dungeon room sequences
     public GameObject SceneController;
     public GameObject Player;
+
     public int dungeonRoomCount = 4;
     public int currentDungeonRoomID = 0; // Each dungeon room has ID from 0 to dungeonRoomCount - 1
 
@@ -17,6 +18,16 @@ public class DungeonController : MonoBehaviour
         DontDestroyOnLoad(transform.gameObject);
         currentDungeonRoomID = 0;
     }
+
+    // User starts battle
+    //public void EnterBattle()
+    //{
+    //    Player = GameObject.FindWithTag("Player");
+    //    PlayerPrefs.SetFloat("PlayerDungeonX", Player.transform.position.x);
+    //    PlayerPrefs.SetFloat("PlayerDungeonY", Player.transform.position.y);
+    //    SceneController.GetComponent<FadeTransitionController>().FadeToBlack("CardBattle");
+        
+    //}
 
     // User enters next dungeon room after defeating boss
     public void GoNextRoom()
@@ -60,8 +71,6 @@ public class DungeonController : MonoBehaviour
         // Go back to world
         FindSceneController();
         SceneController.GetComponent<FadeTransitionController>().FadeToBlack("OpenWorld");
-        Player = GameObject.FindWithTag("Player");
-        Player.transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerWorldX"), PlayerPrefs.GetFloat("PlayerWorldY"), 0);
         Destroy(gameObject);
     }
 

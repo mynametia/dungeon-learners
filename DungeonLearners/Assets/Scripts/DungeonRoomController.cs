@@ -9,14 +9,9 @@ public class DungeonRoomController : MonoBehaviour
     public GameObject Player;
     public GameObject SceneController;
 
-    public float bossInteractionMaxRange = 4f;
+    public float bossInteractionMaxDist = 2f;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -44,17 +39,16 @@ public class DungeonRoomController : MonoBehaviour
         }
     }
 
+
+    // Enters battle with boss
     private IEnumerator EnterBattle()
     {
-        Player.GetComponent<PlayerMovementController>().SetCurrentDestination(DungeonBoss.transform.position);
+        Player.GetComponent<PlayerMovementController>().SetCurrentDestination(new Vector3(DungeonBoss.transform.position.x, DungeonBoss.transform.position.y - 0.75f * bossInteractionMaxDist, 0));
 
-        // Wait for player to stop walking
-        while (Player.GetComponent<PlayerMovementController>().moving)
-        {
-            yield return new WaitForSeconds(.1f);
-        }
+        yield return new WaitForSeconds(0.05f);
 
-        if (Vector3.Distance(Player.transform.position, DungeonBoss.transform.position) <= bossInteractionMaxRange)
+        // If player is standing near boss, enter card battle scene
+        if (Vector3.Distance(Player.transform.position, DungeonBoss.transform.position) <= bossInteractionMaxDist)
         {
             SceneController.GetComponent<FadeTransitionController>().FadeToBlack("CardBattle");
             PlayerPrefs.SetFloat("PlayerDungeonX", Player.transform.position.x);

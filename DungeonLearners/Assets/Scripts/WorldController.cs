@@ -22,7 +22,7 @@ public class WorldController : MonoBehaviour
 
     private float layerOffset = 7f;
 
-    private float dungeonEntryMaxDist = 0.25f;
+    private float dungeonEntryMaxDist = 0.3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,18 +62,21 @@ public class WorldController : MonoBehaviour
     {
         Player.GetComponent<PlayerMovementController>().SetCurrentDestination(dungeonEntrance.transform.position);
 
+        yield return new WaitForSeconds(0.05f);
+
         // Wait for player to stop walking
         while (Player.GetComponent<PlayerMovementController>().moving)
         { 
             yield return new WaitForSeconds(.1f);
         }
 
+        // If player is standing above dungeon entrance, enter dungeon
         if (Vector3.Distance(Player.transform.position, dungeonEntrance.transform.position) <= dungeonEntryMaxDist)
         {
             dungeonEntrance.GetComponent<DungeonEntranceController>().EnterDungeon();
             SceneController.GetComponent<FadeTransitionController>().FadeToBlack("DungeonRoom");
-            PlayerPrefs.SetFloat("PlayerWorldX", Player.transform.position.x);
-            PlayerPrefs.SetFloat("PlayerWorldY", Player.transform.position.y);
+            PlayerPrefs.SetFloat("PlayerWorldX", dungeonEntrance.transform.position.x);
+            PlayerPrefs.SetFloat("PlayerWorldY", dungeonEntrance.transform.position.y);
         }
 
         yield return null;

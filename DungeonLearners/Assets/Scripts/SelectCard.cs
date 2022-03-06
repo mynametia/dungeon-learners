@@ -4,20 +4,10 @@ using TMPro;
 
 public class SelectCard : MonoBehaviour
 {
-    public List<GameObject> cards = new List<GameObject>();
     public GameObject currentlySelected;
     public TextMeshProUGUI finalAnswer;
 
     private string promptText = "Pick an answer";
-
-    void Start()
-    {
-        // Place all cards in a list
-        foreach (Transform child in transform)
-        {
-            cards.Add(child.transform.gameObject);
-        }
-    }
     
     // Update is called once per frame
     void Update()
@@ -38,25 +28,28 @@ public class SelectCard : MonoBehaviour
                 GameObject touchedObj = hit.transform.gameObject;
 
                 // Check if collider belonged to a card
-                if (cards.Contains(touchedObj) && touchedObj != currentlySelected)
+                if (touchedObj.tag == "OptionCard") 
                 {
-                    // Unselect previously selected card
-                    if (currentlySelected != null)
+                    if (touchedObj != currentlySelected)
+                    {
+                        // Unselect previously selected card
+                        if (currentlySelected != null)
+                        {
+                            UnhighlightCard(currentlySelected);
+                        }
+                        // Select new card
+                        currentlySelected = touchedObj;
+                        HighlightCard(currentlySelected);
+                        UpdateAnswer();
+                    }
+                    // Unselect previously selected card if same card was tapped twice
+                    else if (touchedObj == currentlySelected)
                     {
                         UnhighlightCard(currentlySelected);
+                        currentlySelected = null;
+                        UpdateAnswer();
                     }
-                    // Select new card
-                    currentlySelected = touchedObj;
-                    HighlightCard(currentlySelected);
-                    UpdateAnswer();
-                }
-                // Unselect previously selected card if same card was tapped twice
-                else if (touchedObj == currentlySelected)
-                {
-                    UnhighlightCard(currentlySelected);
-                    currentlySelected = null;
-                    UpdateAnswer();
-                }
+                } 
             }   
         }
     }
