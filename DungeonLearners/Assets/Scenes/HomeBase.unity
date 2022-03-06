@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2425362238524794764, guid: 41873bc2c613a6b43a6d4e18f9fcfcbc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2425362238524794766, guid: 41873bc2c613a6b43a6d4e18f9fcfcbc, type: 3}
       propertyPath: m_RootOrder
@@ -184,6 +184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41873bc2c613a6b43a6d4e18f9fcfcbc, type: 3}
+--- !u!1 &1277634555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2425362238524794764, guid: 41873bc2c613a6b43a6d4e18f9fcfcbc, type: 3}
+  m_PrefabInstance: {fileID: 1277634554}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1901620573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -305,6 +310,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1339430715162421386, guid: 88cc5f51da0af0a459767923edf1ada0, type: 3}
+      propertyPath: SceneController
+      value: 
+      objectReference: {fileID: 1277634555}
     - target: {fileID: 8675750903271892328, guid: 88cc5f51da0af0a459767923edf1ada0, type: 3}
       propertyPath: m_Name
       value: HomebaseGrid

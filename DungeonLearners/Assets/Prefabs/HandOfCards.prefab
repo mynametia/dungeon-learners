@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards: []
   currentlySelected: {fileID: 0}
+  finalAnswer: {fileID: 0}
 --- !u!1001 &858039709499019074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,6 +112,10 @@ PrefabInstance:
     - target: {fileID: 4347094958633395665, guid: 6c3878e9fbc84ce46a7f7eb9de42295c, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347094958633395665, guid: 6c3878e9fbc84ce46a7f7eb9de42295c, type: 3}
+      propertyPath: m_TagString
+      value: OptionCard
       objectReference: {fileID: 0}
     - target: {fileID: 4347094959649622128, guid: 6c3878e9fbc84ce46a7f7eb9de42295c, type: 3}
       propertyPath: m_SortingOrder
@@ -186,6 +191,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4347094958633395665, guid: 6c3878e9fbc84ce46a7f7eb9de42295c, type: 3}
+      propertyPath: m_TagString
+      value: OptionCard
+      objectReference: {fileID: 0}
     - target: {fileID: 4347094959649622128, guid: 6c3878e9fbc84ce46a7f7eb9de42295c, type: 3}
       propertyPath: m_SortingOrder
       value: 4
@@ -260,6 +269,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4347094958633395665, guid: 6c3878e9fbc84ce46a7f7eb9de42295c, type: 3}
+      propertyPath: m_TagString
+      value: OptionCard
+      objectReference: {fileID: 0}
     - target: {fileID: 4347094959649622128, guid: 6c3878e9fbc84ce46a7f7eb9de42295c, type: 3}
       propertyPath: m_SortingOrder
       value: 6
@@ -325,6 +338,10 @@ PrefabInstance:
     - target: {fileID: 4347094958633395665, guid: 6c3878e9fbc84ce46a7f7eb9de42295c, type: 3}
       propertyPath: m_Name
       value: CardFarRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347094958633395665, guid: 6c3878e9fbc84ce46a7f7eb9de42295c, type: 3}
+      propertyPath: m_TagString
+      value: OptionCard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c3878e9fbc84ce46a7f7eb9de42295c, type: 3}

@@ -29,12 +29,12 @@ public class SelectCard : MonoBehaviour
             //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
             RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction);
-            // Get the topmost collider
-            RaycastHit2D hit = hits[hits.Length-1];
 
-            // Check if ray has intersected with a collider
-            if (hit != null)
+            if (hits.Length > 0)
             {
+                // Get the topmost collider
+                RaycastHit2D hit = hits[hits.Length - 1];
+
                 GameObject touchedObj = hit.transform.gameObject;
 
                 // Check if collider belonged to a card
@@ -57,7 +57,7 @@ public class SelectCard : MonoBehaviour
                     currentlySelected = null;
                     UpdateAnswer();
                 }
-            }
+            }   
         }
     }
 

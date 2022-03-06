@@ -4,9 +4,11 @@ using Pathfinding;
 public class PlayerMovementController : MonoBehaviour
 {
     // Controlls player movement 
+    public bool moving = false;
 
     public GameObject playerMovementDestination;
     public GameObject currentDestination;
+    public AIPath aiPath;
     void Start()
     {
         if (currentDestination == null)
@@ -17,10 +19,29 @@ public class PlayerMovementController : MonoBehaviour
 
         // Set A* pathfinding destination to track position of currentDestination
         GetComponent<AIDestinationSetter>().target = currentDestination.transform;
+        aiPath = GetComponent<AIPath>();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        MovePlayer();
+        UpdateMoving();
+    }
+
+    private void UpdateMoving()
+    {
+        if (aiPath.desiredVelocity.magnitude == 0)
+        {
+            moving = false;
+        }
+        else 
+        {
+            moving = true;
+        }
+    }
+
+    private void MovePlayer()
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -29,7 +50,12 @@ public class PlayerMovementController : MonoBehaviour
 
             // Set position of currentDestination to worldspace position of touch input
             // A* destination will automatically be updated
-            currentDestination.transform.position = touchPosition;
+            SetCurrentDestination(touchPosition);
         }
+    }
+
+    public void SetCurrentDestination(Vector3 touchPosition)
+    {
+        currentDestination.transform.position = touchPosition;
     }
 }

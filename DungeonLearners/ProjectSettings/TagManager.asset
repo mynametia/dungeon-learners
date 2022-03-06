@@ -6,6 +6,16 @@ TagManager:
   tags:
   - PlayerSprite
   - Pathfinding
+  - FindWorld
+  - Shop
+  - MyWorlds
+  - DungeonEntrance
+  - OptionCard
+  - SceneTransition
+  - DungeonController
+  - RoomEntrance
+  - RoomExit
+  - Boss
   layers:
   - Default
   - TransparentFX

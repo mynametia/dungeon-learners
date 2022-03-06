@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7629965846999210855}
   - component: {fileID: 5319694020452131608}
   - component: {fileID: 437336306015684669}
+  - component: {fileID: 4715972093945469143}
   m_Layer: 0
   m_Name: DungeonEntranceTilemap
-  m_TagString: Untagged
+  m_TagString: DungeonEntrance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -311,7 +312,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 808611545
-  m_SortingLayer: 1
+  m_SortingLayer: -3
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -337,3 +338,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0.5, y: -0.55}
   m_Size: {x: 3, y: 2.3}
   m_Direction: 1
+--- !u!114 &4715972093945469143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7650639603865783611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a00c097606961c428e077c5f237d8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeonID: 0
+  DungeonController: {fileID: 1704027287852719777, guid: fa1ca221e9f05e74aaeef72945954d3c, type: 3}
