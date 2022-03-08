@@ -6,12 +6,14 @@ public class SelectCard : MonoBehaviour
     // Controls card selection mechanism
 
     public GameObject currentlySelected;
-    
+
+    public bool enableSelect = false;
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.GetMouseButtonDown(0) && enableSelect)
+        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && enableSelect)
         {
             // Create a ray starting from point of touch on screen
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -55,13 +57,27 @@ public class SelectCard : MonoBehaviour
     // Trigger card selection animation
     public void HighlightCard()
     {
-        currentlySelected.GetComponentInChildren<Animator>().SetBool("Selected", true);
+        if (currentlySelected != null)
+        {
+            currentlySelected.GetComponentInChildren<Animator>().SetBool("Selected", true);
+        }
     }
 
     // Trigger card deselection animation
     public void UnhighlightCard()
     {
-        currentlySelected.GetComponentInChildren<Animator>().SetBool("Selected", false);
+
+        if (currentlySelected != null)
+        {
+            currentlySelected.GetComponentInChildren<Animator>().SetBool("Selected", false);
+        }
     }
 
+    public void deactivateChildren()
+    {
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+    }
 }

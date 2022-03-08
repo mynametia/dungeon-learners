@@ -72,14 +72,17 @@ public class BattleQuestionController : MonoBehaviour
 
     public void popQuestion()
     {
-        currentQuestion = currentQuestions[0];
-        currentQuestions.RemoveAt(0);
+        if (currentQuestions.Count > 0)
+        {
+            currentQuestion = currentQuestions[0];
+            currentQuestions.RemoveAt(0);
 
-        questionTM.text = currentQuestion.question;
-        op1.text = currentQuestion.options[0];
-        op2.text = currentQuestion.options[1];
-        op3.text = currentQuestion.options[2];
-        op4.text = currentQuestion.options[3];
+            questionTM.text = currentQuestion.question;
+            op1.text = currentQuestion.options[0];
+            op2.text = currentQuestion.options[1];
+            op3.text = currentQuestion.options[2];
+            op4.text = currentQuestion.options[3];
+        }
     }
 
     public int returnQuestionNumber()

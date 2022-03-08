@@ -51,8 +51,6 @@ public class DungeonRoomController : MonoBehaviour
         if (Vector3.Distance(Player.transform.position, DungeonBoss.transform.position) <= bossInteractionMaxDist)
         {
             SceneController.GetComponent<FadeTransitionController>().FadeToBlack("CardBattle");
-            PlayerPrefs.SetFloat("PlayerDungeonX", Player.transform.position.x);
-            PlayerPrefs.SetFloat("PlayerDungeonY", Player.transform.position.y);
         }
 
         yield return null;

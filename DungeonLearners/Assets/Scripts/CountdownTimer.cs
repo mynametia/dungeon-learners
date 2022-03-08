@@ -33,4 +33,9 @@ public class CountdownTimer : MonoBehaviour
         currentTime = startingTime;
         countDown = true;
     }
+
+    public void pause()
+    {
+        countDown = false;
+    }
 }

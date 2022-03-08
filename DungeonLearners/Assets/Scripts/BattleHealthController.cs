@@ -6,6 +6,8 @@ public class BattleHealthController : MonoBehaviour
     public GameObject bossHealth;
     public GameObject playerHealth;
 
+    public GameObject battleControl;
+
     public void reduceBossHealth(float value)
     {
         Slider health = bossHealth.GetComponent<Slider>();
@@ -13,6 +15,7 @@ public class BattleHealthController : MonoBehaviour
         if (health.value <= 0)
         {
             bossHealth.SetActive(false);
+            StartCoroutine(battleControl.GetComponent<BattleController>().win());
         }
     }
 
@@ -23,6 +26,7 @@ public class BattleHealthController : MonoBehaviour
         if (health.value <= 0)
         {
             playerHealth.SetActive(false);
+            StartCoroutine(battleControl.GetComponent<BattleController>().lose());
         }
     }
 }
