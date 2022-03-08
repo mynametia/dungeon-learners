@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleController : MonoBehaviour
@@ -13,6 +12,8 @@ public class BattleController : MonoBehaviour
     public GameObject boss;
 
     public GameObject SceneController;
+
+    public bool endGame = false;
 
     [SerializeField] private float healthDecrement;
     
@@ -35,10 +36,13 @@ public class BattleController : MonoBehaviour
 
     public void nextQuestion()
     {
-        timer.GetComponent<CountdownTimer>().startCountdown();
-        questions.GetComponent<BattleQuestionController>().popQuestion();
-        questions.GetComponent<BattleQuestionController>().updateFinalAnswer(null);
-        questions.GetComponent<SelectCard>().enableSelect = true;
+        if (!endGame)
+        {
+            timer.GetComponent<CountdownTimer>().startCountdown();
+            questions.GetComponent<BattleQuestionController>().popQuestion();
+            questions.GetComponent<BattleQuestionController>().updateFinalAnswer(null);
+            questions.GetComponent<SelectCard>().enableSelect = true;
+        }
     }
 
     public void submitAnswer()
@@ -58,7 +62,7 @@ public class BattleController : MonoBehaviour
     private IEnumerator wrongAnswer()
     {
         questions.GetComponent<BattleQuestionController>().requeueQuestion();
-        health.GetComponent<BattleHealthController>().reducePlayerHealth(healthDecrement);
+        StartCoroutine(health.GetComponent<BattleHealthController>().reducePlayerHealth(healthDecrement));
         questions.GetComponent<BattleQuestionController>().wrongAns();
         timer.GetComponent<CountdownTimer>().pause();
 
@@ -71,7 +75,7 @@ public class BattleController : MonoBehaviour
 
     private IEnumerator rightAnswer()
     {
-        health.GetComponent<BattleHealthController>().reduceBossHealth(healthDecrement);
+        StartCoroutine(health.GetComponent<BattleHealthController>().reduceBossHealth(healthDecrement));
         questions.GetComponent<BattleQuestionController>().correctAns();
         timer.GetComponent<CountdownTimer>().pause();
 
@@ -87,7 +91,7 @@ public class BattleController : MonoBehaviour
         questions.GetComponent<SelectCard>().UnhighlightCard();
         questions.GetComponent<SelectCard>().enableSelect = false;
         questions.GetComponent<BattleQuestionController>().requeueQuestion();
-        health.GetComponent<BattleHealthController>().reducePlayerHealth(healthDecrement);
+        StartCoroutine(health.GetComponent<BattleHealthController>().reducePlayerHealth(healthDecrement));
         questions.GetComponent<BattleQuestionController>().timesUp();
 
         yield return new WaitForSeconds(1.5f);

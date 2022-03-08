@@ -12,12 +12,12 @@ public class SelectCard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && enableSelect)
-        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && enableSelect)
+        //if (Input.GetMouseButtonDown(0) && enableSelect)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && enableSelect)
         {
             // Create a ray starting from point of touch on screen
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
+            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
             RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction);
 
             if (hits.Length > 0)

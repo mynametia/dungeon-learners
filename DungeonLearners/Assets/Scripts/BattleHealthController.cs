@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,25 +9,51 @@ public class BattleHealthController : MonoBehaviour
 
     public GameObject battleControl;
 
-    public void reduceBossHealth(float value)
+
+    private float roundUp = 10000f;
+    public IEnumerator reduceBossHealth(float value)
     {
         Slider health = bossHealth.GetComponent<Slider>();
-        health.value -= value;
+        float decrement = Mathf.Round((value / 20f)*roundUp)/roundUp;
+        float period = 1f / 20f;
+        while (value > 0)
+        {
+            health.value -= decrement;
+            value -= decrement;
+            yield return new WaitForSeconds(period);
+        }
         if (health.value <= 0)
         {
+            battleControl.GetComponent<BattleController>().endGame = true;
             bossHealth.SetActive(false);
+
+            yield return new WaitForSeconds(0.5f);
+
             StartCoroutine(battleControl.GetComponent<BattleController>().win());
         }
+        yield return null;
     }
 
-    public void reducePlayerHealth(float value)
+    public IEnumerator reducePlayerHealth(float value)
     {
         Slider health = playerHealth.GetComponent<Slider>();
-        health.value -= value;
+        float decrement = Mathf.Round((value / 20f) * roundUp) / roundUp;
+        float period = 1f / 20f;
+        while (value > 0)
+        {
+            health.value -= decrement;
+            value -= decrement;
+            yield return new WaitForSeconds(period);
+        }
         if (health.value <= 0)
         {
+            battleControl.GetComponent<BattleController>().endGame = true;
             playerHealth.SetActive(false);
+
+            yield return new WaitForSeconds(0.5f);
+
             StartCoroutine(battleControl.GetComponent<BattleController>().lose());
         }
+        yield return null;
     }
 }

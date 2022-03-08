@@ -498,6 +498,7 @@ MonoBehaviour:
   health: {fileID: 319968265}
   boss: {fileID: 9216531605443986076}
   SceneController: {fileID: 181820918}
+  endGame: 0
   healthDecrement: 0
 --- !u!4 &691837199
 Transform:
@@ -1315,6 +1316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentlySelected: {fileID: 0}
+  enableSelect: 0
 --- !u!114 &1701442561
 MonoBehaviour:
   m_ObjectHideFlags: 0
