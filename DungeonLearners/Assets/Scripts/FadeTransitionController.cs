@@ -10,6 +10,7 @@ public class FadeTransitionController : MonoBehaviour
     // Triggers fade to black animation
     public void FadeToBlack(string sceneName)
     {
+        Player = null;
         sceneToLoad = sceneName;
         fadeAnimator.SetTrigger("FadeOut");
     }
