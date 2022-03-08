@@ -1,8 +1,8 @@
 public class Question
 {
-    private string question;
-    private string[] options;
-    private int answer; // index of options that holds correct answer
+    public string question;
+    public string[] options;
+    public int answer; // index of options that holds correct answer
 
     public Question(string Q, string[] op, int A)
     {

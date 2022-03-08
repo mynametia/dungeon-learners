@@ -1,14 +1,9 @@
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class SelectCard : MonoBehaviour
 {
     public GameObject currentlySelected;
-    public GameObject submitButton;
-    public TextMeshProUGUI finalAnswer;
-
-    private string promptText = "Pick an answer";
     
     // Update is called once per frame
     void Update()
@@ -41,15 +36,15 @@ public class SelectCard : MonoBehaviour
                         // Select new card
                         currentlySelected = touchedObj;
                         HighlightCard(currentlySelected);
-                        UpdateAnswer();
                     }
                     // Unselect previously selected card if same card was tapped twice
                     else if (touchedObj == currentlySelected)
                     {
                         UnhighlightCard(currentlySelected);
                         currentlySelected = null;
-                        UpdateAnswer();
                     }
+                    // Update final answer card
+                    GetComponent<BattleQuestionController>().updateFinalAnswer(currentlySelected);
                 } 
             }   
         }
@@ -67,18 +62,4 @@ public class SelectCard : MonoBehaviour
         card.GetComponentInChildren<Animator>().SetBool("Selected", false);
     }
 
-    // Update selected answer in answer card
-    public void UpdateAnswer()
-    {
-        if (currentlySelected == null)
-        {
-            finalAnswer.text = promptText;
-            submitButton.SetActive(false);
-        }
-        else
-        {
-            finalAnswer.text = currentlySelected.GetComponentInChildren<TextMeshProUGUI>().text;
-            submitButton.SetActive(true);
-        }
-    }
 }

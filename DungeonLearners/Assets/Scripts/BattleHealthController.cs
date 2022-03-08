@@ -10,8 +10,8 @@ public class BattleHealthController : MonoBehaviour
     {
         bossHealth.value -= value;
         if (bossHealth.value <= 0)
-        { 
-        
+        {
+            bossHealth.enabled = false;
         }
     }
 
@@ -19,8 +19,8 @@ public class BattleHealthController : MonoBehaviour
     {
         playerHealth.value -= value;
         if (playerHealth.value <= 0)
-        { 
-        
+        {
+            playerHealth.enabled = false;
         }
     }
 }

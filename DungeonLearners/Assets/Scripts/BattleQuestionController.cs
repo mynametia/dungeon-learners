@@ -1,21 +1,68 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BattleQuestionController : MonoBehaviour
 {
     private List<Question> battleQuestions = new List<Question>();
+    private List<Question> currentQuestions;
+    private Question currentQuestion;
+    private string promptText = "Pick an answer";
+
+    public TextMeshProUGUI questionTM;
+    public TextMeshProUGUI op1, op2, op3, op4;
+    public TextMeshProUGUI finalAnswer;
+    public GameObject submitButton;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         addDefaultQuestions();
+        currentQuestions = new List<Question>(battleQuestions);
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool checkAnswer()
     {
-        
+        return finalAnswer.text == currentQuestion.options[currentQuestion.answer];
+    }
+
+    public void updateFinalAnswer(GameObject answer)
+    {
+        if (answer == null)
+        {
+            finalAnswer.text = promptText;
+            submitButton.SetActive(false);
+        }
+        else
+        {
+            finalAnswer.text = answer.GetComponentInChildren<TextMeshProUGUI>().text;
+            submitButton.SetActive(true);
+        }
+    }
+
+    public void requeueQuestion()
+    {
+        currentQuestions.Add(currentQuestion);
+    }
+
+    public void popQuestion()
+    {
+        currentQuestion = currentQuestions[0];
+        currentQuestions.RemoveAt(0);
+
+        questionTM.text = currentQuestion.question;
+        op1.text = currentQuestion.options[0];
+        op2.text = currentQuestion.options[1];
+        op3.text = currentQuestion.options[2];
+        op4.text = currentQuestion.options[3];
+    }
+
+    public int returnQuestionNumber()
+    {
+        return currentQuestions.Count;
     }
 
     private void addDefaultQuestions()

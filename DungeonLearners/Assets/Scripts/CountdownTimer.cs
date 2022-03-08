@@ -6,16 +6,9 @@ public class CountdownTimer : MonoBehaviour
     float currentTime = 0f;
     float startingTime = 15f;
 
-    bool countDown = true;
+    bool countDown = false;
 
     [SerializeField] Text countdownText;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        currentTime = startingTime;
-
-    }
 
     // Update is called once per frame
     void Update()
