@@ -3,24 +3,26 @@ using UnityEngine.UI;
 
 public class BattleHealthController : MonoBehaviour
 {
-    public Slider bossHealth;
-    public Slider playerHealth;
+    public GameObject bossHealth;
+    public GameObject playerHealth;
 
     public void reduceBossHealth(float value)
     {
-        bossHealth.value -= value;
-        if (bossHealth.value <= 0)
+        Slider health = bossHealth.GetComponent<Slider>();
+        health.value -= value;
+        if (health.value <= 0)
         {
-            bossHealth.enabled = false;
+            bossHealth.SetActive(false);
         }
     }
 
     public void reducePlayerHealth(float value)
     {
-        playerHealth.value -= value;
-        if (playerHealth.value <= 0)
+        Slider health = playerHealth.GetComponent<Slider>();
+        health.value -= value;
+        if (health.value <= 0)
         {
-            playerHealth.enabled = false;
+            playerHealth.SetActive(false);
         }
     }
 }

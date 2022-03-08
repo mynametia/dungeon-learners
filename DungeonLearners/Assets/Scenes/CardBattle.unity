@@ -243,8 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231a3cc7531cd814784f47f6c2a94fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossHealth: {fileID: 3687905192501551272}
-  playerHealth: {fileID: 153072176387634998}
+  bossHealth: {fileID: 3597666359820822822}
+  playerHealth: {fileID: 62129076444675768}
 --- !u!1 &387217393
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc74b28c1cee4f859bd40e31d69834e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleControl: {fileID: 691837197}
   countdownText: {fileID: 893391518}
 --- !u!114 &893391518
 MonoBehaviour:
@@ -867,7 +868,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pick the correct answer to beat the boss!
+  m_text: Answer correctly to beat the boss!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76af53703aeb4d6479e53e5204ed11e4, type: 2}
   m_sharedMaterial: {fileID: 2545169010504706506, guid: 76af53703aeb4d6479e53e5204ed11e4, type: 2}

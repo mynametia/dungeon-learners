@@ -3,6 +3,8 @@ using TMPro;
 
 public class SelectCard : MonoBehaviour
 {
+    // Controls card selection mechanism
+
     public GameObject currentlySelected;
     
     // Update is called once per frame
@@ -31,16 +33,16 @@ public class SelectCard : MonoBehaviour
                         // Unselect previously selected card
                         if (currentlySelected != null)
                         {
-                            UnhighlightCard(currentlySelected);
+                            UnhighlightCard();
                         }
                         // Select new card
                         currentlySelected = touchedObj;
-                        HighlightCard(currentlySelected);
+                        HighlightCard();
                     }
                     // Unselect previously selected card if same card was tapped twice
                     else if (touchedObj == currentlySelected)
                     {
-                        UnhighlightCard(currentlySelected);
+                        UnhighlightCard();
                         currentlySelected = null;
                     }
                     // Update final answer card
@@ -51,15 +53,15 @@ public class SelectCard : MonoBehaviour
     }
 
     // Trigger card selection animation
-    public void HighlightCard(GameObject card)
+    public void HighlightCard()
     {
-        card.GetComponentInChildren<Animator>().SetBool("Selected", true);
+        currentlySelected.GetComponentInChildren<Animator>().SetBool("Selected", true);
     }
 
     // Trigger card deselection animation
-    public void UnhighlightCard(GameObject card)
+    public void UnhighlightCard()
     {
-        card.GetComponentInChildren<Animator>().SetBool("Selected", false);
+        currentlySelected.GetComponentInChildren<Animator>().SetBool("Selected", false);
     }
 
 }

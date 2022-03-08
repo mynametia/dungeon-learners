@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class CountdownTimer : MonoBehaviour
 {
+    public GameObject battleControl;
     float currentTime = 0f;
     float startingTime = 15f;
 
@@ -22,6 +23,7 @@ public class CountdownTimer : MonoBehaviour
             {
                 currentTime = 0;
                 countDown = false;
+                StartCoroutine(battleControl.GetComponent<BattleController>().timesUp());
             }
         }
     }

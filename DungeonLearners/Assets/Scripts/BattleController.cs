@@ -19,7 +19,7 @@ public class BattleController : MonoBehaviour
 
     private IEnumerator StartGameSequence()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2.5f);
 
         startGameUI.SetActive(false);
         healthDecrement = 1f/(float) questions.GetComponent<BattleQuestionController>().returnQuestionNumber();
@@ -37,31 +37,62 @@ public class BattleController : MonoBehaviour
 
     public void submitAnswer()
     {
+        questions.GetComponent<SelectCard>().UnhighlightCard();
         if (!questions.GetComponent<BattleQuestionController>().checkAnswer())
         {
-            wrongAnswer();
+            StartCoroutine(wrongAnswer());
         }
         else
         {
-            rightAnswer();
+            StartCoroutine(rightAnswer());
         }
-        nextQuestion();
-
     }
 
-    private void wrongAnswer()
+    private IEnumerator wrongAnswer()
     {
         questions.GetComponent<BattleQuestionController>().requeueQuestion();
         health.GetComponent<BattleHealthController>().reducePlayerHealth(healthDecrement);
+        questions.GetComponent<BattleQuestionController>().wrongAns();
+
+        yield return new WaitForSeconds(1.5f);
+
+        nextQuestion();
+
+        yield return null;
     }
 
-    private void rightAnswer()
+    private IEnumerator rightAnswer()
     {
         health.GetComponent<BattleHealthController>().reduceBossHealth(healthDecrement);
+        questions.GetComponent<BattleQuestionController>().correctAns();
+
+        yield return new WaitForSeconds(1.5f);
+
+        nextQuestion();
+
+        yield return null;
     }
 
-    private void timesUp()
+    public IEnumerator timesUp()
     {
         questions.GetComponent<BattleQuestionController>().requeueQuestion();
+        health.GetComponent<BattleHealthController>().reducePlayerHealth(healthDecrement);
+        questions.GetComponent<BattleQuestionController>().timesUp();
+
+        yield return new WaitForSeconds(1.5f);
+
+        nextQuestion();
+
+        yield return null;
+    }
+
+    public IEnumerator win()
+    {
+        yield return null;
+    }
+
+    public IEnumerator lose()
+    {
+        yield return null;
     }
 }

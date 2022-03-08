@@ -5,10 +5,17 @@ using TMPro;
 
 public class BattleQuestionController : MonoBehaviour
 {
+    // Controls question selection and checks answers
+    // Shows feedback upon answer submission
+
     private List<Question> battleQuestions = new List<Question>();
     private List<Question> currentQuestions;
     private Question currentQuestion;
+
     private string promptText = "Pick an answer";
+    private string timesUpText = "Time's up!";
+    private string wrongText = "Wrong!";
+    private string correctText = "Correct!";
 
     public TextMeshProUGUI questionTM;
     public TextMeshProUGUI op1, op2, op3, op4;
@@ -16,12 +23,27 @@ public class BattleQuestionController : MonoBehaviour
     public GameObject submitButton;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
         addDefaultQuestions();
         currentQuestions = new List<Question>(battleQuestions);
+    }
+
+    public void correctAns()
+    {
+        finalAnswer.text = correctText;
+        submitButton.SetActive(false);
+    }
+    public void wrongAns()
+    {
+        finalAnswer.text = wrongText;
+        submitButton.SetActive(false);
+    }
+    public void timesUp()
+    {
+        finalAnswer.text = timesUpText;
+        submitButton.SetActive(false);
     }
 
     public bool checkAnswer()
