@@ -5,16 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/HomeBase.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OpenWorld.unity
     guid: d055234a59dff204ba41236bd0619c5d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DungeonRoom.unity
     guid: 30292c87842fbc04ab92574b47485c68
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CardBattle.unity
     guid: 523971a8a46f8fc4dbe0731d9f812f7f
+  - enabled: 1
+    path: Assets/Scenes/Profile info (Account Info).unity
+    guid: 5a16edc72fcf6204f86e35e238474d6d
   m_configObjects: {}
