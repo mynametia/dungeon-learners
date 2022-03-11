@@ -30,27 +30,35 @@ public class BattleQuestionController : MonoBehaviour
         currentQuestions = new List<Question>(battleQuestions);
     }
 
+    // Display correct answer text and remove submit button
     public void correctAns()
     {
         finalAnswer.text = correctText;
         submitButton.SetActive(false);
     }
+
+    // Display wrong answer text and remove submit button
     public void wrongAns()
     {
         finalAnswer.text = wrongText;
         submitButton.SetActive(false);
     }
+
+    // Display time's up text and remove submit button
     public void timesUp()
     {
         finalAnswer.text = timesUpText;
         submitButton.SetActive(false);
     }
 
+    // Check correctness of answer
     public bool checkAnswer()
     {
         return finalAnswer.text == currentQuestion.options[currentQuestion.answer];
     }
 
+    // Show/hide submit button based on selected answer
+    // Update final answer card based on selected answer
     public void updateFinalAnswer(GameObject answer)
     {
         if (answer == null)
@@ -65,11 +73,15 @@ public class BattleQuestionController : MonoBehaviour
         }
     }
 
+    // If time is up or question is answered wrongly,
+    // current question will be added to question list to be displayed later again
     public void requeueQuestion()
     {
         currentQuestions.Add(currentQuestion);
     }
 
+    // Display 1st question and its options in question list
+    // Removes displayed question from list
     public void popQuestion()
     {
         if (currentQuestions.Count > 0)
@@ -85,14 +97,16 @@ public class BattleQuestionController : MonoBehaviour
         }
     }
 
+    // Get number of questions for this battle
     public int returnQuestionNumber()
     {
         return currentQuestions.Count;
     }
 
+    // Hard code add questions to this battle
     private void addDefaultQuestions()
     {
-        // Hard code add questions to this battle
+        
         battleQuestions.Add(new Question(
             "Which of the following explains what is the meaning of 'subjective satisfaction'?",
             new string[4] {
@@ -112,7 +126,7 @@ public class BattleQuestionController : MonoBehaviour
         battleQuestions.Add(new Question(
             "What is the meaning of 'proprioception'?",
             new string[4] {
-                "Sense of oneÅfs body position or pose",
+                "Sense of one's body position or pose",
                 "Sense of touch experienced through different types of sensory mechanoreceptors",
                 "Sense of balance",
                 "Perception of pain"},

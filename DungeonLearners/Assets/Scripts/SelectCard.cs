@@ -73,6 +73,7 @@ public class SelectCard : MonoBehaviour
         }
     }
 
+    // Deactivate all cards
     public void deactivateChildren()
     {
         foreach (Transform child in transform)

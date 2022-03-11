@@ -23,6 +23,7 @@ public class BattleController : MonoBehaviour
         StartCoroutine(StartGameSequence());
     }
 
+    // Start game animation sequence
     private IEnumerator StartGameSequence()
     {
         yield return new WaitForSeconds(2.5f);
@@ -34,6 +35,7 @@ public class BattleController : MonoBehaviour
         yield return null;
     }
 
+    // Load next question
     public void nextQuestion()
     {
         if (!endGame)
@@ -45,6 +47,7 @@ public class BattleController : MonoBehaviour
         }
     }
 
+    // Submit final answer
     public void submitAnswer()
     {
         questions.GetComponent<SelectCard>().UnhighlightCard();
@@ -59,6 +62,7 @@ public class BattleController : MonoBehaviour
         }
     }
 
+    // Load wrong answer animation sequence
     private IEnumerator wrongAnswer()
     {
         questions.GetComponent<BattleQuestionController>().requeueQuestion();
@@ -73,6 +77,7 @@ public class BattleController : MonoBehaviour
         yield return null;
     }
 
+    // Load right answer animation sequence
     private IEnumerator rightAnswer()
     {
         StartCoroutine(health.GetComponent<BattleHealthController>().reduceBossHealth(healthDecrement));
@@ -86,6 +91,7 @@ public class BattleController : MonoBehaviour
         yield return null;
     }
 
+    // Load time's up animation sequence
     public IEnumerator timesUp()
     {
         questions.GetComponent<SelectCard>().UnhighlightCard();
@@ -101,6 +107,7 @@ public class BattleController : MonoBehaviour
         yield return null;
     }
 
+    // Load win game animation sequence
     public IEnumerator win()
     {
         boss.GetComponent<Animator>().SetBool("Defeated", true);
@@ -116,6 +123,7 @@ public class BattleController : MonoBehaviour
         yield return null;
     }
 
+    // Load lose game animation sequence
     public IEnumerator lose()
     {
         loseUI.SetActive(true);

@@ -28,12 +28,14 @@ public class CountdownTimer : MonoBehaviour
         }
     }
 
+    // Start countdown
     public void startCountdown()
     {
         currentTime = startingTime;
         countDown = true;
     }
 
+    // Pause countdown timer
     public void pause()
     {
         countDown = false;

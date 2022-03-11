@@ -46,9 +46,9 @@ public class HomebaseController : MonoBehaviour
         }
     }
 
+    // Triggers when find world portal is tapped
     private IEnumerator EnterWorld()
     {
-        Debug.Log("Clicked");
         Player.GetComponent<PlayerMovementController>().SetCurrentDestination(FindWorld.transform.position);
 
         yield return new WaitForSeconds(0.05f);

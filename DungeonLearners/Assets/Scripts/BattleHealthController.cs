@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class BattleHealthController : MonoBehaviour
 {
+    // Both boss and player health range from 0 to 1
     public GameObject bossHealth;
     public GameObject playerHealth;
 
@@ -11,9 +12,12 @@ public class BattleHealthController : MonoBehaviour
 
 
     private float roundUp = 10000f;
+
+    // Reduce boss health
     public IEnumerator reduceBossHealth(float value)
     {
         Slider health = bossHealth.GetComponent<Slider>();
+        // Need to round up decrement or else health bar will not reach 0 properly
         float decrement = Mathf.Round((value / 20f)*roundUp)/roundUp;
         float period = 1f / 20f;
         while (value > 0)
@@ -34,9 +38,11 @@ public class BattleHealthController : MonoBehaviour
         yield return null;
     }
 
+    // Reduce player health
     public IEnumerator reducePlayerHealth(float value)
     {
         Slider health = playerHealth.GetComponent<Slider>();
+        // Need to round up decrement or else health bar will not reach 0 properly
         float decrement = Mathf.Round((value / 20f) * roundUp) / roundUp;
         float period = 1f / 20f;
         while (value > 0)
