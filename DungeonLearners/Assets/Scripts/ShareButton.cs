@@ -6,14 +6,19 @@ using System.IO;
 public class ShareButton : MonoBehaviour
 {
 
-// private String shareMessage;
+    // private String shareMessage;
 
-// public void ClickShareButton(){
-//     shareMesssage = ;
+    // public void ClickShareButton(){
+    //     shareMesssage = ;
 
-//     StartCoroutine(TakeScreenshotAndShare());
-// }
+    //     StartCoroutine(TakeScreenshotAndShare());
+    // }
 
+    public void Share()
+    {
+        Debug.Log("Button press");
+        StartCoroutine(TakeScreenshotAndShare());
+    }
 
 
 private IEnumerator TakeScreenshotAndShare()
