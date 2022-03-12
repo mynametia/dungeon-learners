@@ -43,8 +43,10 @@ public class PlayerMovementController : MonoBehaviour
 
     private void MovePlayer()
     {
+        //if (Input.GetMouseButtonDown(0))
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
+            //Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Touch touch = Input.GetTouch(0);
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
 
