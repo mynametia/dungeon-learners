@@ -13,6 +13,8 @@ public class WorldController : MonoBehaviour
     public GameObject worldLayer;
     public GameObject worldLayerLast;
 
+    public GameObject UIText; // Added by Ziyuan
+
     public int dungeonCount = 4;
 
     private int layerCount = 1;
@@ -29,6 +31,7 @@ public class WorldController : MonoBehaviour
         // Dynamically spawns objects in world
         GenerateWorldLayers();
         UpdatePathfindingGrid();
+        UIText.SetActive(false); // Added by Ziyuan
     }
 
     // Update is called once per frame
@@ -60,6 +63,8 @@ public class WorldController : MonoBehaviour
 
     private IEnumerator EnterDungeon(GameObject dungeonEntrance)
     {
+        UIText.SetActive(true); // Added by Ziyuan
+
         Player.GetComponent<PlayerMovementController>().SetCurrentDestination(dungeonEntrance.transform.position);
 
         yield return new WaitForSeconds(0.05f);
