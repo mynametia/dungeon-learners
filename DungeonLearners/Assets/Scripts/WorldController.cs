@@ -1,7 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.EventSystems;
 
 public class WorldController : MonoBehaviour
 {
@@ -25,6 +25,8 @@ public class WorldController : MonoBehaviour
     private float layerOffset = 7f;
 
     private float dungeonEntryMaxDist = 0.3f;
+    private float dungeonEntranceRadius = 1.7f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,24 +40,28 @@ public class WorldController : MonoBehaviour
     void Update()
     {
         //if (Input.GetMouseButtonDown(0))
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.touchCount > 0)
         {
-            // Create a ray starting from point of touch on screen
-            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
-            RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction);
-
-            if (hits.Length > 0)
+            Touch touch = Input.GetTouch(0);
+            if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId) && touch.phase == TouchPhase.Began)
             {
-                // Get the topmost collider
-                RaycastHit2D hit = hits[hits.Length - 1];
+                // Create a ray starting from point of touch on screen
+                //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction);
 
-                GameObject touchedObj = hit.transform.gameObject;
-
-                if (touchedObj.tag == "DungeonEntrance")
+                if (hits.Length > 0)
                 {
-                    // Enter dungeon
-                    StartCoroutine(EnterDungeon(touchedObj));
+                    // Get the topmost collider
+                    RaycastHit2D hit = hits[hits.Length - 1];
+
+                    GameObject touchedObj = hit.transform.gameObject;
+
+                    if (touchedObj.tag == "DungeonEntrance")
+                    {
+                        // Enter dungeon
+                        StartCoroutine(EnterDungeon(touchedObj));
+                    }
                 }
             }
         }
@@ -82,6 +88,10 @@ public class WorldController : MonoBehaviour
             SceneController.GetComponent<FadeTransitionController>().FadeToBlack("DungeonRoom");
             PlayerPrefs.SetFloat("PlayerWorldX", dungeonEntrance.transform.position.x);
             PlayerPrefs.SetFloat("PlayerWorldY", dungeonEntrance.transform.position.y);
+        }
+        else if (Vector3.Distance(Player.transform.position, dungeonEntrance.transform.position) <= dungeonEntranceRadius)
+        {
+            DungeonNameUIText.SetActive(false);
         }
 
         yield return null;

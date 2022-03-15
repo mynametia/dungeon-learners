@@ -1,10 +1,11 @@
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.EventSystems;
 
 public class PlayerMovementController : MonoBehaviour
 {
     // Controlls player movement 
-    public bool moving = false;
+    public bool moving = false, enableMove = true;
 
     public GameObject playerMovementDestination;
     public GameObject currentDestination;
@@ -43,16 +44,19 @@ public class PlayerMovementController : MonoBehaviour
 
     private void MovePlayer()
     {
-        //if (Input.GetMouseButtonDown(0))
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        //if (enableMove && Input.GetMouseButtonDown(0))
+        if (enableMove && Input.touchCount > 0)
         {
-            //Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Touch touch = Input.GetTouch(0);
-            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-
-            // Set position of currentDestination to worldspace position of touch input
-            // A* destination will automatically be updated
-            SetCurrentDestination(touchPosition);
+            if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId) && touch.phase == TouchPhase.Began)
+            {
+                //Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                // Set position of currentDestination to worldspace position of touch input
+                // A* destination will automatically be updated
+                SetCurrentDestination(touchPosition);
+            }
+ 
         }
     }
 
@@ -60,4 +64,5 @@ public class PlayerMovementController : MonoBehaviour
     {
         currentDestination.transform.position = touchPosition;
     }
+
 }

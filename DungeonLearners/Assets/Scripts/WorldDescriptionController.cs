@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class WorldDescriptionController : MonoBehaviour
@@ -22,6 +21,7 @@ public class WorldDescriptionController : MonoBehaviour
     public void CloseWindow()
     {
         gameObject.SetActive(false);
+        //player.GetComponent<PlayerMovementController>().enableMove = true;
     }
 
     public void ShowDescription()
