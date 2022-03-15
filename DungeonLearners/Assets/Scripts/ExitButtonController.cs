@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class ExitButtonController : MonoBehaviour
 {
+    public GameObject SceneController;
+    
     public void OnExitClick()
     {
-        Debug.Log("Hello");
         // Go back to world
-        // FindSceneController();
-        // SceneController.GetComponent<FadeTransitionController>().FadeToBlack("OpenWorld");
+        FindSceneController();
+        SceneController.GetComponent<FadeTransitionController>().FadeToBlack("OpenWorld");
+        Destroy(gameObject);
+    }
+
+    private void FindSceneController()
+    {
+        SceneController = GameObject.FindWithTag("SceneTransition");
     }
 }
