@@ -261,3 +261,59 @@ Received Import Request.
 Start importing Assets/Scenes/Login.unity using Guid(ef729e845011e443b97d87ff7ccb657b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52272ca99c3b34e6b5b9cbfed57c9da0') in 0.042510 seconds 
   Import took 0.054057 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 66.297400 seconds.
+  path: Assets/Scenes/OpenWorld.unity
+  artifactKey: Guid(d055234a59dff204ba41236bd0619c5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/OpenWorld.unity using Guid(d055234a59dff204ba41236bd0619c5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40cfff7e110979396e5130f8ba1f61f9') in 0.001916 seconds 
+  Import took 0.017541 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.570652 seconds.
+  path: Assets/Scenes/Profile info (Account Info).unity
+  artifactKey: Guid(5a16edc72fcf6204f86e35e238474d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Profile info (Account Info).unity using Guid(5a16edc72fcf6204f86e35e238474d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b12a8fa60e72e8a93008c6a9b2babcc7') in 0.003419 seconds 
+  Import took 0.019841 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.669582 seconds.
+  path: Assets/Scenes/Profile info (Avatar Constructions).unity
+  artifactKey: Guid(e83c1d5862a3ca742acd26bb5bf4c17e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Profile info (Avatar Constructions).unity using Guid(e83c1d5862a3ca742acd26bb5bf4c17e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b43f9b2545b3149d690bb2d424fc19e') in 0.010951 seconds 
+  Import took 0.025783 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.021109 seconds.
+  path: Assets/Scenes/Profile info (items).unity
+  artifactKey: Guid(fd1c32e5df468cd4493e75343fac47ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Profile info (items).unity using Guid(fd1c32e5df468cd4493e75343fac47ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '265a0784ab6deed45954d4e713c66105') in 0.005807 seconds 
+  Import took 0.021536 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.366930 seconds.
+  path: Assets/Scenes/Profile info (World info).unity
+  artifactKey: Guid(9bd1abe95570b0e40b5545e246c09bde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Profile info (World info).unity using Guid(9bd1abe95570b0e40b5545e246c09bde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ab4128024f5592739d7b13af8f9a900') in 0.002320 seconds 
+  Import took 0.018029 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.817756 seconds.
+  path: Assets/Scenes/Register.unity
+  artifactKey: Guid(6d9df0b5030e94b899f9b17f466e1900) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Register.unity using Guid(6d9df0b5030e94b899f9b17f466e1900) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2fd6bba49039db614d42500cf12b8a4') in 0.004169 seconds 
+  Import took 0.021029 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 39.339340 seconds.
+  path: Assets/Scenes/Register.unity
+  artifactKey: Guid(6d9df0b5030e94b899f9b17f466e1900) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Register.unity using Guid(6d9df0b5030e94b899f9b17f466e1900) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e239fdb94af71df499a32c3dd38f6bc4') in 0.004735 seconds 
+  Import took 0.021543 seconds .
+
