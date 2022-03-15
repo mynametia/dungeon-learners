@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/WorldStatistics.unity
     guid: fdb5f04e661320a45acd697abfad694d
+  - enabled: 1
+    path: Assets/Scenes/World Manager.unity
+    guid: 97ada03e1c9516347a67a1e7793f04c2
+  - enabled: 1
+    path: Assets/Scenes/Create World.unity
+    guid: 9fc106aebd9049248867d2487c5280c2
+  - enabled: 1
+    path: Assets/Scenes/Edit World.unity
+    guid: 69d64ed40096f7143a8bd3a01ceb6574
   m_configObjects: {}
