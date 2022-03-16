@@ -165,7 +165,7 @@ public class AuthManager : MonoBehaviour
                 if (User != null)
                 {
                     //Create user profile and username
-                    UserProfile profile = new UserProfile {DisplayName: _username};
+                    UserProfile profile = new UserProfile {DisplayName= _username};
 
                     //Call Firebase auth to update the user profile function passing the username
                     var ProfileTask = User.UpdateUserProfileAsync(profile);
