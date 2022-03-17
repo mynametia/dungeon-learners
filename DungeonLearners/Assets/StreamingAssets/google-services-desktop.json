@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "247100325276",
+    "firebase_url": "https://dungeon-game-8af98-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "dungeon-game-8af98",
+    "storage_bucket": "dungeon-game-8af98.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247100325276:android:43ba27a46122c04a391c59",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.UnityProject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247100325276-vltvm5fv809185lnmon8rub0sil4cpq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjkaIiiS6ebssGbGE9zWPbmfJmXFCJtok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247100325276-vltvm5fv809185lnmon8rub0sil4cpq3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "247100325276-d9m5ueltuv41vqgl0u995226hn976i80.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.DefaultCompany.2DProject"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247100325276:android:8828cbc7bc91edd3391c59",
+        "android_client_info": {
+          "package_name": "com.dungeon_learners"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247100325276-7p52tcv6onee12b28ng4qa567algqi4o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dungeon_learners",
+            "certificate_hash": "81765aaf1abef4fb7d023d1630fdd8d96d33a728"
+          }
+        },
+        {
+          "client_id": "247100325276-vltvm5fv809185lnmon8rub0sil4cpq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjkaIiiS6ebssGbGE9zWPbmfJmXFCJtok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247100325276-vltvm5fv809185lnmon8rub0sil4cpq3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "247100325276-d9m5ueltuv41vqgl0u995226hn976i80.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.DefaultCompany.2DProject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
