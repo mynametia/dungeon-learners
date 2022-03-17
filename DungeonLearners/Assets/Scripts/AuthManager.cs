@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Firebase;
 using Firebase.Auth;
 using TMPro;
 
 public class AuthManager : MonoBehaviour
 {
+
     //Firebase variables
     [Header("Firebase")]
     public DependencyStatus dependencyStatus;
@@ -15,7 +17,7 @@ public class AuthManager : MonoBehaviour
 
     //Login variables
     [Header("Login")]
-    public TMP_InputField usernameLoginField;
+    public TMP_InputField emailLoginField;
     public TMP_InputField passwordLoginField;
     public TMP_Text warningLoginText;
     public TMP_Text confirmLoginText;
@@ -27,6 +29,8 @@ public class AuthManager : MonoBehaviour
     public TMP_InputField passwordRegisterField;
     public TMP_InputField confirmpasswordRegisterField;
     public TMP_Text warningRegisterText;
+
+
 
     private void Awake()
     {
@@ -51,13 +55,36 @@ public class AuthManager : MonoBehaviour
         Debug.Log("Setting up Firebase Auth");
         //Set the Firebase authentication instance object
         auth = FirebaseAuth.DefaultInstance;
+
+        auth.StateChanged += AuthStateChanged;
+        AuthStateChanged(this, null);
+    }
+
+    void AuthStateChanged(object sender, System.EventArgs eventArgs)
+    {
+        if (auth.CurrentUser != User)
+        {
+            bool signedIn = User != auth.CurrentUser && auth.CurrentUser != null;
+
+            if (!signedIn && User != null)
+            {
+                Debug.Log("Signed Out " + User.UserId);
+            }
+
+            User = auth.CurrentUser;
+
+            if (signedIn)
+            {
+                Debug.Log("Signed In " + User.UserId);
+            }
+        }
     }
 
     //Function for the login button
     public void LoginButton()
     {
         //Call the login coroutine to pass the username and password
-        StartCoroutine(Login(usernameLoginField.text, passwordLoginField.text));
+        StartCoroutine(Login(emailLoginField.text, passwordLoginField.text));
     }
 
     //Funtion for the register button
@@ -110,6 +137,8 @@ public class AuthManager : MonoBehaviour
             Debug.LogFormat("User has signed in successfully: {0} ({1})", User.DisplayName, User.Email);
             warningLoginText.text = "";
             confirmLoginText.text = "Logged In";
+            //Bring to profile page
+            UnityEngine.SceneManagement.SceneManager.LoadScene("HomeBase");
         }
     }
 
@@ -120,6 +149,11 @@ public class AuthManager : MonoBehaviour
             //show warning if username is blank
             warningRegisterText.text = "Missing username!";
         }
+        // else if (_email == "")
+        // {
+        //     //show warning if email is blank
+        //     warningRegisterText.text = "Missing email!";
+        // }
         else if (passwordRegisterField.text != confirmpasswordRegisterField.text)
         {
             //if passwords don't match
@@ -165,7 +199,7 @@ public class AuthManager : MonoBehaviour
                 if (User != null)
                 {
                     //Create user profile and username
-                    UserProfile profile = new UserProfile {DisplayName= _username};
+                    UserProfile profile = new UserProfile { DisplayName = _username };
 
                     //Call Firebase auth to update the user profile function passing the username
                     var ProfileTask = User.UpdateUserProfileAsync(profile);
@@ -174,6 +208,9 @@ public class AuthManager : MonoBehaviour
 
                     if (ProfileTask.Exception != null)
                     {
+                        //Delete the user if user update failed
+                        //User.DeleteAsync();
+
                         //Error handling
                         Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
                         FirebaseException firebaseEx = ProfileTask.Exception.GetBaseException() as FirebaseException;
@@ -185,6 +222,9 @@ public class AuthManager : MonoBehaviour
                         //username is set
                         UIManager.instance.LoginScreen();
                         warningRegisterText.text = "";
+                        Debug.Log("Registration Successful, Welcome "+ User.DisplayName);
+                        //Bring to create profile page
+                        UnityEngine.SceneManagement.SceneManager.LoadScene("Profile info (Account Info)");
                     }
                 }
             }
