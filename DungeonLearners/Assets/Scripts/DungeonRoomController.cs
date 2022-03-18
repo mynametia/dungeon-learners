@@ -11,7 +11,17 @@ public class DungeonRoomController : MonoBehaviour
 
     public float bossInteractionMaxDist = 2f;
     
-    
+    public bool win = true;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (win)
+        {
+            DungeonBoss.transform.position = new Vector3(-2, 4, 0);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
