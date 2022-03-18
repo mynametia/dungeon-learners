@@ -2,6 +2,7 @@ using System.Collections;
 //using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Pathfinding;
 
 public class DungeonRoomController : MonoBehaviour
 {
@@ -17,10 +18,17 @@ public class DungeonRoomController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        win = GameObject.FindWithTag("DungeonController").GetComponent<DungeonController>().getCurrentRoomWinCond();
+
         if (win)
         {
             DungeonBoss.transform.position = new Vector3(-2, 4, 0);
         }
+        else
+        {
+            DungeonBoss.transform.position = new Vector3(0.5f, 6, 0);
+        }
+        UpdatePathfindingGrid();
     }
 
     // Update is called once per frame
@@ -69,5 +77,11 @@ public class DungeonRoomController : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    // Recalculate A* Pathfinding grid
+    private void UpdatePathfindingGrid()
+    {
+        AstarPath.active.Scan();
     }
 }

@@ -11,6 +11,7 @@ public class DungeonController : MonoBehaviour
 
     public int dungeonRoomCount = 4;
     public int currentDungeonRoomID = 0; // Each dungeon room has ID from 0 to dungeonRoomCount - 1
+    private bool currentRoomCleared = false;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +73,16 @@ public class DungeonController : MonoBehaviour
         FindSceneController();
         SceneController.GetComponent<FadeTransitionController>().FadeToBlack("OpenWorld");
         Destroy(gameObject);
+    }
+
+    public bool getCurrentRoomWinCond()
+    {
+        return currentRoomCleared;
+    }
+
+    public void updateCurrentRoomWinCond(bool win)
+    {
+        currentRoomCleared = win;
     }
 
     private void FindSceneController()

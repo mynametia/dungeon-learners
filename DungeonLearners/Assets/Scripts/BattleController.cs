@@ -110,6 +110,8 @@ public class BattleController : MonoBehaviour
     // Load win game animation sequence
     public IEnumerator win()
     {
+        GameObject.FindWithTag("DungeonController").GetComponent<DungeonController>().updateCurrentRoomWinCond(true);
+
         boss.GetComponent<Animator>().SetBool("Defeated", true);
         yield return new WaitForSeconds(1f);
 
@@ -126,6 +128,7 @@ public class BattleController : MonoBehaviour
     // Load lose game animation sequence
     public IEnumerator lose()
     {
+        GameObject.FindWithTag("DungeonController").GetComponent<DungeonController>().updateCurrentRoomWinCond(false);
         loseUI.SetActive(true);
         questions.GetComponent<SelectCard>().deactivateChildren();
 
