@@ -1,6 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class HomebaseController : MonoBehaviour
 {
@@ -15,55 +16,72 @@ public class HomebaseController : MonoBehaviour
     void Update()
     {
         //if (Input.GetMouseButtonDown(0))
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.touchCount > 0)
         {
-            // Create a ray starting from point of touch on screen
-            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
-            RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction);
-
-            if (hits.Length > 0)
+            Touch touch = Input.GetTouch(0);
+            if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId) && touch.phase == TouchPhase.Began)
             {
-                // Get the topmost collider
-                RaycastHit2D hit = hits[hits.Length - 1];
+                // Create a ray starting from point of touch on screen
+                //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction);
 
-                GameObject touchedObj = hit.transform.gameObject;
-                
-                if (touchedObj.tag == "FindWorld")
+                if (hits.Length > 0)
                 {
-                    // spawn find worlds UI
-                    StartCoroutine(EnterWorld());
+                    // Get the topmost collider
+                    RaycastHit2D hit = hits[hits.Length - 1];
+
+                    GameObject touchedObj = hit.transform.gameObject;
+
+                    if (touchedObj.tag == "FindWorld")
+                    {
+                        // spawn find worlds UI
+                        StartCoroutine(EnterWorld(touchedObj, "OpenWorld", 1f));
+                    }
+                    else if (touchedObj.tag == "MyWorlds")
+                    {
+                        // spawn world manager UI
+                        StartCoroutine(EnterWorld(touchedObj, "World Manager", 1.8f));
+                    }
+                    else if (touchedObj.tag == "Shop")
+                    {
+                        // spawn shop UI
+                    }
                 }
-                else if (touchedObj.tag == "MyWorlds")
-                {
-                    // spawn world manager UI
-                }
-                else if (touchedObj.tag == "Shop")
-                {
-                    // spawn shop UI
-                }
+
             }
         }
     }
 
     // Triggers when find world portal is tapped
-    private IEnumerator EnterWorld()
+    private IEnumerator EnterWorld(GameObject obj, string sceneName, float radius)
     {
-        Player.GetComponent<PlayerMovementController>().SetCurrentDestination(FindWorld.transform.position);
+        Player.GetComponent<PlayerMovementController>().SetCurrentDestination(obj.transform.position);
 
         yield return new WaitForSeconds(0.05f);
 
-        // Wait for player to stop walking
-        while (Player.GetComponent<PlayerMovementController>().moving)
+        int count = 0;
+        while (Vector3.Distance(Player.transform.position, obj.transform.position) > radius)
         {
             yield return new WaitForSeconds(.1f);
+            count++;
+            if (count > 80)
+            {
+                yield break;
+            }
         }
-
-        // If player is standing above world entrance, enter dungeon
-        if (Vector3.Distance(Player.transform.position, FindWorld.transform.position) <= worldEntryMaxDist)
-        {
-            SceneController.GetComponent<FadeTransitionController>().FadeToBlack("OpenWorld");
-        }
+        SceneController.GetComponent<FadeTransitionController>().FadeToBlack(sceneName);
+        //// Wait for player to stop walking
+        //while (Player.GetComponent<PlayerMovementController>().moving)
+        //{
+        //    yield return new WaitForSeconds(.1f);
+        //}
+        //Debug.Log(sceneName + " obj clicked stopped walking");
+        //// If player is standing above world entrance, enter dungeon
+        //if (Vector3.Distance(Player.transform.position, obj.transform.position) <= radius)
+        //{
+        //    SceneController.GetComponent<FadeTransitionController>().FadeToBlack(sceneName);
+        //}
         yield return null;
     }
 }
