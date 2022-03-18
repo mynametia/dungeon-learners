@@ -17,10 +17,7 @@ public class DungeonTransitionController : MonoBehaviour
             {
                 DungeonController.GetComponent<DungeonController>().GoNextRoom();
             }
-            //else if (gameObject.tag == "Boss")
-            //{
-            //    DungeonController.GetComponent<DungeonController>().EnterBattle();
-            //}
+            
         }
  
     }

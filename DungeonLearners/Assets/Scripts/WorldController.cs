@@ -24,7 +24,7 @@ public class WorldController : MonoBehaviour
 
     private float layerOffset = 7f;
 
-    private float dungeonEntryMaxDist = 0.3f;
+    private float dungeonEntryMaxDist = 1f;
     private float dungeonEntranceRadius = 1.7f;
 
     // Start is called before the first frame update
@@ -80,7 +80,7 @@ public class WorldController : MonoBehaviour
         { 
             yield return new WaitForSeconds(.1f);
         }
-
+        Debug.Log("Entrance");
         // If player is standing above dungeon entrance, enter dungeon
         if (Vector3.Distance(Player.transform.position, dungeonEntrance.transform.position) <= dungeonEntryMaxDist)
         {
