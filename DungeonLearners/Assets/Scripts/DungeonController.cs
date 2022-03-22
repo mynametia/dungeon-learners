@@ -88,9 +88,20 @@ public class DungeonController : MonoBehaviour
         return currentRoomCleared;
     }
 
+    public bool[] getRoomClearedArray()
+    {
+        return roomClearedArray;
+    }
+
     public void updateCurrentRoomWinCond(bool win)
     {
         currentRoomCleared = win;
+        updateRoomClearedArray(); // Updates the array as well
+    }
+
+    public void updateRoomClearedArray()
+    {
+        roomClearedArray[getCurrentRoomID()] = getCurrentRoomWinCond();
     }
 
     private void FindSceneController()

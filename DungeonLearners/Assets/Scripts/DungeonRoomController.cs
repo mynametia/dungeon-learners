@@ -15,12 +15,17 @@ public class DungeonRoomController : MonoBehaviour
     
     public bool win = true;
 
+    private int currentRoomID;
+
+    private bool[] winArray;
+
     // Start is called before the first frame update
     void Start()
     {
-        win = GameObject.FindWithTag("DungeonController").GetComponent<DungeonController>().getCurrentRoomWinCond();
+        currentRoomID = GameObject.FindWithTag("DungeonController").GetComponent<DungeonController>().getCurrentRoomID();
+        winArray = GameObject.FindWithTag("DungeonController").GetComponent<DungeonController>().getRoomClearedArray();
 
-        if (win)
+        if (winArray[currentRoomID]) // Checks if current room's boss has been defeated
         {
             DungeonBoss.transform.position = new Vector3(-2, 4, 0);
         }
