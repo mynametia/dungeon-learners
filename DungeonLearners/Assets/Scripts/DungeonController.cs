@@ -13,11 +13,14 @@ public class DungeonController : MonoBehaviour
     public int currentDungeonRoomID = 0; // Each dungeon room has ID from 0 to dungeonRoomCount - 1
     private bool currentRoomCleared = false;
 
+    private bool[] roomClearedArray;
+
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(transform.gameObject);
         currentDungeonRoomID = 0;
+        roomClearedArray = new bool[dungeonRoomCount]; // Initialize all elements to false
     }
 
     // User starts battle
