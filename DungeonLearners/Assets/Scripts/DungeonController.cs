@@ -75,6 +75,11 @@ public class DungeonController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public int getCurrentRoomID()
+    {
+        return currentDungeonRoomID;
+    }
+
     public bool getCurrentRoomWinCond()
     {
         return currentRoomCleared;
