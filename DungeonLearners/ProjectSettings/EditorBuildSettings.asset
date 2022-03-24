@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Profile info (Account Info).unity
     guid: 5a16edc72fcf6204f86e35e238474d6d
   - enabled: 1
-    path: Assets/Scenes/WorldStatistics.unity
+    path: Assets/Scenes/MyWorldDescription.unity
     guid: fdb5f04e661320a45acd697abfad694d
   - enabled: 1
     path: Assets/Scenes/World Manager.unity
