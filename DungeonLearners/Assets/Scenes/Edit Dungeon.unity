@@ -363,6 +363,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1957002253732450491, guid: 5dffc47860d94a548b80700895587eac, type: 3}
+      propertyPath: m_text
+      value: Edit Dungeon
+      objectReference: {fileID: 0}
     - target: {fileID: 1957002253851248653, guid: 5dffc47860d94a548b80700895587eac, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
