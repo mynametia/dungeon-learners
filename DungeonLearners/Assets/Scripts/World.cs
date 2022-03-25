@@ -1,9 +1,9 @@
 public class World {
-    private string worldName;
-    private string description;
-    private string visibility;
-    private User createdBy;
-    public World(){}
+    public string worldName;
+    public string description;
+    public string visibility;
+    public User createdBy;
+    // public World(){}
 
     public World(string worldName, string description, string visibility){//, User createdBy) {
         this.worldName = worldName;

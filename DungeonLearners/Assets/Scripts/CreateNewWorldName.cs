@@ -34,6 +34,7 @@ public class CreateNewWorldName : MonoBehaviour
         string json = JsonUtility.ToJson(world);
         string worldId = "0";
         reference.Child("worlds").Child(worldId).SetRawJsonValueAsync(json);
+
         SceneManager.LoadScene("World Manager");
     }
 
