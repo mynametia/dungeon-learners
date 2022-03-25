@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Edit World.unity
     guid: 69d64ed40096f7143a8bd3a01ceb6574
+  - enabled: 1
+    path: Assets/Scenes/Edit Dungeon.unity
+    guid: 44ece5a08a0146a4897a40a59dcc2460
+  - enabled: 1
+    path: Assets/Scenes/Create Dungeon.unity
+    guid: 30f5b846d60f6124da62944433c0262a
   m_configObjects: {}
