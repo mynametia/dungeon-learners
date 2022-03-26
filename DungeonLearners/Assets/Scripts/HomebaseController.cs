@@ -36,7 +36,7 @@ public class HomebaseController : MonoBehaviour
                     if (touchedObj.tag == "FindWorld")
                     {
                         // spawn find worlds UI
-                        StartCoroutine(EnterWorld(touchedObj, "OpenWorld", 1f));
+                        StartCoroutine(EnterWorld(touchedObj, "FindWorld", 1f));
                     }
                     else if (touchedObj.tag == "MyWorlds")
                     {
