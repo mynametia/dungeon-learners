@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    public static string previousScene;
+    public static Stack<string> previousScene = new Stack<string>();
     public void MoveToScene(int sceneID)
     {
         SceneManager.LoadScene(sceneID);
@@ -11,13 +12,14 @@ public class ChangeScene : MonoBehaviour
 
     public static void MoveToScene(string sceneName)
     {
-        previousScene = SceneManager.GetActiveScene().name;
+        previousScene.Push(SceneManager.GetActiveScene().name);
+        Debug.Log(previousScene.Peek() +" pushed");
         SceneManager.LoadScene(sceneName);
     }
 
     public static void ReturnPreviousScene()
     {
-        Debug.Log(previousScene);
-        MoveToScene(previousScene);
+        Debug.Log("Go back to "+previousScene.Peek());
+        SceneManager.LoadScene(previousScene.Pop());
     }
 }

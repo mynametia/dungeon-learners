@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
 public class ShareButton : MonoBehaviour
 {
-    public bool myWorld = false;
+    //public bool myWorld = false;
     // private String shareMessage;
 
     // public void ClickShareButton(){
@@ -16,12 +16,21 @@ public class ShareButton : MonoBehaviour
 
     public void Share()
     {
-        Debug.Log("Button press");
-        StartCoroutine(TakeScreenshotAndShare());
+        //Debug.Log("Button press");
+        StartCoroutine(TakeScreenshotAndShare("Hey Guys! Come join me in playing Dungeon Learners. Here's my rank! "));
     }
 
+    public void ShareMyWorld()
+    {
+        StartCoroutine(TakeScreenshotAndShare("Hey Guys! Come join me in playing Dungeon Learners. Here's a world I created! "));
+    }
 
-    private IEnumerator TakeScreenshotAndShare()
+    public void GenerateReport()
+    {
+        StartCoroutine(TakeScreenshotAndShare("Leaderboard ranking for my world"));
+    }
+
+    private IEnumerator TakeScreenshotAndShare(string msg)
     {
         yield return new WaitForEndOfFrame();
 
@@ -34,16 +43,6 @@ public class ShareButton : MonoBehaviour
 
         // To avoid memory leaks
         Destroy( ss );
-
-        string msg;
-        if (myWorld)
-        {
-            msg = "Hey Guys! Come join me in playing Dungeon Learners. Here's a world I created! ";
-        }
-        else 
-        {
-            msg = "Hey Guys! Come join me in playing Dungeon Learners. Here's my rank! ";
-        }
 
         new NativeShare().AddFile( filePath )
             .SetSubject( "Dungeon Learners" ).SetText( msg ).SetUrl( "https://github.com/yasirkula/UnityNativeShare" )
