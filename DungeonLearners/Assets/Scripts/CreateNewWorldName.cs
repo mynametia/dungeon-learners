@@ -31,7 +31,7 @@ public class CreateNewWorldName : MonoBehaviour
 
         string json = JsonUtility.ToJson(world);
         string worldId = GameState.getCurWorldID().ToString();
-        print("World ID: " + worldId);
+        print("World ID added: " + worldId);
         reference.Child("worlds").Child(worldId).SetRawJsonValueAsync(json);
 
         GameState.setCurrentWorld(world);

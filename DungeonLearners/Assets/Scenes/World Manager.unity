@@ -871,7 +871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8749043541676469328, guid: 0c1d82c9d163a164888585ac835ae539, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8749043541676469328, guid: 0c1d82c9d163a164888585ac835ae539, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -975,15 +975,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyWorldEntry: {fileID: 4174341918196963571, guid: 78f053a49452a3e4db636739dd7d3ab9, type: 3}
   WorldList: {fileID: 8749043541614293929}
-  WorldName: {fileID: 8749043541614293931}
---- !u!114 &8749043541614293931 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 886826286996046052, guid: 0c1d82c9d163a164888585ac835ae539, type: 3}
-  m_PrefabInstance: {fileID: 8749043541614293927}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  WorldName: {fileID: 0}
