@@ -21,17 +21,15 @@ public class WorldManager : MonoBehaviour
 
         reference.Child("worlds").GetValueAsync().ContinueWithOnMainThread(task => {
         if (task.IsFaulted) {
-          // Handle the error...
+           Debug.Log("Could Read Data from DB");
         }
         else if (task.IsCompleted) {
           DataSnapshot snapshot = task.Result;
-          foreach(var child in snapshot.Children) // Wor
+          foreach(var child in snapshot.Children) 
               {
-                  Debug.Log("The Key"+child.GetRawJsonValue());
-                  World world = JsonUtility.FromJson<World>(child.GetRawJsonValue());
-                  AddWorldEntry(world.worldName);
+                    World world = JsonUtility.FromJson<World>(child.GetRawJsonValue());
+                    AddWorldEntry(world.worldName);
               }
-          // Do something with snapshot...
         }
       });
     }
