@@ -3,6 +3,8 @@ using UnityEngine;
 using Firebase;
 using Firebase.Auth;
 using TMPro;
+using Firebase.Database;
+using UnityEngine.SceneManagement;
 
 public class FirebaseManager : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class FirebaseManager : MonoBehaviour
     public DependencyStatus dependencyStatus;
     public FirebaseAuth auth;    
     public FirebaseUser User;
+    public DatabaseReference DBreference;
 
     //Login variables
     [Header("Login")]
@@ -26,6 +29,15 @@ public class FirebaseManager : MonoBehaviour
     public TMP_InputField passwordRegisterField;
     public TMP_InputField passwordRegisterVerifyField;
     public TMP_Text warningRegisterText;
+
+    //User Data variables
+    [Header("UserData")]
+    public TMP_Text currentUser;
+    public TMP_InputField updateUsername;
+    public TMP_InputField updatedPassword;
+    public TMP_Text currentEmail;
+    public TMP_Text currentEXP;
+    public TMP_Text currentCoins;
 
     void Awake()
     {
@@ -50,6 +62,20 @@ public class FirebaseManager : MonoBehaviour
         Debug.Log("Setting up Firebase Auth");
         //Set the authentication instance object
         auth = FirebaseAuth.DefaultInstance;
+        DBreference = FirebaseDatabase.DefaultInstance.RootReference;
+    }
+
+    public void ClearLoginFeilds()
+    {
+        emailLoginField.text = "";
+        passwordLoginField.text = "";
+    }
+    public void ClearRegisterFeilds()
+    {
+        usernameRegisterField.text = "";
+        emailRegisterField.text = "";
+        passwordRegisterField.text = "";
+        passwordRegisterVerifyField.text = "";
     }
 
     //Function for the login button
@@ -63,6 +89,14 @@ public class FirebaseManager : MonoBehaviour
     {
         //Call the register coroutine passing the email, password, and username
         StartCoroutine(Register(emailRegisterField.text, passwordRegisterField.text, usernameRegisterField.text));
+    }
+
+    public void LogOutButton()
+    {
+        auth.SignOut();
+        UIManager.instance.LoginScreen();
+        ClearRegisterFeilds();
+        ClearLoginFeilds();
     }
 
     private IEnumerator Login(string _email, string _password)
@@ -106,8 +140,17 @@ public class FirebaseManager : MonoBehaviour
             //Now get the result
             User = LoginTask.Result;
             Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
+
             warningLoginText.text = "";
             confirmLoginText.text = "Logged In";
+
+            yield return new WaitForSeconds(2);
+
+            currentUser.text = User.DisplayName;
+            SceneManager.LoadScene("HomeBase"); // Change to Homebase scene
+            confirmLoginText.text = "";
+            ClearLoginFeilds();
+            ClearRegisterFeilds();
         }
     }
 
@@ -190,4 +233,42 @@ public class FirebaseManager : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator UpdateUsernameAuth(string _username)
+    {
+        //Create a user profile and set the username
+        UserProfile profile = new UserProfile { DisplayName = _username };
+
+        //Call the Firebase auth update user profile function passing the profile with the username
+        var ProfileTask = User.UpdateUserProfileAsync(profile);
+        //Wait until the task completes
+        yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
+
+        if (ProfileTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
+        }
+        else
+        {
+            //Auth username is now updated
+        }        
+    }
+
+    private IEnumerator UpdateUsernameDatabase(string _username)
+    {
+        //Set the currently logged in user username in the database
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(_username);
+
+        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            //Database username is now updated
+        }
+    }
+
 }
