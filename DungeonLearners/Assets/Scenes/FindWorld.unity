@@ -329,6 +329,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41873bc2c613a6b43a6d4e18f9fcfcbc, type: 3}
+--- !u!114 &2131892911 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2425362238524794801, guid: 41873bc2c613a6b43a6d4e18f9fcfcbc, type: 3}
+  m_PrefabInstance: {fileID: 2131892910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86699908e66644444b3770a2757c5089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4062452630243335742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -503,6 +514,30 @@ PrefabInstance:
     - target: {fileID: 41317357385244496, guid: 44da127747cbbdf4597700efa760834b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 41317357413649832, guid: 44da127747cbbdf4597700efa760834b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 41317357413649832, guid: 44da127747cbbdf4597700efa760834b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2131892911}
+    - target: {fileID: 41317357413649832, guid: 44da127747cbbdf4597700efa760834b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FadeToBlack
+      objectReference: {fileID: 0}
+    - target: {fileID: 41317357413649832, guid: 44da127747cbbdf4597700efa760834b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FadeTransitionController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 41317357413649832, guid: 44da127747cbbdf4597700efa760834b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: HomeBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 41317357413649832, guid: 44da127747cbbdf4597700efa760834b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 41317357450739817, guid: 44da127747cbbdf4597700efa760834b, type: 3}
       propertyPath: m_AnchorMax.y
