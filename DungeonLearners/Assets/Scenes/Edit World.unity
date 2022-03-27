@@ -288,7 +288,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5172181817378155565, guid: 66cc598fc2cc21743997106fedaae66b, type: 3}
   m_PrefabInstance: {fileID: 4238187257986489392}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &892943808
+--- !u!114 &892943804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,11 +297,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 892943803}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5b702af3d460ed40a2315476ee5e47a, type: 3}
+  m_Script: {fileID: 11500000, guid: 317b0ec5fb49527428462e06e908b727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldName1: {fileID: 1389227386}
-  worldDesc1: {fileID: 419169935}
+  text1: {fileID: 1389227386}
+  desc1: {fileID: 419169935}
 --- !u!114 &1389227386 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7467174148684733351, guid: 66cc598fc2cc21743997106fedaae66b, type: 3}
@@ -1112,7 +1112,7 @@ PrefabInstance:
     - target: {fileID: 5172181817378155567, guid: 66cc598fc2cc21743997106fedaae66b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 892943808}
+      objectReference: {fileID: 892943804}
     - target: {fileID: 5172181817378155567, guid: 66cc598fc2cc21743997106fedaae66b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1123,7 +1123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5172181817378155567, guid: 66cc598fc2cc21743997106fedaae66b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CreateNewWorldName, Assembly-CSharp
+      value: EditWorldController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5172181817378155567, guid: 66cc598fc2cc21743997106fedaae66b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

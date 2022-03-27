@@ -13,33 +13,32 @@ public class EditWorldController : MonoBehaviour
 {
     public TMP_InputField text1;
     public TMP_InputField desc1;
-    string world1;
-    string worlddesc1;
+    string worldName;
+    string worldDescription;
+    int worldID;
 
     void Start()
     {
-        world1 = PlayerPrefs.GetString("WorldName1");
-        text1.text = world1;
-        worlddesc1 = PlayerPrefs.GetString("WorldDesc1");
-        desc1.text = worlddesc1;
+        worldName = GameState.getCurrentWorld().worldName;
+        worldDescription = GameState.getCurrentWorld().description;
+        worldID = GameState.getCurrentWorld().worldID;
+
+        text1.text = worldName;
+        desc1.text = worldDescription;
     }
 
     public void SaveWorldName()
     {
-        world1 = text1.text;
-        worlddesc1 = desc1.text;
-        PlayerPrefs.SetString("WorldDesc1", worlddesc1);
-        PlayerPrefs.SetString("WorldName1", world1); 
-
+        worldName = text1.text;
+        worldDescription = desc1.text;
+       
         DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
-        World world = new World(world1, worlddesc1, "Public");
+        World world = new World(worldID, worldName, worldDescription, "Public");
 
         GameState.setCurrentWorld(world);
 
         string json = JsonUtility.ToJson(world);
-        string worldId = GameState.getCurWorldID().ToString();
-        print(worldId.GetType());
-        reference.Child("worlds").Child(worldId).SetRawJsonValueAsync(json);
+        reference.Child("worlds").Child(worldID.ToString()).SetRawJsonValueAsync(json);
 
         SceneManager.LoadScene("World Manager");
 
