@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 
 using Firebase;
 using Firebase.Database;
-using Firebase.Firestore;
-using static Firebase.Firestore.DocumentReference;
+
+
 public class CreateNewWorldName : MonoBehaviour
 {
     public TMP_InputField worldName1;
@@ -31,32 +31,10 @@ public class CreateNewWorldName : MonoBehaviour
 
         string json = JsonUtility.ToJson(world);
         string worldId = GameState.getCurWorldID().ToString();
-        print(worldId.GetType());
+        print("World ID added: " + worldId);
         reference.Child("worlds").Child(worldId).SetRawJsonValueAsync(json);
 
-
-        // var worldVar = new WorldData{
-            
-        //     worldName = world_nameOne, 
-        //     worldDescription = world_descOne, 
-        //     visibility = "Public"
-        // };
-
-        // var firestore = FirebaseFirestore.DefaultInstance;
-        // // DocumentReference docRef = firestoreDB.Collection("question_bank").Document(world_nameOne);
-        
-        // firestore.Document("question_bank").SetAsync(worldVar);
-        
-        // Dictionary<string, object> city = new Dictionary<string, object>
-        // {
-        //         // { "Name", "Los Angeles" },
-        //         // { "State", "CA" },
-        //         // { "Country", "USA" }
-        // };
-        // docRef.SetAsync(city).ContinueWithOnMainThread(task => {
-        //         Debug.Log("Added world to the collection");
-        // });
-
+        GameState.setCurrentWorld(world);
         SceneManager.LoadScene("World Manager");
 
     }
