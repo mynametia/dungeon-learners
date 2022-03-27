@@ -2,9 +2,11 @@ public class World {
     public string worldName;
     public string description;
     public string visibility;
+    public int worldID;
     public User createdBy;
 
-    public World(string worldName, string description, string visibility){//, User createdBy) {
+    public World(int worldID, string worldName, string description, string visibility){//, User createdBy) {
+        this.worldID = worldID;
         this.worldName = worldName;
         this.description = description; 
         this.visibility = visibility;

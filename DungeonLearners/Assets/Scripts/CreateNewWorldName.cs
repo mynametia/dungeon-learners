@@ -23,16 +23,14 @@ public class CreateNewWorldName : MonoBehaviour
         world_descOne = worldDesc1.text;
         PlayerPrefs.SetString("WorldDesc1", world_descOne);
         PlayerPrefs.SetString("WorldName1", world_nameOne); 
-
+        int worldId = GameState.getNewWorldID();
         DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
-        World world = new World(world_nameOne, world_descOne, "Public");
+        World world = new World(worldId, world_nameOne, world_descOne, "Public");
 
         GameState.setCurrentWorld(world);
-
         string json = JsonUtility.ToJson(world);
-        string worldId = GameState.getCurWorldID().ToString();
         print("World ID added: " + worldId);
-        reference.Child("worlds").Child(worldId).SetRawJsonValueAsync(json);
+        reference.Child("worlds").Child(worldId.ToString()).SetRawJsonValueAsync(json);
 
         GameState.setCurrentWorld(world);
         SceneManager.LoadScene("World Manager");
