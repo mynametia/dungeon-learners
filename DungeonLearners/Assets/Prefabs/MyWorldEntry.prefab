@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 1039337702059314371}
   - component: {fileID: 1361733964595750454}
   - component: {fileID: 1950249639805232771}
+  - component: {fileID: 2605994361500887204}
   m_Layer: 0
   m_Name: EditButton
   m_TagString: Untagged
@@ -252,7 +253,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4199855851521396815}
         m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: MoveToScene
         m_Mode: 5
@@ -261,9 +262,21 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Edit Dungeon
+          m_StringArgument: Edit World
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2605994361500887204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615737773189489125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a046a8c9da2493641aac7562dab726d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4174341918196963571
 GameObject:
   m_ObjectHideFlags: 0
