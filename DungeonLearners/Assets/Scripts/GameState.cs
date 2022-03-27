@@ -8,13 +8,34 @@ using Firebase.Extensions;
 
 public class GameState : MonoBehaviour
 {
-    public static World currentWorld;
+    public static World currentWorld = null;
     public static User currentUser;
 
-    public static int curWorldID = 11;
+    public static int newWorldID = 11;
 
+    void Start(){
+        if (currentWorld == null){
+            DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+            reference.Child("worlds").GetValueAsync().ContinueWithOnMainThread(task => {
+            if (task.IsFaulted) {
+                Debug.Log("Could Read Data from DB");
+            }
+            else if (task.IsCompleted) {
+                DataSnapshot snapshot = task.Result;
+                foreach(var child in snapshot.Children) 
+                    {
+                            World world = JsonUtility.FromJson<World>(child.GetRawJsonValue());
+                            setCurrentWorld(world);
+                            break;
+                    }
+                }
+            });
+        }
+    }
     public static void setCurrentWorld(World world){
         GameState.currentWorld = world;
+        Debug.Log("Current World Set to: " + world.worldName);
     }
 
     public static void setCurrentUser(User user){
@@ -28,10 +49,9 @@ public class GameState : MonoBehaviour
         return currentUser;
     }
 
-    
-    public static int getCurWorldID(){
-        curWorldID  = curWorldID + 1;
-        return curWorldID;
+    public static int getNewWorldID(){
+        newWorldID  = newWorldID + 1;
+        return newWorldID;
     }
 }
 
