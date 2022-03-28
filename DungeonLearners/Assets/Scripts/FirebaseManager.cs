@@ -5,6 +5,7 @@ using Firebase.Auth;
 using TMPro;
 using Firebase.Database;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class FirebaseManager : MonoBehaviour
 {
@@ -206,6 +207,7 @@ public class FirebaseManager : MonoBehaviour
                         break;
                 }
                 warningRegisterText.text = message;
+                CheckPasswordCondition();
             }
             else
             {
@@ -256,7 +258,7 @@ public class FirebaseManager : MonoBehaviour
                             }
                         });
 
-                        UIManager.instance.LoginScreen();
+                        //UIManager.instance.LoginScreen();
                         warningRegisterText.text = "";
                         StartCoroutine(SendVerificationEmail());
                     }
@@ -299,6 +301,21 @@ public class FirebaseManager : MonoBehaviour
         else
         {
             //Database username is now updated
+        }
+    }
+
+    public void CheckPasswordCondition()
+    {
+        string ReceivedString = passwordRegisterField.text;
+        if (ReceivedString.Any(char.IsLetter) && ReceivedString.Any(char.IsDigit) && ReceivedString.Any(char.IsUpper) && 
+        ReceivedString.Any(ch => ! char.IsLetterOrDigit (ch)) && ReceivedString.Length > 8)
+        {
+            Debug.Log("Password is good, allowed to register");
+        }
+        else
+        {
+            Debug.Log("Password is bad, registration is not allowed");
+            warningRegisterText.text = "Weak Password. Please make sure it contains digits, letters and special characters";
         }
     }
 
