@@ -147,7 +147,9 @@ public class FirebaseManager : MonoBehaviour
             yield return new WaitForSeconds(2);
 
             currentUser.text = User.DisplayName;
+
             SceneManager.LoadScene("HomeBase"); // Change to Homebase scene
+            
             confirmLoginText.text = "";
             ClearLoginFeilds();
             ClearRegisterFeilds();
@@ -226,6 +228,27 @@ public class FirebaseManager : MonoBehaviour
                     {
                         //Username is now set
                         //Now return to login screen
+                        User user = new User();
+                        user.UserName = usernameRegisterField.text;
+                        user.Email = emailRegisterField.text;
+                        user.NoOfCoins = 0;
+                        user.EXP = 0;
+                        
+                        string json = JsonUtility.ToJson(user);
+                        DBreference.Child("users").Child(user.UserName).SetRawJsonValueAsync(json).ContinueWith(task =>
+                        {
+                            if(task.IsCompleted)
+                            {
+                                Debug.Log("Successfully added data to firebase");
+                                warningRegisterText.text = "User has been created!";
+                            }
+                            else
+                            {
+                                Debug.Log("Adding data to firebase not successful");
+                                warningRegisterText.text = "Not able to create user";
+                            }
+                        });
+
                         UIManager.instance.LoginScreen();
                         warningRegisterText.text = "";
                     }

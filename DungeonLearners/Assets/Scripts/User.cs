@@ -6,5 +6,8 @@ public class User
 {
    public string UserName;
    public string Email;
-   public string PassWord;
+   public int NoOfCoins;
+   public int EXP;
+   
+   
 }

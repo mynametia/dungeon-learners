@@ -34,7 +34,6 @@ public class DatabaseManager : MonoBehaviour
         User user = new User();
         user.UserName = usernameCreateField.text;
         user.Email = emailCreateField.text;
-        user.PassWord = passwordCreateField.text;
         string json = JsonUtility.ToJson(user);
 
         DBreference.Child("Users").Child(user.UserName).SetRawJsonValueAsync(json).ContinueWith(task =>
