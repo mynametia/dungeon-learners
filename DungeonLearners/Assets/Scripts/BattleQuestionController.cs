@@ -27,9 +27,9 @@ public class BattleQuestionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        addQuestions("Computing", "Artificial Intelligence", 0);
-        // addDefaultQuestions();
-        // currentQuestions = new List<Question>(battleQuestions);
+        // addQuestions("Computing", "Artificial Intelligence", 0);
+        addDefaultQuestions();
+        currentQuestions = new List<Question>(battleQuestions);
         // Debug.Log("This should run");
     }
 
