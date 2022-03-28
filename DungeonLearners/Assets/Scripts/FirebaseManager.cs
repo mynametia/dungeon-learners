@@ -146,7 +146,7 @@ public class FirebaseManager : MonoBehaviour
 
             yield return new WaitForSeconds(2);
 
-            currentUser.text = User.DisplayName;
+            currentUser.text = GameState.User;
 
             SceneManager.LoadScene("HomeBase"); // Change to Homebase scene
             
