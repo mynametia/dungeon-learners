@@ -27,8 +27,10 @@ public class BattleQuestionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        addDefaultQuestions();
-        currentQuestions = new List<Question>(battleQuestions);
+        addQuestions("Computing", "Artificial Intelligence", 0);
+        // addDefaultQuestions();
+        // currentQuestions = new List<Question>(battleQuestions);
+        // Debug.Log("This should run");
     }
 
     // Display correct answer text and remove submit button
@@ -145,6 +147,8 @@ public class BattleQuestionController : MonoBehaviour
             Debug.Log("Document data for " + qnNo);
             
             Dictionary<string, object> question = documentSnapshot.ToDictionary();
+            Debug.Log(question["question"].ToString());
+            Debug.Log(question["correctOpt"].ToString());
             battleQuestions.Add(new Question(
                 question["question"].ToString(),
                 new string[4] {
@@ -152,8 +156,10 @@ public class BattleQuestionController : MonoBehaviour
                     question["opt2"].ToString(),
                     question["opt3"].ToString(),
                     question["opt4"].ToString()},
-                (int)(question["correctOpt"])-1
+                int.Parse(question["correctOpt"].ToString())-1
             ));
         }
+
+        currentQuestions = new List<Question>(battleQuestions);
     }
 }
