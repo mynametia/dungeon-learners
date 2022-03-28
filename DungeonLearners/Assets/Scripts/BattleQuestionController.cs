@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Firebase.Firestore;
 
 public class BattleQuestionController : MonoBehaviour
 {
@@ -131,5 +132,28 @@ public class BattleQuestionController : MonoBehaviour
                 "Sense of balance",
                 "Perception of pain"},
             0));
+    }
+
+    private async void addQuestions(string worldName, string topicName, int dungeonID)
+    {
+        var db = FirebaseFirestore.DefaultInstance;
+        Query questions = db.Collection("question_bank").Document(worldName).Collection(topicName).Document("difficulty_" + (dungeonID+1).ToString()).Collection("questions");
+        QuerySnapshot questionsSnapshot = await questions.GetSnapshotAsync();
+        foreach (DocumentSnapshot documentSnapshot in questionsSnapshot.Documents)
+        {
+            string qnNo = documentSnapshot.Id.ToString();
+            Debug.Log("Document data for " + qnNo);
+            
+            Dictionary<string, object> question = documentSnapshot.ToDictionary();
+            battleQuestions.Add(new Question(
+                question["question"].ToString(),
+                new string[4] {
+                    question["opt1"].ToString(),
+                    question["opt2"].ToString(),
+                    question["opt3"].ToString(),
+                    question["opt4"].ToString()},
+                (int)(question["correctOpt"])-1
+            ));
+        }
     }
 }
