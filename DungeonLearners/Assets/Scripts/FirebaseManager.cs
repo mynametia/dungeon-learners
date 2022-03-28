@@ -136,23 +136,30 @@ public class FirebaseManager : MonoBehaviour
         }
         else
         {
-            //User is now logged in
-            //Now get the result
-            User = LoginTask.Result;
-            Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
+            if (User.IsEmailVerified)
+            {
+                //User is now logged in
+                //Now get the result
+                User = LoginTask.Result;
+                Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
 
-            warningLoginText.text = "";
-            confirmLoginText.text = "Logged In";
+                warningLoginText.text = "";
+                confirmLoginText.text = "Logged In";
 
-            yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(2);
 
-            currentUser.text = GameState.User;
+                //currentUser.text = GameState.User;
 
-            SceneManager.LoadScene("HomeBase"); // Change to Homebase scene
-            
-            confirmLoginText.text = "";
-            ClearLoginFeilds();
-            ClearRegisterFeilds();
+                SceneManager.LoadScene("HomeBase"); // Change to Homebase scene
+                
+                confirmLoginText.text = "";
+                ClearLoginFeilds();
+                ClearRegisterFeilds();
+            }
+            else
+            {
+                StartCoroutine(SendVerificationEmail());
+            }
         }
     }
 
@@ -251,6 +258,7 @@ public class FirebaseManager : MonoBehaviour
 
                         UIManager.instance.LoginScreen();
                         warningRegisterText.text = "";
+                        StartCoroutine(SendVerificationEmail());
                     }
                 }
             }
@@ -291,6 +299,45 @@ public class FirebaseManager : MonoBehaviour
         else
         {
             //Database username is now updated
+        }
+    }
+
+    private IEnumerator SendVerificationEmail()
+    {
+        if(User != null)
+        {
+            //Call the firebase to do email verification
+            var emailTask = User.SendEmailVerificationAsync();
+            //Wait until the email task completes
+            yield return new WaitUntil(predicate: () => emailTask.IsCompleted);
+            //If there are errors
+            if(emailTask.Exception != null)
+            {
+                FirebaseException firebaseEx = emailTask.Exception.GetBaseException() as FirebaseException;
+                AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
+
+                string output = "Unknown Error, Try again!";
+
+                switch (errorCode)
+                {
+                    case AuthError.Cancelled:
+                        output = "Verification Task was cancelled";
+                        break;
+                    case AuthError.InvalidRecipientEmail:
+                        output = "Invalid Email!";
+                        break;
+                    case AuthError.TooManyRequests:
+                        output = "Too Many Requests!";
+                        break;
+                }
+
+                UIManager.instance.AwaitVerification(false, User.Email, output);
+            }
+            else
+            {
+                UIManager.instance.AwaitVerification(true, User.Email, null);
+                Debug.Log("Email Sent Successfully");
+            }
         }
     }
 
