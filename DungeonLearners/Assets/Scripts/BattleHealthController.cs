@@ -10,6 +10,7 @@ public class BattleHealthController : MonoBehaviour
 
     public GameObject battleControl;
 
+    public GameObject DungeonControl;
 
     private float roundUp = 10000f;
 
@@ -32,6 +33,9 @@ public class BattleHealthController : MonoBehaviour
             bossHealth.SetActive(false);
 
             yield return new WaitForSeconds(0.5f);
+
+            DungeonControl = GameObject.FindWithTag("DungeonController");
+            DungeonControl.GetComponent<DungeonController>().UpdateRoomScore(playerHealth.GetComponent<Slider>().value);
 
             StartCoroutine(battleControl.GetComponent<BattleController>().win());
         }
