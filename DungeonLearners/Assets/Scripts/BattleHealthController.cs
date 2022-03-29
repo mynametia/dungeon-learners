@@ -27,7 +27,7 @@ public class BattleHealthController : MonoBehaviour
             value -= decrement;
             yield return new WaitForSeconds(period);
         }
-        if (health.value <= 0)
+        if (health.value <= 0.0001)
         {
             battleControl.GetComponent<BattleController>().endGame = true;
             bossHealth.SetActive(false);
@@ -55,7 +55,7 @@ public class BattleHealthController : MonoBehaviour
             value -= decrement;
             yield return new WaitForSeconds(period);
         }
-        if (health.value <= 0)
+        if (health.value <= 0.0001)
         {
             battleControl.GetComponent<BattleController>().endGame = true;
             playerHealth.SetActive(false);
