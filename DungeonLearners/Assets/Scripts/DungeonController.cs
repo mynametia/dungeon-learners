@@ -149,13 +149,17 @@ public class DungeonController : MonoBehaviour
         int roomID = getCurrentRoomID();
         bool oldCond = roomClearedArray[roomID];
         bool newCond = getCurrentRoomWinCond();
-
-        if (roomID == roomClearedArray.Length - 1 && oldCond == false && newCond == true)
+        Debug.Log("current room:"+roomID);
+        Debug.Log("room old cond:" + oldCond);
+        Debug.Log("room new cond:" + newCond);
+        if (roomID == (dungeonRoomCount - 1) && !oldCond && newCond)
         {
             giveEXPCoin = true;
+            
         }
+        Debug.Log("giveEXPCoin " + giveEXPCoin);
 
-        roomClearedArray[roomID] = getCurrentRoomWinCond();
+        roomClearedArray[roomID] = newCond;
     }
 
     private void FindSceneController()

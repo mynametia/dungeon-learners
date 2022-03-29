@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Firebase;
 using Firebase.Database;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
     private int score, coins;
+
+    public TextMeshProUGUI scoreText, coinText;
     
     // Start is called before the first frame update
     void Start()
@@ -14,6 +17,9 @@ public class ScoreManager : MonoBehaviour
         DatabaseReference DBreference = FirebaseDatabase.DefaultInstance.RootReference;
         score = PlayerPrefs.GetInt("EXP");
         coins = PlayerPrefs.GetInt("Coins");
+
+        scoreText.text = score.ToString();
+        coinText.text = coins.ToString();
 
         StartCoroutine(UpdateCoins(coins));
         StartCoroutine(UpdateScore(score));
@@ -63,10 +69,4 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
