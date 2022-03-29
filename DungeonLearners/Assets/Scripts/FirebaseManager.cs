@@ -4,6 +4,7 @@ using Firebase;
 using Firebase.Auth;
 using TMPro;
 using Firebase.Database;
+using Firebase.Extensions;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
@@ -150,6 +151,24 @@ public class FirebaseManager : MonoBehaviour
                 yield return new WaitForSeconds(2);
 
                 //currentUser.text = GameState.User;
+                DBreference.Child("users").GetValueAsync().ContinueWithOnMainThread(task => {
+                if (task.IsFaulted) {
+                    Debug.Log("Could Not Read Data from DB");
+                }
+
+                else if (task.IsCompleted) {
+                    DataSnapshot snapshot = task.Result;
+                    foreach(var child in snapshot.Children) 
+                {
+                    User user = JsonUtility.FromJson<User>(child.GetRawJsonValue());
+                    if(_email.CompareTo(user.Email)==0)
+                    {
+                        GameState.setCurrentUser(user);
+                        break;
+                    }
+                }
+            }
+        });
 
                 SceneManager.LoadScene("HomeBase"); // Change to Homebase scene
                 
@@ -241,7 +260,6 @@ public class FirebaseManager : MonoBehaviour
                         user.UserName = usernameRegisterField.text;
                         user.Email = emailRegisterField.text;
                         user.NoOfCoins = 0;
-                        user.EXP = 0;
                         
                         string json = JsonUtility.ToJson(user);
                         DBreference.Child("users").Child(user.UserName).SetRawJsonValueAsync(json).ContinueWith(task =>
