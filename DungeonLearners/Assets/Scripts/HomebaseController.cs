@@ -46,6 +46,7 @@ public class HomebaseController : MonoBehaviour
                     else if (touchedObj.tag == "Shop")
                     {
                         // spawn shop UI
+                        StartCoroutine(EnterWorld(touchedObj, "Shop", 1.8f));
                     }
                 }
 
