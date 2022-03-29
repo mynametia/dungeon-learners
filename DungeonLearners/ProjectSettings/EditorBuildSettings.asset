@@ -44,4 +44,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FindWorld.unity
     guid: 8a866a01d0fa6e04e9feeb7f8a534996
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 545fa99ebaf87cb4a9880c07a3d426d0
+  - enabled: 1
+    path: Assets/Scenes/ScoreCard.unity
+    guid: 4528c0d0add5c954a98e406e49ba188c
   m_configObjects: {}
