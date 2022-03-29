@@ -27,7 +27,9 @@ public class WorldManager : MonoBehaviour
           DataSnapshot snapshot = task.Result;
           foreach(var child in snapshot.Children) 
               {
+                    Debug.Log(child.GetRawJsonValue());
                     World world = JsonUtility.FromJson<World>(child.GetRawJsonValue());
+                    Debug.Log(world.worldName);
                     AddWorldEntry(world.worldName);
               }
         }

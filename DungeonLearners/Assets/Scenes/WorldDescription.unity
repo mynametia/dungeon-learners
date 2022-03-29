@@ -811,9 +811,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6786435212912068578, guid: 7adc62d2a54827c459edc0df00377307, type: 3}
+      propertyPath: Rank
+      value: 
+      objectReference: {fileID: 8419460430197000864, guid: 1425c77e0fa5b0b4394985792a5eaea3, type: 3}
+    - target: {fileID: 6786435212912068578, guid: 7adc62d2a54827c459edc0df00377307, type: 3}
+      propertyPath: PlayerList
+      value: 
+      objectReference: {fileID: 1108855615414538648}
     - target: {fileID: 6970411739031497631, guid: 7adc62d2a54827c459edc0df00377307, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7adc62d2a54827c459edc0df00377307, type: 3}
+--- !u!1 &1108855615414538648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 549867808889671244, guid: 7adc62d2a54827c459edc0df00377307, type: 3}
+  m_PrefabInstance: {fileID: 1108855615414538647}
+  m_PrefabAsset: {fileID: 0}
