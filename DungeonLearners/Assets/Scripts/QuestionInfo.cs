@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class QuestionInfo : MonoBehaviour
+public class QuestionInfo
 {
     public string question;
     public string opt1;
@@ -15,6 +15,7 @@ public class QuestionInfo : MonoBehaviour
 
     public static QuestionInfo CreateFromJSON(string jsonString)
     {
+        Debug.Log("Create from JSON");
         return JsonUtility.FromJson<QuestionInfo>(jsonString);
     }
 }

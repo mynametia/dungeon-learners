@@ -29,9 +29,10 @@ public class BattleQuestionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        addQuestions("Computing", "Artificial Intelligence", 0);
+        // addQuestions("Computing", "Artificial Intelligence", 0);
+        addHardcodedQuestions("Computing", "Artificial Intelligence", 0);
         // addDefaultQuestions();
-        // currentQuestions = new List<Question>(battleQuestions);
+        currentQuestions = new List<Question>(battleQuestions);
         Debug.Log("This should run1");
     }
 
@@ -173,11 +174,24 @@ public class BattleQuestionController : MonoBehaviour
         for (int i = 0; i < noQuestions; i++)
         {
             string path = subject + "_" + topic + "_" + dungeonID + "_" + (i+1).ToString();
-            TextAsset qnJsonData = (TextAsset)Resources.Load("JsonFiles/" + path);
+            // Assets/Resources/QuestionFiles/Comp_AI_0_1.json
+            // TextAsset qnJsonData = (TextAsset)Resources.Load("QuestionFiles/Comp_AI_0_1");
+            TextAsset qnJsonData = (TextAsset)Resources.Load("QuestionFiles/" + path);
+            string strJson = qnJsonData.text;
 
             // string path = Application.persistentDataPath + "/" + subject + "_" + topic + "_" + dungeonID + "_" + (i+1).ToString() + ".json";
 
-            var singleQuestion = QuestionInfo.CreateFromJSON(qnJsonData.text);
+            var singleQuestion = QuestionInfo.CreateFromJSON(strJson);
+
+            battleQuestions.Add(new Question(
+                singleQuestion.question,
+                new string[4] {
+                    singleQuestion.opt1,
+                    singleQuestion.opt2,
+                    singleQuestion.opt3,
+                    singleQuestion.opt4},
+                singleQuestion.correctOpt-1
+            ));
         }
     }
 
