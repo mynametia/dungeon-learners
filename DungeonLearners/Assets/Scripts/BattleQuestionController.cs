@@ -29,11 +29,12 @@ public class BattleQuestionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // addQuestions("Computing", "Artificial Intelligence", 0);
+        // Get dungeon room ID
+
         addHardcodedQuestions("Computing", "Artificial Intelligence", 0);
         // addDefaultQuestions();
+        // addQuestions("Computing", "Artificial Intelligence", 0);
         currentQuestions = new List<Question>(battleQuestions);
-        Debug.Log("This should run1");
     }
 
     // Display correct answer text and remove submit button
@@ -140,9 +141,9 @@ public class BattleQuestionController : MonoBehaviour
             0));
     }
 
-    private void addHardcodedQuestions(string worldName, string topicName, int dungeonID)
+    private void addHardcodedQuestions(string worldName, string topicName, int dungeonRoomID)
     {
-        switch ((worldName, topicName, dungeonID))
+        switch ((worldName, topicName, dungeonRoomID))
         {
             case ("Computing", "Artificial Intelligence", 0):
                 jsonDeserialize("Comp", "AI", "0", 3);
@@ -169,17 +170,18 @@ public class BattleQuestionController : MonoBehaviour
         }
     }
 
-    private void jsonDeserialize(string subject, string topic, string dungeonID, int noQuestions)
+    // Get questions from JSON files and add to battleQuestions
+    private void jsonDeserialize(string subject, string topic, string dungeonRoomID, int noQuestions)
     {
         for (int i = 0; i < noQuestions; i++)
         {
-            string path = subject + "_" + topic + "_" + dungeonID + "_" + (i+1).ToString();
+            string path = subject + "_" + topic + "_" + dungeonRoomID + "_" + (i+1).ToString();
             // Assets/Resources/QuestionFiles/Comp_AI_0_1.json
             // TextAsset qnJsonData = (TextAsset)Resources.Load("QuestionFiles/Comp_AI_0_1");
             TextAsset qnJsonData = (TextAsset)Resources.Load("QuestionFiles/" + path);
             string strJson = qnJsonData.text;
 
-            // string path = Application.persistentDataPath + "/" + subject + "_" + topic + "_" + dungeonID + "_" + (i+1).ToString() + ".json";
+            // string path = Application.persistentDataPath + "/" + subject + "_" + topic + "_" + dungeonRoomID + "_" + (i+1).ToString() + ".json";
 
             var singleQuestion = QuestionInfo.CreateFromJSON(strJson);
 
@@ -195,10 +197,11 @@ public class BattleQuestionController : MonoBehaviour
         }
     }
 
-    private async void addQuestions(string worldName, string topicName, int dungeonID)
+    // Get questions from Firebase and add to battleQuestions
+    private async void addQuestions(string worldName, string topicName, int dungeonRoomID)
     {
         var db = FirebaseFirestore.DefaultInstance;
-        Query questions = db.Collection("question_bank").Document(worldName).Collection(topicName).Document("difficulty_" + (dungeonID+1).ToString()).Collection("questions");
+        Query questions = db.Collection("question_bank").Document(worldName).Collection(topicName).Document("difficulty_" + (dungeonRoomID+1).ToString()).Collection("questions");
         QuerySnapshot questionsSnapshot = await questions.GetSnapshotAsync();
         foreach (DocumentSnapshot documentSnapshot in questionsSnapshot.Documents)
         {
