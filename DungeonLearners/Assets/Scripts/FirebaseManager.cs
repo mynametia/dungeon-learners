@@ -32,6 +32,11 @@ public class FirebaseManager : MonoBehaviour
     public TMP_InputField passwordRegisterVerifyField;
     public TMP_Text warningRegisterText;
 
+    //ForgetPassword variables
+    [Header("Forget Password")]
+    public TMP_InputField emailForgetField;
+    public TMP_Text warningResetText;
+
     //User Data variables
     [Header("UserData")]
     public TMP_Text currentUser;
@@ -101,6 +106,19 @@ public class FirebaseManager : MonoBehaviour
         ClearLoginFeilds();
     }
 
+    public void ForgetPassword()
+    {
+        if (emailForgetField.text == "")
+        {
+            warningResetText.text = "Please enter your email!";
+        }
+        else
+        {
+            forgetPasswordSubmit(emailForgetField.text);
+            warningResetText.text = "Successfully sent reset email!";
+        }
+    }
+
     private IEnumerator Login(string _email, string _password)
     {
         //Call the Firebase auth signin function passing the email and password
@@ -138,8 +156,8 @@ public class FirebaseManager : MonoBehaviour
         }
         else
         {
-            if (User.IsEmailVerified)
-            {
+            //if (User.IsEmailVerified)
+            //{
                 //User is now logged in
                 //Now get the result
                 User = LoginTask.Result;
@@ -152,36 +170,38 @@ public class FirebaseManager : MonoBehaviour
 
                 //currentUser.text = GameState.User;
                 DBreference.Child("users").GetValueAsync().ContinueWithOnMainThread(task => {
-                if (task.IsFaulted) {
-                    Debug.Log("Could Not Read Data from DB");
-                }
-
-                else if (task.IsCompleted) {
-                    DataSnapshot snapshot = task.Result;
-                    foreach(var child in snapshot.Children) 
-                {
-                    User user = JsonUtility.FromJson<User>(child.GetRawJsonValue());
-                    if(_email.CompareTo(user.Email)==0)
+                    if (task.IsFaulted) 
                     {
-                        GameState.setCurrentUser(user);
-                        break;
+                        Debug.Log("Could Not Read Data from DB");
                     }
-                }
-            }
-        });
+
+                    else if (task.IsCompleted) 
+                    {
+                        DataSnapshot snapshot = task.Result;
+                        foreach(var child in snapshot.Children) 
+                        {
+                            User user = JsonUtility.FromJson<User>(child.GetRawJsonValue());
+                            if(_email.CompareTo(user.Email)==0)
+                            {
+                                GameState.setCurrentUser(user);
+                                break;
+                            }
+                        }
+                    }
+                });
 
                 SceneManager.LoadScene("HomeBase"); // Change to Homebase scene
                 
                 confirmLoginText.text = "";
                 ClearLoginFeilds();
                 ClearRegisterFeilds();
-            }
-            else
-            {
-                StartCoroutine(SendVerificationEmail());
-            }
+            // }
+            // else
+            // {
+            //     StartCoroutine(SendVerificationEmail());
         }
     }
+    //}
 
     private IEnumerator Register(string _email, string _password, string _username)
     {
@@ -374,6 +394,21 @@ public class FirebaseManager : MonoBehaviour
                 Debug.Log("Email Sent Successfully");
             }
         }
+    }
+
+    void forgetPasswordSubmit(string emailForgetField)
+    {
+        auth.SendPasswordResetEmailAsync(emailForgetField).ContinueWithOnMainThread(task => {
+
+            if (task.IsCanceled)
+            {
+                Debug.LogError("Sending reset email is cancelled");
+            }
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Sending reset email encountered an error: " + task.Exception);
+            }
+        });
     }
 
 }
