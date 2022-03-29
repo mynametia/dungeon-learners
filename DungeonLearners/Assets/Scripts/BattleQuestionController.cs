@@ -168,15 +168,16 @@ public class BattleQuestionController : MonoBehaviour
         }
     }
 
-    private async void jsonDeserialize(string subject, string topic, string dungeonID, int noQuestions)
+    private void jsonDeserialize(string subject, string topic, string dungeonID, int noQuestions)
     {
         for (int i = 0; i < noQuestions; i++)
         {
-            string path = Application.persistentDataPath + "/" + subject + "_" + topic + "_" + dungeonID + "_" + (i+1).ToString() + ".json";
+            string path = subject + "_" + topic + "_" + dungeonID + "_" + (i+1).ToString();
+            TextAsset qnJsonData = (TextAsset)Resources.Load("JsonFiles/" + path);
 
-            StreamReader reader = new StreamReader(path);
-            QuestionInfo.CreateFromJSON(reader.ReadToEnd());
-            reader.Close();
+            // string path = Application.persistentDataPath + "/" + subject + "_" + topic + "_" + dungeonID + "_" + (i+1).ToString() + ".json";
+
+            var singleQuestion = QuestionInfo.CreateFromJSON(qnJsonData.text);
         }
     }
 
