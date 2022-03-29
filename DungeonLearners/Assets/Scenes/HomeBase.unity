@@ -395,6 +395,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712710085}
   m_CullTransparentMesh: 1
+--- !u!1 &738970164 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2425362238524794764, guid: 41873bc2c613a6b43a6d4e18f9fcfcbc, type: 3}
+  m_PrefabInstance: {fileID: 2067353611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &903901067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1136,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2425362238524794801, guid: 41873bc2c613a6b43a6d4e18f9fcfcbc, type: 3}
   m_PrefabInstance: {fileID: 2067353611}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 738970164}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86699908e66644444b3770a2757c5089, type: 3}
@@ -4818,7 +4823,7 @@ PrefabInstance:
     - target: {fileID: 1339430715162421386, guid: 88cc5f51da0af0a459767923edf1ada0, type: 3}
       propertyPath: SceneController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 738970164}
     - target: {fileID: 1339430715162421386, guid: 88cc5f51da0af0a459767923edf1ada0, type: 3}
       propertyPath: worldEntryMaxDist
       value: 0.3

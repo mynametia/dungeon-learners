@@ -39,15 +39,15 @@ public class DungeonRoomController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetMouseButtonDown(0))
-        if (Input.touchCount > 0)
+        if (Input.GetMouseButtonDown(0))
+        //if (Input.touchCount > 0)
         {
-            Touch touch = Input.GetTouch(0);
-            if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId) && touch.phase == TouchPhase.Began)
+            //Touch touch = Input.GetTouch(0);
+            //if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId) && touch.phase == TouchPhase.Began)
             {
                 // Create a ray starting from point of touch on screen
-                //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                //Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction);
 
                 if (hits.Length > 0)
