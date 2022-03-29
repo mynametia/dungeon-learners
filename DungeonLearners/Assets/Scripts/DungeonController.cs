@@ -9,8 +9,10 @@ public class DungeonController : MonoBehaviour
     public GameObject SceneController;
     public GameObject Player;
 
-    public int dungeonRoomCount = 4;
-    public int currentDungeonRoomID = 0; // Each dungeon room has ID from 0 to dungeonRoomCount - 1
+    public int dungeonRoomCount = 3; // = 4;
+    // Ziyuan's edit: change dungeonRoomCount to 3
+    // Ziyuan's edit: change currentDungeonRoomID to static
+    public static int currentDungeonRoomID = 0; // Each dungeon room has ID from 0 to dungeonRoomCount - 1
     private bool currentRoomCleared = false;
     private bool giveEXPCoin = false;
     private float EXPmultiplier = 30f, coinMultiplier = 10f;
