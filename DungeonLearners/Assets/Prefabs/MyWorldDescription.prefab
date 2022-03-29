@@ -2449,6 +2449,10 @@ MonoBehaviour:
   rankingBoard: {fileID: 7941460253184458543}
   worldName: {fileID: 6444734291662671266}
   worldID: {fileID: 6444734291673403845}
+  Rank: {fileID: 8419460430197000864, guid: 1425c77e0fa5b0b4394985792a5eaea3, type: 3}
+  PlayerList: {fileID: 5748262222446420101}
+  PlayerName: {fileID: 0}
+  PlayerEXP: {fileID: 0}
 --- !u!114 &3959361584307832865
 MonoBehaviour:
   m_ObjectHideFlags: 0
