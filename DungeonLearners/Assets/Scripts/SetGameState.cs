@@ -16,7 +16,7 @@ public class SetGameState : MonoBehaviour
         
         reference.Child("worlds").GetValueAsync().ContinueWithOnMainThread(task => {
         if (task.IsFaulted) {
-           Debug.Log("Could Not Read Data from DB");
+           Debug.Log("Could not Read Data from DB");
         }
 
         else if (task.IsCompleted) {
@@ -24,7 +24,7 @@ public class SetGameState : MonoBehaviour
             foreach(var child in snapshot.Children) 
                 {
                     World world = JsonUtility.FromJson<World>(child.GetRawJsonValue());
-                    if(String.Equals(world.worldName, worldName))
+                    if(worldName.CompareTo(world.worldName)==0)
                     {
                         GameState.setCurrentWorld(world);
                         break;

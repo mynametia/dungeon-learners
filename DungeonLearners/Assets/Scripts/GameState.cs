@@ -11,7 +11,7 @@ public class GameState : MonoBehaviour
     public static World currentWorld = null;
     public static User currentUser;
 
-    public static int newWorldID = 11;
+    public static int newWorldID = 0;
 
     void Start(){
         if (currentWorld == null){
@@ -19,7 +19,7 @@ public class GameState : MonoBehaviour
 
             reference.Child("worlds").GetValueAsync().ContinueWithOnMainThread(task => {
             if (task.IsFaulted) {
-                Debug.Log("Could Read Data from DB");
+                Debug.Log("Could Not Read Data from DB");
             }
             else if (task.IsCompleted) {
                 DataSnapshot snapshot = task.Result;

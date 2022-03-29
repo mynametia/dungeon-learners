@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &53591859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6939522692508048025, guid: 5dffc47860d94a548b80700895587eac, type: 3}
+  m_PrefabInstance: {fileID: 5024115633512739410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &171303022 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9027474962760991021, guid: 5dffc47860d94a548b80700895587eac, type: 3}
@@ -247,6 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dungeonNameField: {fileID: 171303022}
+  DungeonList: {fileID: 53591859}
 --- !u!4 &1677433542
 Transform:
   m_ObjectHideFlags: 0

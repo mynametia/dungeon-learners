@@ -13,7 +13,7 @@ public class EditQuestionController : MonoBehaviour
 
     public void UpdateQuestionNumber()
     {
-        QuestionNumberText.text = "Question " + (gameObject.transform.GetSiblingIndex() + 1).ToString() + ":";
+        QuestionNumberText.text = "Question " + (gameObject.transform.GetSiblingIndex()).ToString() + ":";
     }
 
     public void DeleteQuestionField()

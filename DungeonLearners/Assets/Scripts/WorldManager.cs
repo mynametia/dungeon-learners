@@ -6,7 +6,6 @@ using Firebase.Extensions;
 public class WorldManager : MonoBehaviour
 {   
     public GameObject MyWorldEntry, WorldList;
-    public TMP_Text WorldName;
 
     private int oldChildCount;
 
@@ -21,15 +20,13 @@ public class WorldManager : MonoBehaviour
 
         reference.Child("worlds").GetValueAsync().ContinueWithOnMainThread(task => {
         if (task.IsFaulted) {
-           Debug.Log("Could Read Data from DB");
+           Debug.Log("Could Not Read Data from DB");
         }
         else if (task.IsCompleted) {
           DataSnapshot snapshot = task.Result;
           foreach(var child in snapshot.Children) 
               {
-                    Debug.Log(child.GetRawJsonValue());
                     World world = JsonUtility.FromJson<World>(child.GetRawJsonValue());
-                    Debug.Log(world.worldName);
                     AddWorldEntry(world.worldName);
               }
         }
