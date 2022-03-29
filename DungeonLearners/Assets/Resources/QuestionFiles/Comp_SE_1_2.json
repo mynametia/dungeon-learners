@@ -1,0 +1,8 @@
+{
+    "opt3": "System error",
+    "opt2": "Human error or mistake",
+    "opt4": "System fault",
+    "question": "An erroneous system state that results in an unexpected system behavior is acknowledged as?",
+    "opt1": "System failure",
+    "correctOpt": 3
+  }
