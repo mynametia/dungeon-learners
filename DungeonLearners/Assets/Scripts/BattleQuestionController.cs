@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Firebase.Firestore;
+using UnityEditor;
 
 public class BattleQuestionController : MonoBehaviour
 {
@@ -27,10 +28,10 @@ public class BattleQuestionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // addQuestions("Computing", "Artificial Intelligence", 0);
-        addDefaultQuestions();
-        currentQuestions = new List<Question>(battleQuestions);
-        // Debug.Log("This should run");
+        addQuestions("Computing", "Artificial Intelligence", 0);
+        // addDefaultQuestions();
+        // currentQuestions = new List<Question>(battleQuestions);
+        Debug.Log("This should run1");
     }
 
     // Display correct answer text and remove submit button
@@ -87,6 +88,7 @@ public class BattleQuestionController : MonoBehaviour
     // Removes displayed question from list
     public void popQuestion()
     {
+        Debug.Log("popQuestion");
         if (currentQuestions.Count > 0)
         {
             currentQuestion = currentQuestions[0];
@@ -161,5 +163,6 @@ public class BattleQuestionController : MonoBehaviour
         }
 
         currentQuestions = new List<Question>(battleQuestions);
+        Debug.Log("This should run");
     }
 }
