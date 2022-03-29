@@ -147,8 +147,10 @@ public class BattleQuestionController : MonoBehaviour
                 jsonDeserialize("Comp", "AI", "0", 3);
                 break;
             case ("Computing", "Artificial Intelligence", 1):
+                jsonDeserialize("Comp", "AI", "1", 3);
                 break;
             case ("Computing", "Artificial Intelligence", 2):
+                jsonDeserialize("Comp", "AI", "2", 4);
                 break;
             case ("Computing", "Human Computer Interaction", 0):
                 break;
@@ -170,7 +172,7 @@ public class BattleQuestionController : MonoBehaviour
     {
         for (int i = 0; i < noQuestions; i++)
         {
-            string path = Application.persistentDataPath + "/" + subject + "_" + topic + "_" + dungeonID + "_" + i.ToString() + ".json";
+            string path = Application.persistentDataPath + "/" + subject + "_" + topic + "_" + dungeonID + "_" + (i+1).ToString() + ".json";
 
             StreamReader reader = new StreamReader(path);
             QuestionInfo.CreateFromJSON(reader.ReadToEnd());
