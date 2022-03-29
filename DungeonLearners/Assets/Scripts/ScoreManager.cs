@@ -15,14 +15,18 @@ public class ScoreManager : MonoBehaviour
         score = PlayerPrefs.GetInt("EXP");
         coins = PlayerPrefs.GetInt("Coins");
 
-        StartCoroutine(UpdateCoins(int.Parse(coins)));
-        StartCoroutine(UpdateScore(int.Parse(score)));
+        StartCoroutine(UpdateCoins(coins));
+        StartCoroutine(UpdateScore(score));
     }
 
     private IEnumerator UpdateCoins (int _coins)
     {
         //Set the currently logged in user
-        var DBTask = DBreference.Child("users").Child(User.UserName).Child("coins").SetValueAsync(_coins);
+        DatabaseReference DBreference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        string username = GameState.User;
+
+        var DBTask = DBreference.Child("users").Child(username).Child("coins").SetValueAsync(_coins);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -39,6 +43,8 @@ public class ScoreManager : MonoBehaviour
     private IEnumerator UpdateScore (int _score)
     {
         //Set the currently logged in user
+        DatabaseReference DBreference = FirebaseDatabase.DefaultInstance.RootReference;
+
         var DBTask = DBreference.Child("wolrds").Child(User.UserName).Child("EXP").SetValueAsync(_score);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
