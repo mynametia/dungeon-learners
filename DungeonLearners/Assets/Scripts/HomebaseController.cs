@@ -19,7 +19,7 @@ public class HomebaseController : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId) && touch.phase == TouchPhase.Began)
+            if (!EventSystem.current.IsPointerOverGameObject(0) && touch.phase == TouchPhase.Began)
             {
                 // Create a ray starting from point of touch on screen
                 //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
