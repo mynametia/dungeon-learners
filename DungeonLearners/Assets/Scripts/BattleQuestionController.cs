@@ -155,10 +155,13 @@ public class BattleQuestionController : MonoBehaviour
                 jsonDeserialize("Comp", "AI", "2", 4);
                 break;
             case ("Computing", "Human Computer Interaction", 0):
+                jsonDeserialize("Comp", "HCI", "0", 3);
                 break;
             case ("Computing", "Human Computer Interaction", 1):
+                jsonDeserialize("Comp", "HCI", "1", 4);
                 break;
             case ("Computing", "Human Computer Interaction", 2):
+                jsonDeserialize("Comp", "HCI", "2", 3);
                 break;
             case ("Computing", "Software Engineering", 0):
                 break;

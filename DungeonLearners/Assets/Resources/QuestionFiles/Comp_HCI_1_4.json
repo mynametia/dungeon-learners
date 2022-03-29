@@ -1,0 +1,8 @@
+{
+    "opt1": "200Hz to 20MHz",
+    "opt2": "20Hz to 20kHz",
+    "opt3": "2MHz to 200MHz",
+    "opt4": "20kHz to 20GHz",
+    "correctOpt": 2,
+    "question": "What is the approximate frequency range that humans can detect?"
+  }
