@@ -1,0 +1,8 @@
+{
+    "opt3": "Finding the shortest path between a source and a destination",
+    "opt1": "Map coloring Problem",
+    "opt2": "Depth-first search traversal on a given map represented as a graph",
+    "opt4": "Travelling Salesman problem",
+    "question": "In which search problem, to find the shortest path, each city must be visited once only?",
+    "correctOpt": 4
+    }

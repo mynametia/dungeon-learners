@@ -1,0 +1,8 @@
+{
+    "opt4": "None of the mentioned",
+    "opt2": "It is the transmission of error back through the network to adjust the inputs",
+    "correctOpt": 3,
+    "question": "What is back propagation?",
+    "opt3": "It is the transmission of error back through the network to allow weights to be adjusted so that the network can learn",
+    "opt1": "It is another name given to the curvy function in the perceptron"
+  }

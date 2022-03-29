@@ -1,0 +1,8 @@
+{
+    "opt1": "Sensors",
+    "correctOpt": 4,
+    "opt2": "Perceiver",
+    "question": "An AI agent perceives and acts upon the environment using___.",
+    "opt4": "Both a and c",
+    "opt3": "Actuators"
+}

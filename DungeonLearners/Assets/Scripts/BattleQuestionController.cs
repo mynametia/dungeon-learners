@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Firebase.Firestore;
 using UnityEditor;
+using System.IO;
 
 public class BattleQuestionController : MonoBehaviour
 {
@@ -136,6 +137,45 @@ public class BattleQuestionController : MonoBehaviour
                 "Sense of balance",
                 "Perception of pain"},
             0));
+    }
+
+    private void addHardcodedQuestions(string worldName, string topicName, int dungeonID)
+    {
+        switch ((worldName, topicName, dungeonID))
+        {
+            case ("Computing", "Artificial Intelligence", 0):
+                jsonDeserialize("Comp", "AI", "0", 3);
+                break;
+            case ("Computing", "Artificial Intelligence", 1):
+                break;
+            case ("Computing", "Artificial Intelligence", 2):
+                break;
+            case ("Computing", "Human Computer Interaction", 0):
+                break;
+            case ("Computing", "Human Computer Interaction", 1):
+                break;
+            case ("Computing", "Human Computer Interaction", 2):
+                break;
+            case ("Computing", "Software Engineering", 0):
+                break;
+            case ("Computing", "Software Engineering", 1):
+                break;
+            case ("Computing", "Software Engineering", 2):
+                break;
+            
+        }
+    }
+
+    private async void jsonDeserialize(string subject, string topic, string dungeonID, int noQuestions)
+    {
+        for (int i = 0; i < noQuestions; i++)
+        {
+            string path = Application.persistentDataPath + "/" + subject + "_" + topic + "_" + dungeonID + "_" + i.ToString() + ".json";
+
+            StreamReader reader = new StreamReader(path);
+            QuestionInfo.CreateFromJSON(reader.ReadToEnd());
+            reader.Close();
+        }
     }
 
     private async void addQuestions(string worldName, string topicName, int dungeonID)

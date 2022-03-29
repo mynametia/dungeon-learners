@@ -1,0 +1,8 @@
+{
+    "opt2": "Each sentence is a declarative sentence.",
+    "opt3": "Propositional logic is a knowledge representation technique in AI.",
+    "correctOpt": 1,
+    "opt4": "None of the above",
+    "opt1": "The sentences of Propositional logic can have answers other than True or False.",
+    "question": "For propositional Logic, which statement is false?"
+  }

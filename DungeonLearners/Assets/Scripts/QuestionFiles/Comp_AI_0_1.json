@@ -1,0 +1,8 @@
+{
+    "opt2": "DFS/BFS algorithm",
+    "opt1": "Heuristic Search Algorithm",
+    "opt4": "Min/Max algorithm",
+    "correctOpt": 4,
+    "question": "Which algorithm is used in the Game tree to make decisions of Win/Lose?",
+    "opt3": "Greedy Search Algorithm"
+}

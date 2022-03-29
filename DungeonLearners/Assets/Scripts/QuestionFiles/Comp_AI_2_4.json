@@ -1,0 +1,8 @@
+{
+    "opt3": "Recurrent neural network",
+    "opt4": "Multi layered perceptron",
+    "correctOpt": 3,
+    "question": "The network that involves backward links from output to the input and hidden layers is called _________",
+    "opt1": "Self organizing maps",
+    "opt2": "Perceptrons"
+}
