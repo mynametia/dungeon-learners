@@ -44,14 +44,14 @@ public class PlayerMovementController : MonoBehaviour
 
     private void MovePlayer()
     {
-        if (enableMove && Input.GetMouseButtonDown(0))
-        //if (enableMove && Input.touchCount > 0)
+        //if (enableMove && Input.GetMouseButtonDown(0))
+        if (enableMove && Input.touchCount > 0)
         {
-            //Touch touch = Input.GetTouch(0);
-            //if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId) && touch.phase == TouchPhase.Began)
+            Touch touch = Input.GetTouch(0);
+            if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId) && touch.phase == TouchPhase.Began)
             {
-                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                //Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                //Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
                 // Set position of currentDestination to worldspace position of touch input
                 // A* destination will automatically be updated
                 SetCurrentDestination(touchPosition);
