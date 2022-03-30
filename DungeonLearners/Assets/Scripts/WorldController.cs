@@ -122,7 +122,7 @@ public class WorldController : MonoBehaviour
             PlayerPrefs.SetFloat("PlayerWorldX", dungeonEntrance.transform.position.x);
             PlayerPrefs.SetFloat("PlayerWorldY", dungeonEntrance.transform.position.y);
         }
-        else if (Vector3.Distance(Player.transform.position, dungeonEntrance.transform.position) <= dungeonEntranceRadius)
+        else if (Vector3.Distance(Player.transform.position, dungeonEntrance.transform.position) > dungeonEntranceRadius)
         {
             DungeonNameUIText.SetActive(false);
         }
