@@ -106,6 +106,11 @@ public class FirebaseManager : MonoBehaviour
         ClearLoginFeilds();
     }
 
+    public void ChangePasswordAccountInfoButton()
+    {
+        SceneManager.LoadScene("Change Password");
+    }
+
     public void ForgetPassword()
     {
         if (emailForgetField.text == "")
