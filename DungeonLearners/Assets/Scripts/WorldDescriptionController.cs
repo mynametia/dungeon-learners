@@ -4,6 +4,8 @@ using TMPro;
 using Firebase.Database;
 using Firebase.Extensions;
 using System.Linq;
+using System;
+using System.Collections.Generic;
 
 public class WorldDescriptionController : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class WorldDescriptionController : MonoBehaviour
     public GameObject Rank, PlayerList;
     //public TMP_Text PlayerName;
     //public TMP_Text PlayerEXP;
-    
+
 
 
     private int playerNumber = 10;
@@ -21,13 +23,13 @@ public class WorldDescriptionController : MonoBehaviour
 
     void Start()
     {
-        
+
         GameObject rank;
 
         TMP_Text desc = description.GetComponentInChildren<TMP_Text>();
         desc.text = GameState.getCurrentWorld().description;
         worldName.text = GameState.getCurrentWorld().worldName;
-        //Debug.Log("check" + worldName.text);
+        Debug.Log("check 1" + worldName.text);
         worldID.text = GameState.getCurrentWorld().worldID.ToString();
         //values here dont seem to be loaded
 
@@ -37,7 +39,7 @@ public class WorldDescriptionController : MonoBehaviour
 
     }
 
-   
+
 
     public void CloseWindow()
     {
@@ -63,9 +65,11 @@ public class WorldDescriptionController : MonoBehaviour
 
     public void readPlayerDataFromDB()
     {
+        List<Player> pList = new List<Player>();
         DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
+        Debug.Log("check 1" + worldName.text);
 
-        reference.Child("worlds").Child("15").Child("players").OrderByChild("exp").GetValueAsync().ContinueWithOnMainThread(task => {
+        reference.Child("worlds").Child(worldID.text).Child("players").OrderByChild("exp").GetValueAsync().ContinueWithOnMainThread(task => {
             if (task.IsFaulted)
             {
                 Debug.Log("Could Read Data from DB");
@@ -73,7 +77,7 @@ public class WorldDescriptionController : MonoBehaviour
             else if (task.IsCompleted)
             {
                 DataSnapshot snapshot = task.Result;
-                
+
                 int childcount = (int)snapshot.ChildrenCount;
                 int count = 1;
 
@@ -83,14 +87,24 @@ public class WorldDescriptionController : MonoBehaviour
                     Player playerRead = JsonUtility.FromJson<Player>(child.GetRawJsonValue());
                     Debug.Log(playerRead.userName);
                     Debug.Log(playerRead.exp);
-                    AddPlayerEntry(count,playerRead.userName, playerRead.exp );
+                    pList.Add(playerRead);
+
+                }
+
+                pList.Reverse();
+
+                foreach (Player player in pList)
+                {
+                    Debug.Log("second list" + player.userName);
+                    Debug.Log(player.exp);
+                    AddPlayerEntry(count, player.userName, player.exp);
                     count++;
                 }
             }
         });
     }
 
-    public void AddPlayerEntry(int count,string userName, int exp )
+    public void AddPlayerEntry(int count, string userName, int exp)
     {
         Debug.Log("does it enter");
         GameObject pEntry = Instantiate(Rank, PlayerList.transform);
@@ -123,12 +137,12 @@ public class WorldDescriptionController : MonoBehaviour
             }
         }
 
-        
+
         //TMP_Text pName = pEntry.GetComponentInChildren<TMP_Text>();
         //pName.text = userName;
         //TMP_Text pEXP = pEntry.GetComponentInChildren<TMP_Text>();
         //pEXP.text = exp.ToString();
-        
+
 
 
     }
