@@ -14,6 +14,11 @@ public class ShareButton : MonoBehaviour
     //     StartCoroutine(TakeScreenshotAndShare());
     // }
 
+    public void ShareScore()
+    {
+        StartCoroutine(TakeScreenshotAndShare("Hey Guys! Come join me in playing Dungeon Learners. Here's my score! "));
+    }
+
     public void Share()
     {
         //Debug.Log("Button press");
