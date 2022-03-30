@@ -8,8 +8,9 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     private int score, coins;
+    private string dungeonName;
 
-    public TextMeshProUGUI scoreText, coinText;
+    public TextMeshProUGUI scoreText, coinText, dungeonNameText;
     
     // Start is called before the first frame update
     void Start()
@@ -17,9 +18,11 @@ public class ScoreManager : MonoBehaviour
         DatabaseReference DBreference = FirebaseDatabase.DefaultInstance.RootReference;
         score = PlayerPrefs.GetInt("EXP");
         coins = PlayerPrefs.GetInt("Coins");
+        dungeonName = PlayerPrefs.GetString("preloadDungeonChoice");
 
         scoreText.text = score.ToString();
         coinText.text = coins.ToString();
+        dungeonNameText.text = dungeonName;
 
         StartCoroutine(UpdateCoins(coins));
         StartCoroutine(UpdateScore(score));
