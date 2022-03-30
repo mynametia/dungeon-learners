@@ -21,7 +21,32 @@ public class ChangeUserPassword : MonoBehaviour
     public TMP_Text newpasswordWarningText;
     public TMP_Text newpasswordConfirmText;
 
-    public IEnumerator ChangePasswordButton()
+    void Awake()
+    {
+        //Check that all of the necessary dependencies for Firebase are present on the system
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+        {
+            dependencyStatus = task.Result;
+            if (dependencyStatus == DependencyStatus.Available)
+            {
+                //If they are avalible Initialize Firebase
+                InitializeFirebase();
+            }
+            else
+            {
+                Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
+            }
+        });
+    }
+
+    private void InitializeFirebase()
+    {
+        Debug.Log("Setting up Firebase Auth");
+        //Set the authentication instance object
+        auth = FirebaseAuth.DefaultInstance;
+    }    
+
+    public void ChangePasswordButton()
     {
         if (NewPasswordField.text != confirmNewPasswordField.text)
         {
@@ -31,9 +56,9 @@ public class ChangeUserPassword : MonoBehaviour
         {
             CheckPasswordCondition();
             newpasswordChange(NewPasswordField.text);
-            auth.SignOut();
             newpasswordConfirmText.text = "Password change successful! Please login again.";
-            yield return new WaitForSeconds(5);
+            //auth.SignOut();
+            //yield return new WaitForSeconds(5);
             SceneManager.LoadScene("Login");
         }
     }

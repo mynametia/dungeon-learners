@@ -393,6 +393,7 @@ public class FirebaseManager : MonoBehaviour
     private IEnumerator LoadUserData()
     {
         //Get the currently logged in user data
+        Firebase.Auth.FirebaseUser User = auth.CurrentUser;
         var DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
