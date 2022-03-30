@@ -63,6 +63,11 @@ public class ChangeUserPassword : MonoBehaviour
         }
     }
 
+    public void BackButton()
+    {
+        SceneManager.LoadScene("Profile info (Account Info)");
+    }
+
     void newpasswordChange(string NewPasswordField)
     {
         Firebase.Auth.FirebaseUser user = auth.CurrentUser;

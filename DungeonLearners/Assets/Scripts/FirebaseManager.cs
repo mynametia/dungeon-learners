@@ -130,6 +130,19 @@ public class FirebaseManager : MonoBehaviour
         StartCoroutine(UpdateUsernameDatabase(username.text));
     }
 
+    // public void ProfileButton()
+    // {
+    //     DBreference.Child("users").Child(auth.CurrentUser.UserId).GetValueAsync().ContinueWith(task => 
+    //     {
+    //         Firebase.Auth.FirebaseUser User = auth.CurrentUser;  
+    //         Firebase.Database.FirebaseDatabase dbInstance = Firebase.Database.FirebaseDatabase.DefaultInstance;
+    //         DataSnapshot snapshot = task.Result;
+    //         UserData.username = snapshot.Child("username").Value.ToString();
+    //         UserData.email = snapshot.Child("email").Value.ToString();
+    //         UserData.coins = snapshot.Child("coins").Value.ToString();        
+    //     });         
+    // }
+
     private IEnumerator Login(string _email, string _password)
     {
         //Call the Firebase auth signin function passing the email and password
@@ -162,6 +175,9 @@ public class FirebaseManager : MonoBehaviour
                 case AuthError.UserNotFound:
                     message = "Account does not exist";
                     break;
+                case AuthError.UnverifiedEmail:
+                    message = "Email is not verified";
+                    break;
             }
             warningLoginText.text = message;
         }
@@ -177,9 +193,9 @@ public class FirebaseManager : MonoBehaviour
                 warningLoginText.text = "";
                 confirmLoginText.text = "Logged In";
 
-                StartCoroutine(LoadUserData());
+                //StartCoroutine(LoadUserData());
                 //username.text = UserData.username;
-
+                //StartCoroutine(LoadUserData(auth.CurrentUser)); 
                 yield return new WaitForSeconds(2);
 
                 // DBreference.Child("users").GetValueAsync().ContinueWithOnMainThread(task => {
@@ -206,15 +222,17 @@ public class FirebaseManager : MonoBehaviour
                 //         }
                 //     }
                 // });
-
-                DBreference.Child("users").Child(User.UserId).GetValueAsync().ContinueWith(task => 
-                {  
-                    DataSnapshot snapshot = task.Result;
-                    UserData.username = snapshot.Child("username").Value.ToString();
-                    UserData.email = snapshot.Child("email").Value.ToString();
-                    UserData.coins = snapshot.Child("coins").Value.ToString();
+                
+                // DBreference.Child("users").Child(auth.CurrentUser.UserId).GetValueAsync().ContinueWith(task => 
+                // {
+                //     Firebase.Auth.FirebaseUser User = auth.CurrentUser;  
+                //     Firebase.Database.FirebaseDatabase dbInstance = Firebase.Database.FirebaseDatabase.DefaultInstance;
+                //     DataSnapshot snapshot = task.Result;
+                //     UserData.username = snapshot.Child("username").Value.ToString();
+                //     UserData.email = snapshot.Child("email").Value.ToString();
+                //     UserData.coins = snapshot.Child("coins").Value.ToString();
                     
-                });       
+                // });   
 
                 SceneManager.LoadScene("HomeBase"); // Change to Homebase scene
                 
@@ -390,10 +408,10 @@ public class FirebaseManager : MonoBehaviour
     }
 
 
-    private IEnumerator LoadUserData()
+    private IEnumerator LoadUserData(Firebase.Auth.FirebaseUser User)
     {
         //Get the currently logged in user data
-        Firebase.Auth.FirebaseUser User = auth.CurrentUser;
+        //Firebase.Auth.FirebaseUser User = auth.CurrentUser;
         var DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
@@ -409,7 +427,7 @@ public class FirebaseManager : MonoBehaviour
 
             username.text = snapshot.Child("username").Value.ToString();
             email.text = snapshot.Child("email").Value.ToString();
-            coins.text = snapshot.Child("coins").Value.ToString();
+            coins.text = "Number of Coins: " + snapshot.Child("coins").Value.ToString();
         }
     }
 
