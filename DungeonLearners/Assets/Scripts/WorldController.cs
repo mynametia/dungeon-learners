@@ -18,7 +18,7 @@ public class WorldController : MonoBehaviour
     public GameObject DungeonNameUIText; // Added by Ziyuan
     public TMP_Text worldNameText;
 
-    public int dungeonCount = 4;
+    public int dungeonCount = 8;
 
     private int layerCount = 1;
     private static int dungeonPerLayer = 4;
@@ -34,6 +34,9 @@ public class WorldController : MonoBehaviour
     private List<string> ethicsDungeonNamelist = new List<string> {"Deontology", "General Ethics", "Research Ethics"};
     private List<string> writingDungeonNamelist = new List<string> {"Formal Writing I", "Formal Writing II"};
 
+    private string worldName;
+    private List<string> currentDungeonList;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +44,26 @@ public class WorldController : MonoBehaviour
         GenerateWorldLayers();
         UpdatePathfindingGrid();
         DungeonNameUIText.SetActive(false); // Added by Ziyuan
-        worldNameText.text = PlayerPrefs.GetString("preloadWorldChoice");
+
+        worldName = PlayerPrefs.GetString("preloadWorldChoice");
+        worldNameText.text = worldName;
+        switch (worldName)
+        {
+            case "Computing":
+                currentDungeonList = computingDungeonNamelist;
+                break;
+            case "Ethics":
+                currentDungeonList = ethicsDungeonNamelist;
+                break;
+            case "Formal Writing":
+                currentDungeonList = writingDungeonNamelist;
+                break;
+            default:
+                currentDungeonList = new List<string> {"","","","","", "", "", ""};
+                break;
+        }
+
+        dungeonCount = currentDungeonList.Count;
     }
 
     // Update is called once per frame
@@ -78,6 +100,9 @@ public class WorldController : MonoBehaviour
     private IEnumerator EnterDungeon(GameObject dungeonEntrance)
     {
         DungeonNameUIText.SetActive(true); // Added by Ziyuan
+
+        // Set name of dungeon
+        DungeonNameUIText.GetComponent<TextMeshProUGUI>().text = currentDungeonList[dungeonEntrance.GetComponent<DungeonEntranceController>().dungeonID];
 
         Player.GetComponent<PlayerMovementController>().SetCurrentDestination(dungeonEntrance.transform.position);
 
