@@ -141,6 +141,36 @@ public class BattleQuestionController : MonoBehaviour
             0));
     }
 
+    // Get questions from Firebase and add to battleQuestions
+    private async void addQuestions(string worldName, string topicName, int dungeonRoomID)
+    {
+        var db = FirebaseFirestore.DefaultInstance;
+        Query questions = db.Collection("question_bank").Document(worldName).Collection(topicName).Document("difficulty_" + (dungeonRoomID+1).ToString()).Collection("questions");
+        QuerySnapshot questionsSnapshot = await questions.GetSnapshotAsync();
+        foreach (DocumentSnapshot documentSnapshot in questionsSnapshot.Documents)
+        {
+            string qnNo = documentSnapshot.Id.ToString();
+            Debug.Log("Document data for " + qnNo);
+            
+            Dictionary<string, object> question = documentSnapshot.ToDictionary();
+            Debug.Log(question["question"].ToString());
+            Debug.Log(question["correctOpt"].ToString());
+            battleQuestions.Add(new Question(
+                question["question"].ToString(),
+                new string[4] {
+                    question["opt1"].ToString(),
+                    question["opt2"].ToString(),
+                    question["opt3"].ToString(),
+                    question["opt4"].ToString()},
+                int.Parse(question["correctOpt"].ToString())-1
+            ));
+        }
+
+        currentQuestions = new List<Question>(battleQuestions);
+        Debug.Log("This should run");
+    }
+
+    // Add hardcoded questions for testing purposes. Note this method is now deprecated
     private void addHardcodedQuestions(string worldName, string topicName, int dungeonRoomID)
     {
         switch ((worldName, topicName, dungeonRoomID))
@@ -172,7 +202,51 @@ public class BattleQuestionController : MonoBehaviour
             case ("Computing", "Software Engineering", 2):
                 jsonDeserialize("Comp", "SE", "2", 3);
                 break;
-            
+            case ("Ethics", "Deontology", 0):
+                jsonDeserialize("Eth", "Deon", "0", 3);
+                break;
+            case ("Ethics", "Deontology", 1):
+                jsonDeserialize("Eth", "Deon", "1", 3);
+                break;
+            case ("Ethics", "Deontology", 2):
+                jsonDeserialize("Eth", "Deon", "2", 4);
+                break;
+            case ("Ethics", "General Ethics", 0):
+                jsonDeserialize("Eth", "GE", "0", 3);
+                break;
+            case ("Ethics", "General Ethics", 1):
+                jsonDeserialize("Eth", "GE", "1", 3);
+                break;
+            case ("Ethics", "General Ethics", 2):
+                jsonDeserialize("Eth", "GE", "2", 4);
+                break;
+            case ("Ethics", "Research Ethics", 0):
+                jsonDeserialize("Eth", "RE", "0", 3);
+                break;
+            case ("Ethics", "Research Ethics", 1):
+                jsonDeserialize("Eth", "RE", "1", 4);
+                break;
+            case ("Ethics", "Research Ethics", 2):
+                jsonDeserialize("Eth", "RE", "2", 3);
+                break;
+            case("Formal Writing", "Formal Writing I", 0):
+                jsonDeserialize("FormWrit", "I", "0", 4);
+                break;
+            case("Formal Writing", "Formal Writing I", 1):
+                jsonDeserialize("FormWrit", "I", "1", 3);
+                break;
+            case("Formal Writing", "Formal Writing I", 2):
+                jsonDeserialize("FormWrit", "I", "2", 3);
+                break;
+            case("Formal Writing", "Formal Writing II", 0):
+                jsonDeserialize("FormWrit", "II", "0", 4);
+                break;
+            case("Formal Writing", "Formal Writing II", 1):
+                jsonDeserialize("FormWrit", "II", "1", 3);
+                break;
+            case("Formal Writing", "Formal Writing II", 2):
+                jsonDeserialize("FormWrit", "II", "2", 3);
+                break;
         }
     }
 
@@ -201,34 +275,5 @@ public class BattleQuestionController : MonoBehaviour
                 singleQuestion.correctOpt-1
             ));
         }
-    }
-
-    // Get questions from Firebase and add to battleQuestions
-    private async void addQuestions(string worldName, string topicName, int dungeonRoomID)
-    {
-        var db = FirebaseFirestore.DefaultInstance;
-        Query questions = db.Collection("question_bank").Document(worldName).Collection(topicName).Document("difficulty_" + (dungeonRoomID+1).ToString()).Collection("questions");
-        QuerySnapshot questionsSnapshot = await questions.GetSnapshotAsync();
-        foreach (DocumentSnapshot documentSnapshot in questionsSnapshot.Documents)
-        {
-            string qnNo = documentSnapshot.Id.ToString();
-            Debug.Log("Document data for " + qnNo);
-            
-            Dictionary<string, object> question = documentSnapshot.ToDictionary();
-            Debug.Log(question["question"].ToString());
-            Debug.Log(question["correctOpt"].ToString());
-            battleQuestions.Add(new Question(
-                question["question"].ToString(),
-                new string[4] {
-                    question["opt1"].ToString(),
-                    question["opt2"].ToString(),
-                    question["opt3"].ToString(),
-                    question["opt4"].ToString()},
-                int.Parse(question["correctOpt"].ToString())-1
-            ));
-        }
-
-        currentQuestions = new List<Question>(battleQuestions);
-        Debug.Log("This should run");
-    }
+    }    
 }
