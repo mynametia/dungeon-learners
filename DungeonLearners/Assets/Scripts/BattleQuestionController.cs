@@ -31,9 +31,10 @@ public class BattleQuestionController : MonoBehaviour
     {
         // Get dungeon room ID
         int curDungeonRoomID = DungeonController.currentDungeonRoomID;
+        addQuestions(PlayerPrefs.GetString("preloadWorldChoice"), PlayerPrefs.GetString("preloadDungeonChoice"), curDungeonRoomID);
         // addHardcodedQuestions("Computing", "Artificial Intelligence", curDungeonRoomID);
         // addDefaultQuestions();
-        addQuestions("Computing", "Artificial Intelligence", curDungeonRoomID);
+        //addQuestions("Computing", "Artificial Intelligence", curDungeonRoomID);
         // currentQuestions = new List<Question>(battleQuestions);
     }
 
