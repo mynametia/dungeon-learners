@@ -1,0 +1,8 @@
+{
+    "opt4": "Option 1 only",
+    "question": "Which of the following statements are valid responses to the Mimamsa deontic logic?\n1. Distinguish between weak and strong duties\n2. Block problematic inferences from generic triggering conditions to more specific triggering conditions\n3. Distinguish between weak and strong duties\n4. Accept problematic inferences from generic triggering conditions to more specific triggering conditions",
+    "correctOpt": 2,
+    "opt1": "Option 1 and 4 only",
+    "opt3": "Option 2 and 3 only",
+    "opt2": "Option 1 and 2 only"
+  }

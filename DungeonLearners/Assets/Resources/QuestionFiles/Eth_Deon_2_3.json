@@ -1,0 +1,8 @@
+{
+    "opt1": "Option 1 and 2",
+    "correctOpt": 1,
+    "opt2": "Option 1, 2, 3 and 4",
+    "opt3": "Option 2 and 3",
+    "opt4": "Option 3 and 4",
+    "question": "Which of the following statements about deontic logic are true?\n1. It studies deontic propositions\n2. The propositions and truth functions are related to the deontic character of actions\n3. Actions are obligatory, acceptable, permissible, mandatory\n4. It belongs to one of the 3 modes defined by Von Wright"
+  }

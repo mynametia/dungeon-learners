@@ -1,0 +1,8 @@
+{
+    "question": "For the square of opposition, which of the following statements are false?",
+    "opt3": "I and O can be false at the same time",
+    "opt4": "It can be false that when 'All X are Y' and 'All Y are X' when some X are Y and some Y are X",
+    "opt1": "Just one exception needs to be shown to demonstrate contradiction",
+    "correctOpt": 3,
+    "opt2": "The 4 categorical propositions are universal affirmative, universal negative, particular affirmative and particular negative"
+  }

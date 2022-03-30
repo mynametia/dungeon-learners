@@ -1,0 +1,8 @@
+{
+    "opt2": "Either p is permitted or ~p is permitted",
+    "question": "Which of the following is not a principle of deontic logic?",
+    "correctOpt": 4,
+    "opt3": "If an act is obligatory, it is permitted",
+    "opt4": "A tautological act is obligatory, and a contradictory act is forbidden",
+    "opt1": "The disjunction of (p V q) is permitted, if and only if at least one of the 2 acts described in p or q is permitted"
+  }
