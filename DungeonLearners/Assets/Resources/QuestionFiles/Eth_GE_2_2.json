@@ -1,0 +1,8 @@
+{
+    "opt1": "0≤P(A) ≤0.5 for all in A in set S, where P(A) is the probability of outcome A",
+    "correctOpt": 4,
+    "opt2": "P(Ω)= 0",
+    "opt4": "P(~A)= P(Ω) - P(A)",
+    "question": "Which of the following are part of Kolmogorov Axioms?",
+    "opt3": "P(AUB)=P(A)+P(B)+P(A∩ B)"
+  }

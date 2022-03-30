@@ -1,0 +1,8 @@
+{
+    "question": "What does this Op refer to in deontic logic?",
+    "opt1": "Obligatory that p",
+    "opt4": "Not obligatory that p",
+    "correctOpt": 1,
+    "opt2": "Impermissible that p",
+    "opt3": "Permissible that O"
+}
