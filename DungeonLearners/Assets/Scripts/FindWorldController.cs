@@ -1,66 +1,82 @@
 //using System.Collections;
 //using System.Collections.Generic;
 using UnityEngine;
-using Firebase.Firestore;
+using System;
 using TMPro;
 using System.Collections.Generic;
+using Firebase.Database;
+using Firebase.Extensions;
 
 public class FindWorldController : MonoBehaviour
 {
     public TMP_InputField searchbar;
 
-    public TMP_Text worldName0;
-    public TMP_Text worldName1;
-    public TMP_Text worldName2;
-    public GameObject disable1;
-    public GameObject disable2;
+    public GameObject MyWorldEntry, WorldList;
     private string searchQuery;
-    
+    public List<World> worldsList = new List<World>();
+    public List<GameObject> worldsPrefabs = new List<GameObject>();
+
     // Start is called before the first frame update
     async void Start()
     {
-        List<string> worldsList = new List<string>();
-        
-        // Get pre-loaded worlds from Firestore
-        var db = FirebaseFirestore.DefaultInstance;
-        Query allSubjects = db.Collection("question_bank");
-        QuerySnapshot allSubjectsSnapshot = await allSubjects.GetSnapshotAsync();
-        foreach (DocumentSnapshot documentSnapshot in allSubjectsSnapshot.Documents)
-        {
-            string subject = documentSnapshot.Id.ToString();
-            Debug.Log("Document data for " + subject);
-            worldsList.Add(subject);
-        }
 
-        ChangeWorldNameText(worldsList);
+        DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        reference.Child("worlds").GetValueAsync().ContinueWithOnMainThread(task => {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Could Not Read Data from DB");
+            }
+            else if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                foreach (var child in snapshot.Children)
+                {
+                    World world = JsonUtility.FromJson<World>(child.GetRawJsonValue());
+                    worldsList.Add(world);
+                    AddWorldEntry(world.worldName);
+                }
+            }
+        });
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        searchQuery = searchbar.text;
-        if (searchQuery == "")
-        {
-            disable1.SetActive(true);
-            disable2.SetActive(true);
-        }
-    }
 
-    public void ChangeWorldNameText(List<string> worldNames)
+    public void AddWorldEntry(string worldName)
     {
-        worldName0.text = worldNames[0];
-        worldName1.text = worldNames[1];
-        worldName2.text = worldNames[2];
+        GameObject wEntry = Instantiate(MyWorldEntry, WorldList.transform);
+        //Debug.Log("world entry instatiated");
+        worldsPrefabs.Add(wEntry);
+        TMP_Text wName = wEntry.GetComponentInChildren<TMP_Text>();
+        wName.text = worldName;
     }
 
     public void UpdateSearchQuery()
     {
+        
+        
         searchQuery = searchbar.text;
-        if (searchQuery == "Computing" || searchQuery == "computing")
-        {
-            disable1.SetActive(false);
-            disable2.SetActive(false);
-        }
         Debug.Log(searchQuery);
+        Debug.Log("List prefabs before destroy" + worldsPrefabs.Count);
+
+        //Removes all the worlds that were listed previously
+        foreach (GameObject wEntry in worldsPrefabs)
+        {
+            //Debug.Log(prefab);
+            Destroy(wEntry);
+        }
+
+        Debug.Log("List prefabs after destroy" + worldsPrefabs.Count);
+        worldsPrefabs.Clear();
+
+        //Loads search results, users can enter lowercase and incomplete strings
+        //and corresponding worlds will still appear
+        foreach (World worldSearch in worldsList)
+        {
+            if(worldSearch.worldName.ToLower().Contains(searchQuery.ToLower()))
+            {
+                Debug.Log(worldSearch.worldName);
+                AddWorldEntry(worldSearch.worldName);                
+            }         
+        }
     }
 }
