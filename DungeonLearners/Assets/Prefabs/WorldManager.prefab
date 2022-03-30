@@ -81,6 +81,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4103468439827485935}
+  - component: {fileID: 8749043541614293930}
+  - component: {fileID: 8749043541614293931}
   m_Layer: 0
   m_Name: WorldManager
   m_TagString: Untagged
@@ -103,6 +105,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8749043541614293930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4103468439827485934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ddc7fc4ea9c460ba22192c37710318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyWorldEntry: {fileID: 4174341918196963571, guid: 78f053a49452a3e4db636739dd7d3ab9, type: 3}
+  WorldList: {fileID: 4103468440249621572}
+--- !u!114 &8749043541614293931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4103468439827485934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e0bab32c3614c71be5a9379e6067c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4103468439911889110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1145,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4103468440898276850}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: FadeTransitionController, Assembly-CSharp
+        m_MethodName: FadeToBlack
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: HomeBase
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4103468440909979400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,6 +1512,7 @@ GameObject:
   - component: {fileID: 8749043541676469342}
   - component: {fileID: 8749043541676469343}
   - component: {fileID: 8749043541676469328}
+  - component: {fileID: 513303593}
   m_Layer: 0
   m_Name: AddButton
   m_TagString: Untagged
@@ -1558,8 +1599,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
+    m_PressedColor: {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1579,4 +1620,28 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8749043541676469343}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 513303593}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: MoveToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: Create World
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &513303593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8749043541676469330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a046a8c9da2493641aac7562dab726d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
