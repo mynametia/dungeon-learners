@@ -6,6 +6,7 @@ using Firebase.Extensions;
 using System.Linq;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 
 public class WorldDescriptionController : MonoBehaviour
 {
@@ -23,7 +24,18 @@ public class WorldDescriptionController : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(LoadingTime());
 
+        
+
+
+    }
+
+    IEnumerator LoadingTime()
+    {
+        
+        yield return new WaitForSeconds(1);
+        Debug.Log("timecheck");
         GameObject rank;
 
         TMP_Text desc = description.GetComponentInChildren<TMP_Text>();
@@ -31,12 +43,7 @@ public class WorldDescriptionController : MonoBehaviour
         worldName.text = GameState.getCurrentWorld().worldName;
         Debug.Log("check 1" + worldName.text);
         worldID.text = GameState.getCurrentWorld().worldID.ToString();
-        //values here dont seem to be loaded
-
-
         readPlayerDataFromDB();
-
-
     }
 
 
@@ -67,7 +74,7 @@ public class WorldDescriptionController : MonoBehaviour
     {
         List<Player> pList = new List<Player>();
         DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
-        Debug.Log("check 1" + worldName.text);
+       // Debug.Log("check 1" + worldName.text);
 
         reference.Child("worlds").Child(worldID.text).Child("players").OrderByChild("exp").GetValueAsync().ContinueWithOnMainThread(task => {
             if (task.IsFaulted)
@@ -83,10 +90,10 @@ public class WorldDescriptionController : MonoBehaviour
 
                 foreach (var child in snapshot.Children)
                 {
-                    Debug.Log(child.GetRawJsonValue());
+                   // Debug.Log(child.GetRawJsonValue());
                     Player playerRead = JsonUtility.FromJson<Player>(child.GetRawJsonValue());
-                    Debug.Log(playerRead.userName);
-                    Debug.Log(playerRead.exp);
+                   // Debug.Log(playerRead.userName);
+                    //Debug.Log(playerRead.exp);
                     pList.Add(playerRead);
 
                 }
@@ -95,8 +102,8 @@ public class WorldDescriptionController : MonoBehaviour
 
                 foreach (Player player in pList)
                 {
-                    Debug.Log("second list" + player.userName);
-                    Debug.Log(player.exp);
+                    //Debug.Log("second list" + player.userName);
+                   // Debug.Log(player.exp);
                     AddPlayerEntry(count, player.userName, player.exp);
                     count++;
                 }
@@ -106,10 +113,10 @@ public class WorldDescriptionController : MonoBehaviour
 
     public void AddPlayerEntry(int count, string userName, int exp)
     {
-        Debug.Log("does it enter");
+        //Debug.Log("does it enter");
         GameObject pEntry = Instantiate(Rank, PlayerList.transform);
         TMP_Text[] fields = pEntry.GetComponentsInChildren<TMP_Text>();
-        Debug.Log(fields.Length);
+        //Debug.Log(fields.Length);
         int boxCount = 0;
 
         foreach (TMP_Text textbox in fields)
