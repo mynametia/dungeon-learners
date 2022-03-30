@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using UnityEngine.EventSystems;
@@ -28,6 +29,10 @@ public class WorldController : MonoBehaviour
 
     private float dungeonEntryMaxDist = 1f;
     private float dungeonEntranceRadius = 1.7f;
+
+    private List<string> computingDungeonNamelist = new List<string> {"Artificial Intelligence", "Human Computer Interaction", "Software Engineering"};
+    private List<string> ethicsDungeonNamelist = new List<string> {"Deontology", "General Ethics", "Research Ethics"};
+    private List<string> writingDungeonNamelist = new List<string> {"Formal Writing I", "Formal Writing II"};
 
     // Start is called before the first frame update
     void Start()
