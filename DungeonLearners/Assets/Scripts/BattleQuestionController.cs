@@ -31,10 +31,10 @@ public class BattleQuestionController : MonoBehaviour
     {
         // Get dungeon room ID
         int curDungeonRoomID = DungeonController.currentDungeonRoomID;
-        addHardcodedQuestions("Computing", "Artificial Intelligence", curDungeonRoomID);
+        // addHardcodedQuestions("Computing", "Artificial Intelligence", curDungeonRoomID);
         // addDefaultQuestions();
-        // addQuestions("Computing", "Artificial Intelligence", 0);
-        currentQuestions = new List<Question>(battleQuestions);
+        addQuestions("Computing", "Artificial Intelligence", curDungeonRoomID);
+        // currentQuestions = new List<Question>(battleQuestions);
     }
 
     // Display correct answer text and remove submit button
