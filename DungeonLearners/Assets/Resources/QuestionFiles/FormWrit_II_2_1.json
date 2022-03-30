@@ -1,0 +1,8 @@
+{
+    "opt4": "No, some should not be indented",
+    "correctOpt": 1,
+    "opt1": "Yes, all should be indented",
+    "opt3": "No, none should be indented",
+    "question": "All paragraphs should be indented",
+    "opt2": "Yes, but there are rare exceptions"
+  }
