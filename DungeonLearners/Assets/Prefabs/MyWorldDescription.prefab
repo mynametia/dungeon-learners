@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 2822213591525220962}
   - component: {fileID: 2822213591525220963}
   - component: {fileID: 2822213591525220964}
+  - component: {fileID: 2666147673009529462}
   m_Layer: 0
   m_Name: Generate Report Button
   m_TagString: Untagged
@@ -406,18 +407,30 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4799060441306503714}
-        m_TargetAssemblyTypeName: ShareButton, Assembly-CSharp
-        m_MethodName: GenerateReport
-        m_Mode: 1
+      - m_Target: {fileID: 2666147673009529462}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: MoveToScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: GenerateReport
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
+--- !u!114 &2666147673009529462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2822213591525220966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a046a8c9da2493641aac7562dab726d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2822213591825557490
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +597,7 @@ GameObject:
   - component: {fileID: 2822213591882916753}
   - component: {fileID: 2822213591882916751}
   - component: {fileID: 2822213591882916752}
+  - component: {fileID: 901965182026923090}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -652,6 +666,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Generate report
+--- !u!114 &901965182026923090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2822213591882916754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a046a8c9da2493641aac7562dab726d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2822213592700980552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,8 +2477,6 @@ MonoBehaviour:
   worldID: {fileID: 6444734291673403845}
   Rank: {fileID: 8419460430197000864, guid: 1425c77e0fa5b0b4394985792a5eaea3, type: 3}
   PlayerList: {fileID: 5748262222446420101}
-  PlayerName: {fileID: 0}
-  PlayerEXP: {fileID: 0}
 --- !u!114 &3959361584307832865
 MonoBehaviour:
   m_ObjectHideFlags: 0
