@@ -21,6 +21,7 @@ public class DisplayUserInfo : MonoBehaviour
     public TMP_Text username;
     public TMP_Text email;
     public TMP_Text coins;
+    public TMP_Text AccountUsername;
 
     void Awake()
     {
@@ -72,6 +73,7 @@ public class DisplayUserInfo : MonoBehaviour
             //Data has been retrieved
             DataSnapshot snapshot = DBTask.Result;
             username.text = snapshot.Child("username").Value.ToString();
+            AccountUsername.text = snapshot.Child("username").Value.ToString();
             email.text = snapshot.Child("email").Value.ToString();
             coins.text = "Number of Coins: " + snapshot.Child("coins").Value.ToString();
         }

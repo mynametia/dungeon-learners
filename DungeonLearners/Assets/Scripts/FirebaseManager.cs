@@ -40,6 +40,7 @@ public class FirebaseManager : MonoBehaviour
     //User Data variables
     [Header("UserData")]
     public TMP_Text username;
+    public TMP_Text AccountUsername;
     public TMP_InputField updateUsername;
     public TMP_InputField updatedPassword;
     public TMP_Text email;
@@ -426,6 +427,7 @@ public class FirebaseManager : MonoBehaviour
             DataSnapshot snapshot = DBTask.Result;
 
             username.text = snapshot.Child("username").Value.ToString();
+            AccountUsername.text = snapshot.Child("username").Value.ToString();
             email.text = snapshot.Child("email").Value.ToString();
             coins.text = "Number of Coins: " + snapshot.Child("coins").Value.ToString();
         }
