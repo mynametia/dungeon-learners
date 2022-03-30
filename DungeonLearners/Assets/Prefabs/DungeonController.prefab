@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneController: {fileID: 0}
-  dungeonRoomCount: 4
-  currentDungeonRoomID: 0
+  Player: {fileID: 0}
+  dungeonRoomCount: 3
+  totalScore: 0
+  totalCoins: 0

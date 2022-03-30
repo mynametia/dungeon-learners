@@ -327,8 +327,10 @@ MonoBehaviour:
   leaderboard: {fileID: 1230644210418995922}
   leaderBoardEntry: {fileID: 8419460430197000864, guid: 1425c77e0fa5b0b4394985792a5eaea3, type: 3}
   rankingBoard: {fileID: 3523066620831092088}
-  worldName: {fileID: 0}
-  worldID: {fileID: 0}
+  worldName: {fileID: 549867809254424565}
+  worldID: {fileID: 549867809264755602}
+  Rank: {fileID: 8419460430197000864, guid: 1425c77e0fa5b0b4394985792a5eaea3, type: 3}
+  PlayerList: {fileID: 1230644210418995922}
 --- !u!1 &549867807623456855
 GameObject:
   m_ObjectHideFlags: 0
@@ -3245,7 +3247,7 @@ GameObject:
   - component: {fileID: 549867809254424565}
   - component: {fileID: 549867809254424564}
   m_Layer: 0
-  m_Name: Big Text (TMP)
+  m_Name: WorldNameText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
