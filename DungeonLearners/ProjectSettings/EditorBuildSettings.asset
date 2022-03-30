@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ScoreCard.unity
     guid: 4528c0d0add5c954a98e406e49ba188c
+  - enabled: 1
+    path: Assets/Scenes/GenerateReport.unity
+    guid: c1b9166bf12f945459f14052c94f52ce
   m_configObjects: {}
