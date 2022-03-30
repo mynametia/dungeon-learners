@@ -1214,6 +1214,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8815018309585220112, guid: 44da127747cbbdf4597700efa760834b, type: 3}
+      propertyPath: disable1
+      value: 
+      objectReference: {fileID: 724229064}
+    - target: {fileID: 8815018309585220112, guid: 44da127747cbbdf4597700efa760834b, type: 3}
+      propertyPath: disable2
+      value: 
+      objectReference: {fileID: 864971609}
+    - target: {fileID: 8815018309585220112, guid: 44da127747cbbdf4597700efa760834b, type: 3}
       propertyPath: worldName0
       value: 
       objectReference: {fileID: 2071924199}

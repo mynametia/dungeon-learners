@@ -12,7 +12,8 @@ public class FindWorldController : MonoBehaviour
     public TMP_Text worldName0;
     public TMP_Text worldName1;
     public TMP_Text worldName2;
-
+    public GameObject disable1;
+    public GameObject disable2;
     private string searchQuery;
     
     // Start is called before the first frame update
@@ -37,7 +38,12 @@ public class FindWorldController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        searchQuery = searchbar.text;
+        if (searchQuery == "")
+        {
+            disable1.SetActive(true);
+            disable2.SetActive(true);
+        }
     }
 
     public void ChangeWorldNameText(List<string> worldNames)
@@ -50,6 +56,11 @@ public class FindWorldController : MonoBehaviour
     public void UpdateSearchQuery()
     {
         searchQuery = searchbar.text;
+        if (searchQuery == "Computing" || searchQuery == "computing")
+        {
+            disable1.SetActive(false);
+            disable2.SetActive(false);
+        }
         Debug.Log(searchQuery);
     }
 }
