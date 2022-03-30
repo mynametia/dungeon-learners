@@ -117,6 +117,7 @@ public class WorldController : MonoBehaviour
         // If player is standing above dungeon entrance, enter dungeon
         if (Vector3.Distance(Player.transform.position, dungeonEntrance.transform.position) <= dungeonEntryMaxDist)
         {
+            PlayerPrefs.SetString("preloadDungeonChoice", currentDungeonList[dungeonEntrance.GetComponent<DungeonEntranceController>().dungeonID]);
             dungeonEntrance.GetComponent<DungeonEntranceController>().EnterDungeon();
             SceneController.GetComponent<FadeTransitionController>().FadeToBlack("DungeonRoom");
             PlayerPrefs.SetFloat("PlayerWorldX", dungeonEntrance.transform.position.x);

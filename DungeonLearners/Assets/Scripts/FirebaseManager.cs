@@ -100,6 +100,7 @@ public class FirebaseManager : MonoBehaviour
     public void LogOutButton()
     {
         auth.SignOut();
+        //UIManager.instance.LoginScreen();
         SceneManager.LoadScene("Login");
         ClearRegisterFeilds();
         ClearLoginFeilds();
