@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Pathfinding;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class WorldController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class WorldController : MonoBehaviour
     public GameObject worldLayerLast;
 
     public GameObject DungeonNameUIText; // Added by Ziyuan
+    public TMP_Text worldNameText;
 
     public int dungeonCount = 4;
 
@@ -34,6 +36,7 @@ public class WorldController : MonoBehaviour
         GenerateWorldLayers();
         UpdatePathfindingGrid();
         DungeonNameUIText.SetActive(false); // Added by Ziyuan
+        worldNameText.text = PlayerPrefs.GetString("preloadWorldChoice");
     }
 
     // Update is called once per frame

@@ -1564,6 +1564,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 319799916}
     - target: {fileID: 2681407241452469135, guid: b66826733295a1f4eb351006f0050d80, type: 3}
+      propertyPath: worldNameText
+      value: 
+      objectReference: {fileID: 1943150430}
+    - target: {fileID: 2681407241452469135, guid: b66826733295a1f4eb351006f0050d80, type: 3}
       propertyPath: SceneController
       value: 
       objectReference: {fileID: 2425362239239808905}
