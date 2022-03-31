@@ -3,6 +3,10 @@ using TMPro;
 using Firebase;
 using Firebase.Database;
 using Firebase.Extensions;
+
+///<summary>
+/// Shows ranking on leaderboard in a descending order
+///</summary>
 public class WorldDescRanking: MonoBehaviour
 {
     public GameObject Rank, PlayerList;

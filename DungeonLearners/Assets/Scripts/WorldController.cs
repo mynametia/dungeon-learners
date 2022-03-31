@@ -5,6 +5,9 @@ using Pathfinding;
 using UnityEngine.EventSystems;
 using TMPro;
 
+///<summary>
+/// Synamically spawn objects in world and call update once per frame
+///</summary>
 public class WorldController : MonoBehaviour
 {
     // Dynamically spawns objects in world
@@ -40,6 +43,9 @@ public class WorldController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Dynamically spawns objects in world
+        GenerateWorldLayers();
+        UpdatePathfindingGrid();
         DungeonNameUIText.SetActive(false); // Added by Ziyuan
 
         worldName = PlayerPrefs.GetString("preloadWorldChoice");
@@ -61,10 +67,6 @@ public class WorldController : MonoBehaviour
         }
 
         dungeonCount = currentDungeonList.Count;
-
-        // Dynamically spawns objects in world
-        GenerateWorldLayers();
-        UpdatePathfindingGrid();
     }
 
     // Update is called once per frame
@@ -93,34 +95,9 @@ public class WorldController : MonoBehaviour
                         // Enter dungeon
                         StartCoroutine(EnterDungeon(touchedObj));
                     }
-                    else if (touchedObj.tag == "HomeBase")
-                    {
-                        StartCoroutine(ReturnHome(touchedObj));
-                    }
                 }
             }
         }
-    }
-
-    private IEnumerator ReturnHome(GameObject homePortal)
-    {
-        Player.GetComponent<PlayerMovementController>().SetCurrentDestination(homePortal.transform.position);
-
-        yield return new WaitForSeconds(0.05f);
-
-        // Wait for player to stop walking
-        while (Player.GetComponent<PlayerMovementController>().moving)
-        {
-            yield return new WaitForSeconds(.1f);
-        }
-
-        // If player is standing above homebase portal, return
-        if (Vector3.Distance(Player.transform.position, homePortal.transform.position) <= dungeonEntryMaxDist)
-        {
-            SceneController.GetComponent<FadeTransitionController>().FadeToBlack("HomeBase");
-        }
-
-        yield return null;
     }
 
     private IEnumerator EnterDungeon(GameObject dungeonEntrance)

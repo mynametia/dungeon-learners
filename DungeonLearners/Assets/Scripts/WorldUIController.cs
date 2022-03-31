@@ -1,6 +1,9 @@
 
 using UnityEngine;
 
+///<summary>
+/// Shows world description 
+///</summary>
 public class WorldUIController : MonoBehaviour
 {
     public GameObject worldDescriptionInfo;

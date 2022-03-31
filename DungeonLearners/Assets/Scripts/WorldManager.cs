@@ -3,6 +3,9 @@ using TMPro;
 using Firebase;
 using Firebase.Database;
 using Firebase.Extensions;
+///<summary>
+/// Reads world data from Firebase and adds world entry
+///</summary>
 public class WorldManager : MonoBehaviour
 {   
     public GameObject MyWorldEntry, WorldList;

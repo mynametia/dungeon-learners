@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+
+///<summary>
+/// Get and set methods for world and world constructor
+///</summary>
 public class World {
     public string worldName;
     public string description;

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+///<summary>
+/// Dungeons are synamically spawned per layer, and the entrances are instantiated from left to right
+///</summary>
 public class WorldLayerController : MonoBehaviour
 {
     // Dynamically spawns dungeons per layer

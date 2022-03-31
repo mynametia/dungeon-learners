@@ -8,6 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections;
 
+///<summary>
+/// Showing of leaderboard and rankings
+///</summary>
 public class WorldDescriptionController : MonoBehaviour
 {
     public GameObject description, leaderboard;
