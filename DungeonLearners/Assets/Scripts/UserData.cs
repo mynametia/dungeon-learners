@@ -8,6 +8,9 @@ using Firebase.Extensions;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
+/// <summary>
+/// UserData class
+/// </summary>
 public class UserData : MonoBehaviour
 {
 

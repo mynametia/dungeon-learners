@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Management of user interface
+/// </summary>
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;

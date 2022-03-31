@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controller for shop
+/// </summary>
 public class ShopController : MonoBehaviour
 {
     public GameObject items, avatar;

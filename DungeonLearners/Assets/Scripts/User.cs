@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// User class
+/// </summary>
 public class User
 {
    public string UserName;

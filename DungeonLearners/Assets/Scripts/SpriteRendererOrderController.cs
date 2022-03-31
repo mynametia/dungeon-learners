@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controls sprite rendering order
+/// </summary>
 public class SpriteRendererOrderController : MonoBehaviour
 {
     private SpriteRenderer playerSprite;

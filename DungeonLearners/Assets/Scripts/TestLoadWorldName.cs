@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// Test class for load world name
+/// </summary>
 public class TestLoadWorldName : MonoBehaviour
 {
     public TMP_Text text1;
