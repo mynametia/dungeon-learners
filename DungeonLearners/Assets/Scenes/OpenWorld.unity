@@ -1560,10 +1560,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 607471169}
     - target: {fileID: 2681407241452469135, guid: b66826733295a1f4eb351006f0050d80, type: 3}
-      propertyPath: UIText
-      value: 
-      objectReference: {fileID: 319799916}
-    - target: {fileID: 2681407241452469135, guid: b66826733295a1f4eb351006f0050d80, type: 3}
       propertyPath: worldNameText
       value: 
       objectReference: {fileID: 1943150430}

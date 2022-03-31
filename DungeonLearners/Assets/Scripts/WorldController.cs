@@ -92,9 +92,34 @@ public class WorldController : MonoBehaviour
                         // Enter dungeon
                         StartCoroutine(EnterDungeon(touchedObj));
                     }
+                    else if (touchedObj.tag == "HomeBase")
+                    {
+                        StartCoroutine(ReturnHome(touchedObj));
+                    }
                 }
             }
         }
+    }
+
+    private IEnumerator ReturnHome(GameObject homePortal)
+    {
+        Player.GetComponent<PlayerMovementController>().SetCurrentDestination(homePortal.transform.position);
+
+        yield return new WaitForSeconds(0.05f);
+
+        // Wait for player to stop walking
+        while (Player.GetComponent<PlayerMovementController>().moving)
+        {
+            yield return new WaitForSeconds(.1f);
+        }
+
+        // If player is standing above homebase portal, return
+        if (Vector3.Distance(Player.transform.position, homePortal.transform.position) <= dungeonEntryMaxDist)
+        {
+            SceneController.GetComponent<FadeTransitionController>().FadeToBlack("HomeBase");
+        }
+
+        yield return null;
     }
 
     private IEnumerator EnterDungeon(GameObject dungeonEntrance)
