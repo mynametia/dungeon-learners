@@ -8,9 +8,9 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     private int score, coins;
-    private string dungeonName;
+    private string dungeonName, worldName;
 
-    public TextMeshProUGUI scoreText, coinText, dungeonNameText;
+    public TextMeshProUGUI scoreText, coinText, dungeonNameText, worldNameText;
     
     // Start is called before the first frame update
     void Start()
@@ -19,10 +19,12 @@ public class ScoreManager : MonoBehaviour
         score = PlayerPrefs.GetInt("EXP");
         coins = PlayerPrefs.GetInt("Coins");
         dungeonName = PlayerPrefs.GetString("preloadDungeonChoice");
+        worldName = PlayerPrefs.GetString("preloadWorldChoice");
 
         scoreText.text = score.ToString();
         coinText.text = coins.ToString();
         dungeonNameText.text = dungeonName;
+        worldNameText.text = worldName;
 
         StartCoroutine(UpdateCoins(coins));
         StartCoroutine(UpdateScore(score));
