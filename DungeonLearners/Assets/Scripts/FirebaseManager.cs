@@ -194,7 +194,7 @@ public class FirebaseManager : MonoBehaviour
                 warningLoginText.text = "";
                 confirmLoginText.text = "Logged In";
 
-                //StartCoroutine(LoadUserData());
+                StartCoroutine(LoadUserData());
                 //username.text = UserData.username;
                 //StartCoroutine(LoadUserData(auth.CurrentUser)); 
                 yield return new WaitForSeconds(2);
@@ -377,7 +377,7 @@ public class FirebaseManager : MonoBehaviour
     private IEnumerator UpdateUsernameDatabase(string _username)
     {
         //Set the currently logged in user username in the database
-        var DBTask = DBreference.Child("users").Child(UserData.username).Child("username").SetValueAsync(_username);
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(_username);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -394,7 +394,7 @@ public class FirebaseManager : MonoBehaviour
     private IEnumerator UpdateCoins(int _coins)
     {
         //Set the currently logged in user xp
-        var DBTask = DBreference.Child("users").Child(UserData.username).Child("coins").SetValueAsync(_coins);
+        var DBTask = DBreference.Child("users").Child(User.UserId).Child("coins").SetValueAsync(_coins);
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
 
@@ -409,10 +409,10 @@ public class FirebaseManager : MonoBehaviour
     }
 
 
-    private IEnumerator LoadUserData(Firebase.Auth.FirebaseUser User)
+    private IEnumerator LoadUserData()
     {
         //Get the currently logged in user data
-        //Firebase.Auth.FirebaseUser User = auth.CurrentUser;
+        Firebase.Auth.FirebaseUser User = auth.CurrentUser;
         var DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
 
         yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
@@ -426,10 +426,9 @@ public class FirebaseManager : MonoBehaviour
             //Data has been retrieved
             DataSnapshot snapshot = DBTask.Result;
 
-            username.text = snapshot.Child("username").Value.ToString();
-            AccountUsername.text = snapshot.Child("username").Value.ToString();
-            email.text = snapshot.Child("email").Value.ToString();
-            coins.text = "Number of Coins: " + snapshot.Child("coins").Value.ToString();
+            UserData.username = snapshot.Child("username").Value.ToString();
+            UserData.email  = snapshot.Child("email").Value.ToString();
+            UserData.coins = snapshot.Child("coins").Value.ToString();
         }
     }
 
