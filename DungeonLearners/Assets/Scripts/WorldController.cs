@@ -40,9 +40,6 @@ public class WorldController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Dynamically spawns objects in world
-        GenerateWorldLayers();
-        UpdatePathfindingGrid();
         DungeonNameUIText.SetActive(false); // Added by Ziyuan
 
         worldName = PlayerPrefs.GetString("preloadWorldChoice");
@@ -64,6 +61,10 @@ public class WorldController : MonoBehaviour
         }
 
         dungeonCount = currentDungeonList.Count;
+
+        // Dynamically spawns objects in world
+        GenerateWorldLayers();
+        UpdatePathfindingGrid();
     }
 
     // Update is called once per frame
