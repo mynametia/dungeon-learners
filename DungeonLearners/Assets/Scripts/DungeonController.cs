@@ -2,7 +2,9 @@
 //using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// Manager for dungeon
+/// </summary>
 public class DungeonController : MonoBehaviour
 {
     // Controls traversing of dungeon room sequences

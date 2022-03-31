@@ -3,6 +3,9 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Controls editing of dungeon rooms.
+/// </summary>
 public class EditDungeonRoomController : MonoBehaviour
 {
     public GameObject QuestionField, QuestionList, AddQuestionButton;

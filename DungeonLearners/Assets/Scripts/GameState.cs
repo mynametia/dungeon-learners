@@ -6,6 +6,9 @@ using Firebase;
 using Firebase.Database;
 using Firebase.Extensions;
 
+/// <summary>
+/// Game states class
+/// </summary>
 public class GameState : MonoBehaviour
 {
     public static World currentWorld = null;

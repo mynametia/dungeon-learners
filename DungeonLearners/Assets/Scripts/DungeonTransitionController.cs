@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Controls dungeon transitions
+/// </summary>
 public class DungeonTransitionController : MonoBehaviour
 {
     public GameObject DungeonController;

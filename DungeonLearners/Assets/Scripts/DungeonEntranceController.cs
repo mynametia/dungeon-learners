@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages dungeon entrances
+/// </summary>
 public class DungeonEntranceController : MonoBehaviour
 {
     // Keeps track of which dungeon entrance leads to which dungeon 

@@ -1,6 +1,9 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Controls selection of cards
+/// </summary>
 public class SelectCard : MonoBehaviour
 {
     // Controls card selection mechanism

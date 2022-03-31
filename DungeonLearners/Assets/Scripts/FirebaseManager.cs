@@ -8,6 +8,9 @@ using Firebase.Extensions;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
+/// <summary>
+/// Manages Firebase
+/// </summary>
 public class FirebaseManager : MonoBehaviour
 {
     //Firebase variables

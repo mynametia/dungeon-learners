@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Dungeon Room class
+/// </summary>
 public class DungeonRoom
 {
     public int levelNumber;

@@ -3,6 +3,9 @@ using System.Collections;
 using UnityEngine;
 using System.IO;
 
+/// <summary>
+/// Sharing button
+/// </summary>
 public class ShareButton : MonoBehaviour
 {
     //public bool myWorld = false;

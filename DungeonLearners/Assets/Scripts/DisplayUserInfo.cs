@@ -8,6 +8,9 @@ using Firebase.Extensions;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
+/// <summary>
+/// Display the user's information
+/// </summary>
 public class DisplayUserInfo : MonoBehaviour
 {
     //Firebase variables

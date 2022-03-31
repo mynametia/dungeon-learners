@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controller for exit button
+/// </summary>
 public class ExitButtonController : MonoBehaviour
 {
     public GameObject SceneController;

@@ -9,7 +9,9 @@ using UnityEngine.SceneManagement;
 using Firebase;
 using Firebase.Database;
 
-
+/// <summary>
+/// Save world name
+/// </summary>
 public class CreateNewWorldName : MonoBehaviour
 {
     public TMP_InputField worldName1;

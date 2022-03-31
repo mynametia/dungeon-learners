@@ -53,4 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GenerateReport.unity
     guid: c1b9166bf12f945459f14052c94f52ce
+  - enabled: 1
+    path: Assets/Scenes/Change Password.unity
+    guid: a58fd5d73efd24c95902aaf1330d405f
   m_configObjects: {}

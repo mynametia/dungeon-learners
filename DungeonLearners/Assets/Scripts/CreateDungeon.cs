@@ -5,6 +5,9 @@ using Firebase;
 using Firebase.Database;
 using TMPro;
 
+/// <summary>
+/// Create dungeon
+/// </summary>
 public class CreateDungeon : MonoBehaviour
 {
     //Firebase Variables

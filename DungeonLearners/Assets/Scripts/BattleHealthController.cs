@@ -2,6 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Manages player and boss health in battle.
+/// </summary>
 public class BattleHealthController : MonoBehaviour
 {
     // Both boss and player health range from 0 to 1
@@ -14,7 +17,9 @@ public class BattleHealthController : MonoBehaviour
 
     private float roundUp = 10000f;
 
-    // Reduce boss health
+    /// <summary>
+    /// Reduce boss health
+    /// </summary>
     public IEnumerator reduceBossHealth(float value)
     {
         Slider health = bossHealth.GetComponent<Slider>();
@@ -42,7 +47,9 @@ public class BattleHealthController : MonoBehaviour
         yield return null;
     }
 
-    // Reduce player health
+    /// <summary>
+    /// Reduce player health
+    /// </summary>
     public IEnumerator reducePlayerHealth(float value)
     {
         Slider health = playerHealth.GetComponent<Slider>();

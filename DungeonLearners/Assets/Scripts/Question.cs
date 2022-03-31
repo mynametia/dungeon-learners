@@ -1,3 +1,6 @@
+/// <summary>
+/// Question class
+/// </summary>
 public class Question
 {
     public string question;

@@ -6,6 +6,9 @@ using Firebase;
 using Firebase.Database;
 using TMPro;
 
+/// <summary>
+/// Manager for Firebase
+/// </summary>
 public class DatabaseManager : MonoBehaviour
 {
     //Firebase variables

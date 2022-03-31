@@ -6,6 +6,9 @@ using Firebase.Firestore;
 using UnityEditor;
 using System.IO;
 
+/// <summary>
+/// Manages question in battle.
+/// </summary>
 public class BattleQuestionController : MonoBehaviour
 {
     // Controls question selection and checks answers
@@ -26,7 +29,9 @@ public class BattleQuestionController : MonoBehaviour
     public GameObject submitButton;
 
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Start is called before the first frame update
+    /// </summary>
     void Start()
     {
         // Get dungeon room ID
@@ -38,35 +43,45 @@ public class BattleQuestionController : MonoBehaviour
         // currentQuestions = new List<Question>(battleQuestions);
     }
 
-    // Display correct answer text and remove submit button
+    /// <summary>
+    /// Display correct answer text and remove submit button
+    /// </summary>
     public void correctAns()
     {
         finalAnswer.text = correctText;
         submitButton.SetActive(false);
     }
 
-    // Display wrong answer text and remove submit button
+    /// <summary>
+    /// Display wrong answer text and remove submit button
+    /// </summary>
     public void wrongAns()
     {
         finalAnswer.text = wrongText;
         submitButton.SetActive(false);
     }
 
-    // Display time's up text and remove submit button
+    /// <summary>
+    /// Display time's up text and remove submit button
+    /// </summary>
     public void timesUp()
     {
         finalAnswer.text = timesUpText;
         submitButton.SetActive(false);
     }
 
-    // Check correctness of answer
+    /// <summary>
+    /// Check correctness of answer
+    /// </summary>
     public bool checkAnswer()
     {
         return finalAnswer.text == currentQuestion.options[currentQuestion.answer];
     }
 
-    // Show/hide submit button based on selected answer
-    // Update final answer card based on selected answer
+    /// <summary>
+    /// Show/hide submit button based on selected answer
+    /// Update final answer card based on selected answer
+    /// </summary>
     public void updateFinalAnswer(GameObject answer)
     {
         if (answer == null)
@@ -81,15 +96,19 @@ public class BattleQuestionController : MonoBehaviour
         }
     }
 
-    // If time is up or question is answered wrongly,
-    // current question will be added to question list to be displayed later again
+    /// <summary>
+    /// If time is up or question is answered wrongly,
+    /// current question will be added to question list to be displayed later again
+    /// </summary>
     public void requeueQuestion()
     {
         currentQuestions.Add(currentQuestion);
     }
 
-    // Display 1st question and its options in question list
-    // Removes displayed question from list
+    /// <summary>
+    /// Display 1st question and its options in question list
+    /// Removes displayed question from list
+    /// </summary>
     public void popQuestion()
     {
         Debug.Log("popQuestion");
@@ -106,13 +125,17 @@ public class BattleQuestionController : MonoBehaviour
         }
     }
 
-    // Get number of questions for this battle
+    /// <summary>
+    /// Get number of questions for this battle
+    /// </summary>
     public int returnQuestionNumber()
     {
         return currentQuestions.Count;
     }
 
-    // Hard code add questions to this battle
+    /// <summary>
+    /// Hard code add questions to this battle
+    /// </summary>
     private void addDefaultQuestions()
     {
         
@@ -142,7 +165,9 @@ public class BattleQuestionController : MonoBehaviour
             0));
     }
 
-    // Get questions from Firebase and add to battleQuestions
+    /// <summary>
+    /// Get questions from Firebase and add to battleQuestions
+    /// </summary>
     private async void addQuestions(string worldName, string topicName, int dungeonRoomID)
     {
         var db = FirebaseFirestore.DefaultInstance;
@@ -171,7 +196,9 @@ public class BattleQuestionController : MonoBehaviour
         Debug.Log("This should run");
     }
 
-    // Add hardcoded questions for testing purposes. Note this method is now deprecated
+    /// <summary>
+    /// Add hardcoded questions for testing purposes. Note this method is now deprecated
+    /// </summary>
     private void addHardcodedQuestions(string worldName, string topicName, int dungeonRoomID)
     {
         switch ((worldName, topicName, dungeonRoomID))
@@ -251,7 +278,9 @@ public class BattleQuestionController : MonoBehaviour
         }
     }
 
-    // Get questions from JSON files and add to battleQuestions
+    /// <summary>
+    /// Get questions from JSON files and add to battleQuestions
+    /// </summary>
     private void jsonDeserialize(string subject, string topic, string dungeonRoomID, int noQuestions)
     {
         for (int i = 0; i < noQuestions; i++)

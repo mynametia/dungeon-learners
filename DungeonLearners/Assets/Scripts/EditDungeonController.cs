@@ -2,6 +2,9 @@
 //using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Editor controls for dungeons
+/// </summary>
 public class EditDungeonController : MonoBehaviour
 {
     

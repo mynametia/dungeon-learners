@@ -1,6 +1,9 @@
 using UnityEngine;
 using Pathfinding;
 
+/// <summary>
+/// Control's the player sprite
+/// </summary>
 public class PlayerSpriteController : MonoBehaviour
 {
     // Control sprite appearance of player

@@ -3,6 +3,9 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Controller for editing of questions
+/// </summary>
 public class EditQuestionController : MonoBehaviour
 {
     public TextMeshProUGUI QuestionNumberText;

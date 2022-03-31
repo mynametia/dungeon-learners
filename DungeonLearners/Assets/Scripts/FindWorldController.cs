@@ -5,6 +5,9 @@ using Firebase.Firestore;
 using TMPro;
 using System.Collections.Generic;
 
+/// <summary>
+/// Controls finding of worlds
+/// </summary>
 public class FindWorldController : MonoBehaviour
 {
     public TMP_InputField searchbar;

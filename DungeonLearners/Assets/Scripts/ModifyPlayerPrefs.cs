@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Modification of PlayerPrefs
+/// </summary>
 public class ModifyPlayerPrefs : MonoBehaviour
 {
     public TMP_Text preloadWorldName;

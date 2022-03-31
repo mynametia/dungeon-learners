@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Manages countdown timer
+/// </summary>
 public class CountdownTimer : MonoBehaviour
 {
     public GameObject battleControl;
@@ -11,7 +14,9 @@ public class CountdownTimer : MonoBehaviour
 
     [SerializeField] Text countdownText;
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame
+    /// </summary>
     void Update()
     {
         if (countDown)
@@ -28,14 +33,18 @@ public class CountdownTimer : MonoBehaviour
         }
     }
 
-    // Start countdown
+    //// <summary>
+    /// Start countdown
+    /// </summary>
     public void startCountdown()
     {
         currentTime = startingTime;
         countDown = true;
     }
 
-    // Pause countdown timer
+    /// <summary>
+    /// Pause countdown timer
+    /// </summary>
     public void pause()
     {
         countDown = false;

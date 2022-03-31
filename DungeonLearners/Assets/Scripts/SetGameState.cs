@@ -5,6 +5,10 @@ using Firebase.Database;
 using Firebase.Extensions;
 using System;
 using System.Threading;
+
+/// <summary>
+/// Setting of game states
+/// </summary>
 public class SetGameState : MonoBehaviour
 {
     public TMP_Text entryWorldName;

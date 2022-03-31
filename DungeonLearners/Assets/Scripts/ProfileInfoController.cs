@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controls the player profile information
+/// </summary>
 public class ProfileInfoController : MonoBehaviour
 {
     public GameObject items, avatar, worlds, account;

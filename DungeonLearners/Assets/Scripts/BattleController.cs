@@ -1,6 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Manages battle scene.
+/// </summary>
 public class BattleController : MonoBehaviour
 {
     public GameObject startGameUI;
@@ -17,7 +20,9 @@ public class BattleController : MonoBehaviour
 
     [SerializeField] private float healthDecrement;
     
-    // Start is called before the first frame update
+    /// <summary>
+    /// Start is called before the first frame update
+    /// </summary>
     void Start()
     {
         StartCoroutine(StartGameSequence());
@@ -35,7 +40,9 @@ public class BattleController : MonoBehaviour
         yield return null;
     }
 
-    // Load next question
+    /// <summary>
+    /// Load next question
+    /// </summary>
     public void nextQuestion()
     {
         if (!endGame)
@@ -47,7 +54,9 @@ public class BattleController : MonoBehaviour
         }
     }
 
-    // Submit final answer
+    /// <summary>
+    /// Submit final answer
+    /// </summary>
     public void submitAnswer()
     {
         questions.GetComponent<SelectCard>().UnhighlightCard();
@@ -62,7 +71,9 @@ public class BattleController : MonoBehaviour
         }
     }
 
-    // Load wrong answer animation sequence
+    /// <summary>
+    /// Load wrong answer animation sequence
+    /// </summary>
     private IEnumerator wrongAnswer()
     {
         questions.GetComponent<BattleQuestionController>().requeueQuestion();
@@ -77,7 +88,9 @@ public class BattleController : MonoBehaviour
         yield return null;
     }
 
-    // Load right answer animation sequence
+    /// <summary>
+    /// Load right answer animation sequence
+    /// </summary>
     private IEnumerator rightAnswer()
     {
         StartCoroutine(health.GetComponent<BattleHealthController>().reduceBossHealth(healthDecrement));
@@ -91,7 +104,9 @@ public class BattleController : MonoBehaviour
         yield return null;
     }
 
-    // Load time's up animation sequence
+    /// <summary>
+    /// Load time's up animation sequence
+    /// </summary>
     public IEnumerator timesUp()
     {
         questions.GetComponent<SelectCard>().UnhighlightCard();
@@ -107,7 +122,9 @@ public class BattleController : MonoBehaviour
         yield return null;
     }
 
-    // Load win game animation sequence
+    /// <summary>
+    /// Load win game animation sequence
+    /// </summary>
     public IEnumerator win()
     {
         GameObject.FindWithTag("DungeonController").GetComponent<DungeonController>().updateCurrentRoomWinCond(true);
@@ -125,7 +142,9 @@ public class BattleController : MonoBehaviour
         yield return null;
     }
 
-    // Load lose game animation sequence
+    /// <summary>
+    /// Load lose game animation sequence
+    /// </summary>
     public IEnumerator lose()
     {
         GameObject.FindWithTag("DungeonController").GetComponent<DungeonController>().updateCurrentRoomWinCond(false);

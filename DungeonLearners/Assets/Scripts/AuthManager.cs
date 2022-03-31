@@ -7,6 +7,9 @@ using Firebase;
 using Firebase.Auth;
 using TMPro;
 
+/// <summary>
+/// Manages authorization
+/// </summary>
 public class AuthManager : MonoBehaviour
 {
 

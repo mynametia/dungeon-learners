@@ -5,6 +5,9 @@ using Firebase;
 using Firebase.Database;
 using TMPro;
 
+/// <summary>
+/// Manages score of player
+/// </summary>
 public class ScoreManager : MonoBehaviour
 {
     private int score, coins;

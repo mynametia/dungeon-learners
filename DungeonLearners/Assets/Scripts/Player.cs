@@ -1,3 +1,7 @@
+
+/// <summary>
+/// Player class
+/// <summary>
 public class Player
 {
     public int exp;

@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 using Firebase;
 using Firebase.Database;
 
+/// <summary>
+/// Controller for editing worlds
+/// </summary>
 public class EditWorldController : MonoBehaviour
 {
     public TMP_InputField text1;

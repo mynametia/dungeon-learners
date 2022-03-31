@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 //using Pathfinding;
 
+/// <summary>
+/// Controller for dungeon room
+/// </summary>
 public class DungeonRoomController : MonoBehaviour
 {
     // Control interactions in dungeon room

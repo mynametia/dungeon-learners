@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Controls fade transitions
+/// </summary>
 public class FadeTransitionController : MonoBehaviour
 {
     public Animator fadeAnimator;

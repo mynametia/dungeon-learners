@@ -2,6 +2,9 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Control ranking of data
+/// </summary>
 public class RankDataController : MonoBehaviour
 {
     public TextMeshProUGUI rankingNumber;

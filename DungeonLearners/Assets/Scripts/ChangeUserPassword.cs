@@ -7,6 +7,9 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
+/// <summary>
+/// Manages change in user password
+/// </summary>
 public class ChangeUserPassword : MonoBehaviour
 {
     //Firebase Variables
@@ -21,6 +24,9 @@ public class ChangeUserPassword : MonoBehaviour
     public TMP_Text newpasswordWarningText;
     public TMP_Text newpasswordConfirmText;
 
+    /// <summary>
+    /// Check that all of the necessary dependencies for Firebase are present on the system
+    /// </summary>
     void Awake()
     {
         //Check that all of the necessary dependencies for Firebase are present on the system
@@ -39,6 +45,9 @@ public class ChangeUserPassword : MonoBehaviour
         });
     }
 
+    /// <summary>
+    /// Initialize Firebase
+    /// </summary>
     private void InitializeFirebase()
     {
         Debug.Log("Setting up Firebase Auth");
@@ -46,6 +55,9 @@ public class ChangeUserPassword : MonoBehaviour
         auth = FirebaseAuth.DefaultInstance;
     }    
 
+    /// <summary>
+    /// Event triggers when change password button is clicked
+    /// </summary>
     public void ChangePasswordButton()
     {
         if (NewPasswordField.text != confirmNewPasswordField.text)
@@ -63,11 +75,17 @@ public class ChangeUserPassword : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Event triggers when back button is clicked
+    /// </summary>
     public void BackButton()
     {
         SceneManager.LoadScene("Profile info (Account Info)");
     }
 
+    /// <summary>
+    /// Change password
+    /// </summary>
     void newpasswordChange(string NewPasswordField)
     {
         Firebase.Auth.FirebaseUser user = auth.CurrentUser;
@@ -90,6 +108,9 @@ public class ChangeUserPassword : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Check if password is good password
+    /// </summary>
     public void CheckPasswordCondition()
     {
         string ReceivedString = NewPasswordField.text;

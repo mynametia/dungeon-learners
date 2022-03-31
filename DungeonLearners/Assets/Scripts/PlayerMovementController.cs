@@ -2,6 +2,9 @@ using UnityEngine;
 using Pathfinding;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Controls player movements
+/// </summary>
 public class PlayerMovementController : MonoBehaviour
 {
     // Controlls player movement 

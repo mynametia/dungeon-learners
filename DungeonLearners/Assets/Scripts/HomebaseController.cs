@@ -3,6 +3,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Controls home base
+/// </summary>
 public class HomebaseController : MonoBehaviour
 {
     // Detects user selecting find world/my world/shop options
