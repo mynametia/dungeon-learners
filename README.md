@@ -1,6 +1,7 @@
 # Dungeon Learners
 [[Video](https://youtu.be/yRan1s2Mn9s)]
 
+![preview](./media/DungeonLearners_world_gif.gif)
 ![preview](./media/DungeonLearners_battle_gif.gif)
 
 This repository contains the Unity project code of an educational card battle game for the module CZ3003 Software Systems Analysis and Design.
